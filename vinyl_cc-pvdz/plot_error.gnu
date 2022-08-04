@@ -15,7 +15,7 @@ set encoding iso_8859_1
 xmin=1.7
 xmax=12.0
 #set xrange[1.7:12.0]
-set xrange[1.7:2.6]
+set xrange[1.7:3.0]
 
 ymin=1.0e-4
 ymax=1.0

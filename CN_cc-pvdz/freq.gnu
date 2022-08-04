@@ -15,7 +15,7 @@ set encoding iso_8859_1
 #set xrange[-0.1:4.1]
 #set xtics 1
 # VIEW 1:
-set yrange[2000:2500]
+set yrange[1900:2500]
 set ytics 100
 
 mass1=12.011000
