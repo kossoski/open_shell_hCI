@@ -90,6 +90,7 @@ f(x) = a*x+b
 #set label 20 'FCI' at 9.0,-4.03 rotate by r(a) center tc ls 2 #font 'Verdana,20'
 
 plot 'pes_rohf.dat'    w l ls 1 notitle, \
+     'pes_CIS.dat'    w l ls 3 notitle, \
      'pes_CISD.dat'   w l ls 3 notitle, \
      'pes_CISDT.dat'  w l ls 3 notitle, \
      'pes_CISDTQ.dat' w l ls 3 notitle, \

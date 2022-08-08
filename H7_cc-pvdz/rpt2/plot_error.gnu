@@ -17,11 +17,11 @@ xmax=10.0
 #set xrange[0.95:5.0]
 set xrange[1.0:10.0]
 
-ymin=1.0e-4
+ymin=1.0e-5
 ymax=1.0
 # VIEW 1
 set logscale y
-set yrange[1.0e-4:1.0]
+set yrange[1.0e-6:1.0]
 set format y "10^{%T}"
 
 # VIEW 2
@@ -58,7 +58,8 @@ set ylabel 'Energy error (Hartree)'
 ###################################################################################
 # SYSTEM DEPENDENT PART:
 
-plot '< paste pes_fci.dat pes_rhf.dat'    using 1:($4-$2) w l ls 1 notitle, \
+plot '< paste pes_fci.dat pes_rohf.dat'   using 1:($4-$2) w l ls 1 notitle, \
+     '< paste pes_fci.dat pes_CIS.dat'    using 1:($4-$2) w l ls 3 notitle, \
      '< paste pes_fci.dat pes_CISD.dat'   using 1:($4-$2) w l ls 3 notitle, \
      '< paste pes_fci.dat pes_CISDT.dat'  using 1:($4-$2) w l ls 3 notitle, \
      '< paste pes_fci.dat pes_CISDTQ.dat' using 1:($4-$2) w l ls 3 notitle, \
@@ -77,7 +78,7 @@ plot '< paste pes_fci.dat pes_rhf.dat'    using 1:($4-$2) w l ls 1 notitle, \
 unset ylabel
 set format y ""
 
-plot '< paste pes_fci.dat pes_rhf.dat'      using 1:($4-$2) w l ls 1 notitle, \
+plot '< paste pes_fci.dat pes_rohf.dat'     using 1:($4-$2) w l ls 1 notitle, \
      '< paste pes_fci.dat pes_ooCIS.dat'    using 1:($4-$2) w l ls 3 notitle, \
      '< paste pes_fci.dat pes_ooCISD.dat'   using 1:($4-$2) w l ls 3 notitle, \
      '< paste pes_fci.dat pes_ooCIs1.dat'   using 1:($4-$2) w l ls 8 notitle, \

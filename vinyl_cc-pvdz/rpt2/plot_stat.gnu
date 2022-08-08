@@ -11,11 +11,11 @@ set output 'plot_stat.eps'
 ###################################################################################
 # SYSTEM DEPENDENT PART:
 #set xrange[-0.1:4.1]
-set yrange[0.0:0.35]
+set yrange[0.0:0.5]
 #set logscale y
 #set format y "10^{%T}"
 
-set xrange[1:1e10]
+set xrange[1:1e12]
 set logscale x
 set format x "10^{%T}"
 
