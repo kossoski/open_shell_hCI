@@ -14,14 +14,13 @@ set encoding iso_8859_1
 
 xmin=1.7
 xmax=12.0
-#set xrange[1.7:12.0]
-set xrange[1.7:6.0]
+set xrange[1.7:12.0]
 
-ymin=1.0e-4
+ymin=1.0e-3
 ymax=1.0
 # VIEW 1
 set logscale y
-set yrange[1.0e-4:1.0]
+set yrange[1.0e-3:1.0]
 set format y "10^{%T}"
 
 # VIEW 2
