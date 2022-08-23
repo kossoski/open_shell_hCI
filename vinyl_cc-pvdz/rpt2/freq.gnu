@@ -15,13 +15,13 @@ set encoding iso_8859_1
 #set xrange[-0.1:4.1]
 #set xtics 1
 # VIEW 1:
-set yrange[3700:4100]
-set ytics 100
-mass1=1.0078250321
-mass2=15.999400
+set yrange[800:900]
+set ytics 20
+mass1=14.0156500642
+mass2=14.0156500642
 #set format y "%.2f"
 
-set xrange[1:1e7]
+set xrange[1:1e12]
 set logscale x
 set format x "10^{%T}"
 set xtics 10**2
