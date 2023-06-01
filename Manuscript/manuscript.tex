@@ -104,6 +104,9 @@ and differences in the number of unpaired electrons (through the term $(s-s_0)/2
 The latter always assumes an integer value (for both even and odd numbers of electrons), such that $h$ becomes an integer or half-integer.
 Also, Eq.~\eqref{eq:h} simplifies to the previous definition \cite{Kossoski_2022} for the case of a closed-shell reference determinant, when $s_0 = 0$.
 
+From here on, method names carrying the $\Delta$ symbol denote a state-specific approach,
+whereas those without the $\Delta$ mean that ground-state HF orbitals were employed.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Computational details}
 \label{sec:compdet}
@@ -175,19 +178,102 @@ perturbative correction for closed- and open-shell systems
 \label{sec:res_B}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-hCI1/HF
-hCI1.5/HF
-hCI2/HF
-$\Delta$hCI1
-$\Delta$hCI1.5
-$\Delta$hCI2
+In Tab.~\ref{tab:1} we present the statistical errors of the different methods, organized by their computational scaling.
+We found that $\Delta$hCI2 and $\Delta$CISD display comparable MAEs, despite the somewhat more favourable MSE and RMSE of the latter.
+$\Delta$hCI2 still tends to underestimate the excitation energies, though to a much lesser extent than observed for the lower-order hCI methods.
 
-Higher-order levels for a few systems
-hCI2.5/HF
-hCI3/HF
+\begin{table}[ht!]
+\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), and Root-Mean Square Error (RMSE) in Units of eV, with Respect to Reference Theoretical Values,
+for the Set of 60 Excitation Energies Listed in the {\SupInf}.
+}
+\label{tab:1}
+\begin{ruledtabular}
+\begin{tabular}{lddd}
+method            &     \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} \\
+\hline
+$\Delta$CSF       & -0.54 & 0.70 & 0.86 \\
+CIS               & +0.13 & 0.59 & 0.77 \\
+\hline
+hCI1              & +1.11 & 1.14 & 1.39 \\
+$\Delta$hCI1      & -0.90 & 1.17 & 1.40 \\
+\hline
+hCI1.5            & +1.88 & 1.88 & 2.20 \\
+$\Delta$hCI1.5    & -1.99 & 2.12 & 2.58 \\
+\hline
+$\Delta$CISD      & -0.08 & 0.17 & 0.22 \\
+$\Delta$hCI2      & -0.15 & 0.21 & 0.30 \\
+\hline
+sCI2              &  0.96 & 1.06 & 1.28 \\
+$\Delta$sCI2      &  0.39 & 0.60 & 0.73 \\
+%\hline
+%CIS(D)            & -0.03 & 0.35 & 0.40 \\
+%CC2               & -0.05 & 0.32 & 0.37 \\
+%CCSD              & +0.01 & 0.08 & 0.09 \\
+%CC3               & +0.01 & 0.03 & 0.06 \\
+%CCSDT             & -0.01 & 0.02 & 0.02 \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+
+Despite the rather poor performance of lower-order hCI methods for excitation energies,
+we further investigated whether higher-order versions could be competitive against the traditional excitation-based counterparts.
+For that, we performed calculations for a subset of 14 excited states of small molecular systems (\ce{H2O}, \ce{BF}, \ce{HCF}, \ce{HCl}, and \ce{N2}),
+with corresponding statistical errors shown in Tab.~\ref{tab:2}.
+Even though this is a small set, it should be enough to obtain the main trends on the statistics of the different methods.
+
+
+\begin{table}[ht!]
+\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), and Root-Mean Square Error (RMSE) in Units of eV, with Respect to Reference Theoretical Values,
+for the Set of 14 Excitation Energies Listed in the {\SupInf}.
+}
+\label{tab:2}
+\begin{ruledtabular}
+\begin{tabular}{lddd}
+method            &     \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} \\
+\hline
+%CIS               & +0.16 & 0.82 & 0.96  \\
+%$\Delta$CSF       & -0.84 & 0.91 & 1.03  \\
+%\hline
+CISD              & +4.09 & 4.09 & 4.18  \\
+hCI2              & +2.89 & 3.00 & 3.28  \\
+$\Delta$CISD      & -0.13 & 0.17 & 0.21  \\
+$\Delta$hCI2      & -0.22 & 0.22 & 0.27  \\
+\hline
+hCI2.5            & +1.93 & 1.93 & 2.05  \\
+$\Delta$hCI2.5    & -0.27 & 0.27 & 0.30  \\
+\hline
+CISDT             & +0.09 & 0.18 & 0.20  \\
+hCI3              & +0.18 & 0.18 & 0.19  \\
+$\Delta$CISDT     & -0.19 & 0.19 & 0.23  \\
+$\Delta$hCI3      & -0.21 & 0.21 & 0.24  \\
+\hline
+$\Delta$hCI3.5    & -0.08 & 0.08 & 0.09  \\
+\hline
+CISDTQ            & +0.14 & 0.14 & 0.16  \\
+$\Delta$CISDTQ    & -0.02 & 0.02 & 0.02  \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+We found that the errors of both ground-state based hCI and state-specific $\Delta$hCI to systematically decrease when going toward higher orders of $h$, which would be expected.
+%Unfortunately, the pace of decrease is too slow to render these approaches very useful.
+%In line with what has been found for excitation-based CI \cite{Kossoski_2023}, 
+
+The case $h=2$ was discussed above for the larger set of excitation energies.
+Here we just notice that hCI2 is found to be somewhat more accurate than CISD, even though the errors are still too large.
+However, this improvement does not reflect on the state specific route (compare $\Delta$hCI2 and $\Delta$CISD in Tabs.~\ref{tab:1} and ~\ref{tab:2}).
+For $h=2.5$, even though the state-specific route ($\Delta$hCI2.5) is far more accurate than the ground-state based route (hCI2.5),
+it is actually less accurate then $\Delta$hCI2, and therefore not useful.
+Moving to $h=3$, we 
+
+
+hCI2.5
+hCI3
 $\Delta$hCI2.5
 $\Delta$hCI3
 $\Delta$hCI3.5
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Seniority CI for excited states}
