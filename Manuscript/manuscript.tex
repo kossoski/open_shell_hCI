@@ -256,23 +256,22 @@ $\Delta$CISDTQ    & -0.02 & 0.02 & 0.02  \\
 \end{ruledtabular}
 \end{table}
 
-We found that the errors of both ground-state based hCI and state-specific $\Delta$hCI to systematically decrease when going toward higher orders of $h$, which would be expected.
+%We found that the errors of both ground-state based hCI and state-specific $\Delta$hCI to systematically decrease when going toward higher orders of $h$, which would be expected.
 %Unfortunately, the pace of decrease is too slow to render these approaches very useful.
 %In line with what has been found for excitation-based CI \cite{Kossoski_2023}, 
 
-The case $h=2$ was discussed above for the larger set of excitation energies.
-Here we just notice that hCI2 is found to be somewhat more accurate than CISD, even though the errors are still too large.
+The case of $\Delta$hCI2 was discussed above for the larger set of excitation energies.
+Here we further notice that hCI2 was found to be somewhat more accurate than CISD, even though the errors are still too large.
 However, this improvement does not reflect on the state specific route (compare $\Delta$hCI2 and $\Delta$CISD in Tabs.~\ref{tab:1} and ~\ref{tab:2}).
-For $h=2.5$, even though the state-specific route ($\Delta$hCI2.5) is far more accurate than the ground-state based route (hCI2.5),
-it is actually less accurate then $\Delta$hCI2, and therefore not useful.
-Moving to $h=3$, we 
+Moving one step further, even though the state-specific route ($\Delta$hCI2.5) is far more accurate than the ground-state based route (hCI2.5),
+it is actually less accurate then $\Delta$hCI2.
+An improved performance is found for the methods displaying an $\order*{N^8}$ computational scaling.
+The four methods, hCI3, $\Delta$hCI3, CISDT, and $\Delta$CISDT, display quite similar MAEs and RMSEs.
+Therefore, there is no advantage by moving from excitation-based to hierarchy-based CI at this order, just as discussed above for the $\Delta$hCI2 and $\Delta$CISD.
+Similarly, the $\Delta$hCI3 does not improve with respect to hCI3, as also observed for $\Delta$CISDT and CISDT. \cite{Kossoski_2023}
+We notice, however, the negative MSEs for the state-specific methods, in contrast to the positives values obtained for the ground-state based route.
+At the next order, $\Delta$hCI3.5 has significantly smaller errors, but at a costly $\order*{N^9}$ scaling.
 
-
-hCI2.5
-hCI3
-$\Delta$hCI2.5
-$\Delta$hCI3
-$\Delta$hCI3.5
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -280,14 +279,23 @@ $\Delta$hCI3.5
 \label{sec:res_C}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-sCI2
-$\Delta$sCI2
+We refer back to Tab.~\ref{tab:1} to discuss the performance of seniority-based CI for excited states.
+sCI2 delivers quite poor results (MAE of \SI{1.06}{eV}), whereas $\Delta$sCI2 reduces the statistical errors (MAE of \SI{0.60}{eV}).
+This improvement, however, is not as expressive as typically observed for excitataion-based and hierarchy-based methods.
+(Compare, for instance, with the cases of hCI2.5 and $\Delta$hCI2.5 shown in Tab.~\ref{tab:2}).
+The large errors, even at the state-specific route, combined with the formal $\order*{e^N}$ scaling of these methods,
+render them unsuitable for calculations of accurate excitation energies.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 \label{sec:ccl}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We conclude that 
+Meanwhile, 
+, and therefore not useful.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{acknowledgements}
