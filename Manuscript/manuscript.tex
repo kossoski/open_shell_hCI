@@ -70,25 +70,44 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Seniority based methods.
+Configuration interaction (CI) offers a systematic way to solve the many-body electronic structure problem.
+By including progressively more determinants in the Hilbert space, the wave function becomes increasingly closer to the exact one, and so does the electronic energy.
+In full CI (FCI), all determinants are accounted for and the problem is solved exactly (for a given basis set).
+In practice, however, one resorts to approximate CI methods, where only the determinants that satisfy a given criterion are included in the truncated Hilbert space.
+For small systems, FCI is still attainable and one can gauge it against approximate CI methods to assesss their performance.
+
+Excitation-based CI
+Seniority based CI (sCI)
 Limited studies for radicals and excited states
+We have recently introduced hierarchy CI (hCI), \cite{Kossoski_2022}
+where the Hilbert space is partitioned according to a hierarchy parameter $h$ that combines the excitation degree $e$ and the seniority number $s$.
+For different properties and molecular systems, hCI showed an improved convergence to the FCI results when compared to the traditional excitation-based CI. \cite{Kossoski_2022}
+However, hCI has only been defined for a closed-shell reference, thus systems with an even number of electrons.
+A generalization of the method for radicals has not yet been proposed.
 
-Hierarchy CI \cite{Kossoski_2022}
-Similarly, only for closed-shell systems.
+The higher-lying CI roots give access to excited states.
+Whereas the performance of excitation-based CI for excited states is well stablished, \cite{} this remains an open question for sCI methods,
+despite the growing number of methods targeting excited states that exploit the concept of seniority number. \cite{} 
+Similarly, the favourable results of hCI when compared to excitation-based CI for ground states raises the question on how well it can describe excitation energies.
 
-We introduce single-reference CI approximations built on top of an open-shell reference.
-Seniority and hCI.
-How do these methods perform for ground state radicals?
-Impact of perturbative correction.
-
-Ground-state based CI vs. state-specific CI \cite{Kossoski_2023}
+When targeting excited states with CI methods, one can employ the ground-state HF orbitals or instead optimize the orbitals for each state of interest, in a so-called state-specific approach.
 Promising results for state-specific excitation-based CI.
-We introduce analogous state-specific seniority-based CI ($\Delta$sCI) and hierarchy-based CI ($\Delta$hCI).
-$\Delta$sCI2 
-$\Delta$hCI1
+\cite{Kossoski_2023}
+Here we introduce analogous state-specific seniority-based CI ($\Delta$sCI) and hierarchy-based CI ($\Delta$hCI).
 How do these methods perform for excited states, from both closed-shell and open-shell systems?
 
+Here we address the knowledge gaps outlined above by setting four goals.
+Our first goal is to generalize hCI \cite{Kossoski_2022} for the case of an open-shell reference determinant, thus extending its domain to radical species.
+The second is to assess the performance of this method for ground state radicals, similarly to what has been done for closed-shell systems. \cite{Kossoski_2022}
+%Seniority hCI
+The third goal is to assess the improvement from perturbative corrections to ground-state radicals and closed-shell systems, for both excitation-based and hierarchy-based CI methods.
+Finally, we introduce and gauge seniority-based and hierarchy-based CI methods for excited states, along both the standard ground-state based route and the state-specific route. \cite{Kossoski_2023}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Hierarchy configuration interaction}
+\label{sec:hCI}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %For an arbitrary reference Slater determinant, with seniority $s_0$, the hierarchy $h$ associated to a another determinant
 With respect to a given reference Slater determinant, the hierarchy $h$ of a target determinant is defined as
@@ -106,6 +125,7 @@ Also, Eq.~\eqref{eq:h} simplifies to the previous definition \cite{Kossoski_2022
 
 From here on, method names carrying the $\Delta$ symbol denote a state-specific approach,
 whereas those without the $\Delta$ mean that ground-state HF orbitals were employed.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Computational details}
@@ -148,6 +168,9 @@ This selected CI procedure requires considerably fewer determinants than the tot
 while delievering fairly converged absolute and excitation energies.
 The ground- and excited-state CI energies are obtained with the Davidson iterative algorithm. \cite{Davidson_1975}
 
+state-specific methods
+$\Delta$sCI2 
+$\Delta$hCI1
 %restricted open-shell HF orbitals
 
 
