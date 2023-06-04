@@ -70,15 +70,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Configuration interaction (CI) offers a systematic way to solve the many-body electronic structure problem.
+Configuration interaction (CI) offers a systematic way to solve the many-body electronic structure problem. \cite{SzaboBook,Helgakerbook}
 By including progressively more determinants in the Hilbert space, the wave function becomes increasingly closer to the exact one, and so does the electronic energy.
 In full CI (FCI), all determinants are accounted for and the problem is solved exactly (for a given basis set).
 In practice, however, one resorts to approximate CI methods, where only the determinants that satisfy a given criterion are included in the truncated Hilbert space.
-For small systems, FCI is still attainable and one can gauge it against approximate CI methods to assesss their performance.
-
+For small systems, FCI is still attainable and one can thus gauge the performance of approximate CI methods.
 Excitation-based CI
-Seniority based CI (sCI)
+Seniority based CI (sCI) \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967}
+sCI works well to describe molecular dissociation \cite{Bytautas_2015,Alcoba_2014,Alcoba_2014b}
 Limited studies for radicals and excited states
+
 We have recently introduced hierarchy CI (hCI), \cite{Kossoski_2022}
 where the Hilbert space is partitioned according to a hierarchy parameter $h$ that combines the excitation degree $e$ and the seniority number $s$.
 For different properties and molecular systems, hCI showed an improved convergence to the FCI results when compared to the traditional excitation-based CI. \cite{Kossoski_2022}
@@ -185,15 +186,48 @@ $\Delta$hCI1
 \label{sec:res_A}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% redefine the distance errors because of negative values?
+% vinyl missing point at 5.2 for s3i+pt2 and at 2.0 for s5+pt2
+% CN correct dissociating part for h4 and h3.5
+% H8 missing points for Q+pt2
+% H8 missing 9.0 for T+pt2
 
-PECs
-NPEs, distance errors
-equilibrium geometries and vibrational frequencies
+The full set of PECs for the open-shell systems (\ce{OH}, \ce{CN}, \ce{H7}, and vinyl) are presented in the {\SupInf},
+along with the NPEs, distance errors, equilibrium geometries and vibrational frequencies, plotted as a function of $\Ndet$ for the different CI methods.
+The present results for open-shell systems are discussed in detail in the following,
+and display similar trends to the ones previously reported for closed-shell systems. \cite{Kossoski_2022}
+hCI typically improves the convergence of the different properties when compared to excitation-based CI.
+Concerning the NPEs, such improvement is clear for \ce{OH} and \ce{CN} (involving a single bond breaking), less so for vinyl (double bond breaking),
+whereas for \ce{H7} (multiple bond breaking), hCI and excitation-based CI perform similarly.
+This behavior had also been observed for dissociation of closed-shell systems. \cite{Kossoski_2022}
+The same trend is observed for the distance error, although the improvement from excitation-based CI to hCI is less marked than for the NPEs.
+hCI further leads to a faster convergence of the equilibrium geometry of \ce{CN}, while comparable results are found for the geometries of the other systems.
+Meanwhile, a clear improvement from excitation-based CI to hCI is observed for the vibrational frequencies, except for \ce{H7}, where no difference is found.
 
-HF orbitals
-orbital optimization?
+%HF orbitals
+%orbital optimization?
 
-perturbative correction for closed- and open-shell systems
+% rPT2 vs PT2 
+
+We further assesssed the effect of the EN2 perturbative correction for both the open-shell systems studied here 
+and the closed-shell systems (\ce{HF}, \ce{F2}, \ce{N2}, ethylene, \ce{H4}, and \ce{H8}) addressed in our first report on hCI. \cite{Kossoski_2022}
+The full set of PECSs is shown in the {\SupInf}.
+At stretched geometries, the EN2 correction can lead to kinks and large jumps in the PECSs.
+Such problems were encountered at some CI methods for \ce{CN}, vinyl, \ce{H8}, and \ce{H7}, and to a less extent, for \ce{N2} (only for hCI1).
+For the remaining five systems, the EN2 correction did not produce problematic PECs.
+
+Around the equilibrium geometry, the EN2 correction produced well-behaved PECs at all levels of CI and for all systems, 
+except for \ce{CN}, which is related to its different states around equilibrium.
+%
+xe
+\ce{OH} massive improvement
+\ce{CN} \ce{H4} \ce{N2} \ce{F2} \ce{HF} big improvement
+\ce{H7} \ce{H8} vinyl ethylene some improvement
+%
+freq
+\ce{OH} massive improvement
+\ce{HF} \ce{H8} vinyl ethylene some improvement
+\ce{CN} \ce{F2} \ce{N2} \ce{H4} \ce{H7} big improvement
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
