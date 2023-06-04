@@ -15,7 +15,7 @@ set encoding iso_8859_1
 #set xrange[-0.1:4.1]
 #set xtics 1
 # VIEW 1:
-set yrange[3700:4100]
+set yrange[3650:4100]
 set ytics 100
 mass1=1.0078250321
 mass2=15.999400
@@ -80,10 +80,14 @@ unset ylabel
 unset label
 set format y ""
 
-plot 'det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
-     'det_aD_ooCI.dat'    u 1:(sqrt(2*$5)*$3*fac) w lp ls 13 notitle, \
-     'det_aD_ooCIs.dat'   u 1:(sqrt(2*$5)*$3*fac) w lp ls 18 notitle, \
-     'det_aD_ooCIo.dat'   u 1:(sqrt(2*$5)*$3*fac) w lp ls 14 notitle
+plot 'rpt2/det_aD_FCI.dat'   u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
+     'rpt2/det_aD_CI.dat'    u 1:(sqrt(2*$5)*$3*fac) w lp ls 13 notitle, \
+     'rpt2/det_aD_CIs.dat'   u 1:(sqrt(2*$5)*$3*fac) w lp ls 18 notitle, \
+     'rpt2/det_aD_CIo.dat'   u 1:(sqrt(2*$5)*$3*fac) w lp ls 14 notitle
+#plot 'det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
+#     'det_aD_ooCI.dat'    u 1:(sqrt(2*$5)*$3*fac) w lp ls 13 notitle, \
+#     'det_aD_ooCIs.dat'   u 1:(sqrt(2*$5)*$3*fac) w lp ls 18 notitle, \
+#     'det_aD_ooCIo.dat'   u 1:(sqrt(2*$5)*$3*fac) w lp ls 14 notitle
 
 ###################################################################################
 ###################################################################################

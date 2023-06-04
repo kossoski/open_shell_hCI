@@ -78,14 +78,31 @@ plot '< paste pes_fci.dat pes_rohf.dat'   using 1:($4-$2) w l ls 1 notitle, \
 unset ylabel
 set format y ""
 
-plot '< paste pes_fci.dat pes_rohf.dat'     using 1:($4-$2) w l ls 1 notitle, \
-     '< paste pes_fci.dat pes_ooCIS.dat'    using 1:($4-$2) w l ls 3 notitle, \
-     '< paste pes_fci.dat pes_ooCISD.dat'   using 1:($4-$2) w l ls 3 notitle, \
-     '< paste pes_fci.dat pes_ooCIs1.dat'   using 1:($4-$2) w l ls 8 notitle, \
-     '< paste pes_fci.dat pes_ooCIo1.dat'   using 1:($4-$2) w l ls 4 notitle, \
-     '< paste pes_fci.dat pes_ooCIo1.5.dat' using 1:($4-$2) w l ls 5 notitle, \
-     '< paste pes_fci.dat pes_ooCIo2.dat'   using 1:($4-$2) w l ls 4 notitle, \
-     '< paste pes_fci.dat pes_fci.dat'      using 1:($4-$2) w l ls 2 notitle
+plot '< paste pes_fci.dat rpt2/pes_rohf.dat'   using 1:(abs($4-$2)) w l ls 1 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CIS.dat'    using 1:(abs($4-$2)) w l ls 3 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CISD.dat'   using 1:(abs($4-$2)) w l ls 3 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CISDT.dat'  using 1:(abs($4-$2)) w l ls 3 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CISDTQ.dat' using 1:(abs($4-$2)) w l ls 3 notitle, \
+     '< paste pes_fci.dat rpt2/pes_s1.dat'     using 1:(abs($4-$2)) w l ls 8 notitle, \
+     '< paste pes_fci.dat rpt2/pes_s3.dat'     using 1:(abs($4-$2)) w l ls 8 notitle, \
+     '< paste pes_fci.dat rpt2/pes_s5.dat'     using 1:(abs($4-$2)) w l ls 8 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CIo1.dat'   using 1:(abs($4-$2)) w l ls 4 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CIo1.5.dat' using 1:(abs($4-$2)) w l ls 5 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CIo2.dat'   using 1:(abs($4-$2)) w l ls 4 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CIo2.5.dat' using 1:(abs($4-$2)) w l ls 5 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CIo3.dat'   using 1:(abs($4-$2)) w l ls 4 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CIo3.5.dat' using 1:(abs($4-$2)) w l ls 5 notitle, \
+     '< paste pes_fci.dat rpt2/pes_CIo4.dat'   using 1:(abs($4-$2)) w l ls 4 notitle, \
+     '< paste pes_fci.dat pes_fci.dat'         using 1:(abs($4-$2)) w l ls 2 notitle
+
+#plot '< paste pes_fci.dat pes_rohf.dat'     using 1:($4-$2) w l ls 1 notitle, \
+#     '< paste pes_fci.dat pes_ooCIS.dat'    using 1:($4-$2) w l ls 3 notitle, \
+#     '< paste pes_fci.dat pes_ooCISD.dat'   using 1:($4-$2) w l ls 3 notitle, \
+#     '< paste pes_fci.dat pes_ooCIs1.dat'   using 1:($4-$2) w l ls 8 notitle, \
+#     '< paste pes_fci.dat pes_ooCIo1.dat'   using 1:($4-$2) w l ls 4 notitle, \
+#     '< paste pes_fci.dat pes_ooCIo1.5.dat' using 1:($4-$2) w l ls 5 notitle, \
+#     '< paste pes_fci.dat pes_ooCIo2.dat'   using 1:($4-$2) w l ls 4 notitle, \
+#     '< paste pes_fci.dat pes_fci.dat'      using 1:($4-$2) w l ls 2 notitle
 
 ###################################################################################
 ###################################################################################

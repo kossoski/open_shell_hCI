@@ -65,10 +65,16 @@ unset ylabel
 unset label
 set format y ""
 
-plot 'det_xe_FCI.dat'     u 2:3 w l  ls 2  notitle, \
-     'det_xe_ooCI.dat'    u 1:3 w lp ls 13 notitle, \
-     'det_xe_ooCIs.dat'   u 1:3 w lp ls 18 notitle, \
-     'det_xe_ooCIo.dat'   u 1:3 w lp ls 14 notitle
+
+plot 'rpt2/det_xe_FCI.dat'     u 2:3 w l  ls 2  notitle, \
+     'rpt2/det_xe_CI.dat'      u 1:3 w lp ls 3  notitle, \
+     'rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 8  notitle, \
+     'rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 4  notitle#, \
+
+#plot 'det_xe_FCI.dat'     u 2:3 w l  ls 2  notitle, \
+#     'det_xe_ooCI.dat'    u 1:3 w lp ls 13 notitle, \
+#     'det_xe_ooCIs.dat'   u 1:3 w lp ls 18 notitle, \
+#     'det_xe_ooCIo.dat'   u 1:3 w lp ls 14 notitle
 
 ###################################################################################
 ###################################################################################

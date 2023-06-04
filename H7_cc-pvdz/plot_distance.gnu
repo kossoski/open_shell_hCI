@@ -56,8 +56,12 @@ unset ylabel
 unset label
 set format y ""
 
-plot 'stat_ooCI.dat'   u ($3):($5)  w lp ls 13  notitle, \
-     'stat_ooCIs.dat'  u ($3):($5)  w lp ls 18  notitle, \
-     'stat_ooCIo.dat'  u ($3):($5)  w lp ls 14  notitle
+plot 'rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 3  notitle, \
+     'rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
+     'rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 4  notitle
+
+#plot 'stat_ooCI.dat'   u ($3):($5)  w lp ls 13  notitle, \
+#     'stat_ooCIs.dat'  u ($3):($5)  w lp ls 18  notitle, \
+#     'stat_ooCIo.dat'  u ($3):($5)  w lp ls 14  notitle
 #plot 'stat_ooCI.dat'   u 1:($2)  w lp ls 13  notitle, \
 #     'stat_ooCIo.dat'  u 1:($2)  w lp ls 14  notitle

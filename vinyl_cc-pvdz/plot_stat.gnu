@@ -11,7 +11,7 @@ set output 'plot_stat.eps'
 ###################################################################################
 # SYSTEM DEPENDENT PART:
 #set xrange[-0.1:4.1]
-set yrange[0.0:0.20]
+set yrange[0.0:0.14]
 #set logscale y
 #set format y "10^{%T}"
 
@@ -59,8 +59,13 @@ unset ylabel
 unset label
 set format y ""
 
-plot 'stat_ooCI.dat'   u ($3):($4)  w lp ls 13  notitle, \
-     'stat_ooCIs.dat'  u ($3):($4)  w lp ls 18  notitle, \
-     'stat_ooCIo.dat'  u ($3):($4)  w lp ls 14  notitle
+plot 'rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
+     'rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
+     'rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 4  notitle
+
+#plot 'stat_ooCI.dat'   u ($3):($4)  w lp ls 13  notitle, \
+#     'stat_ooCIs.dat'  u ($3):($4)  w lp ls 18  notitle, \
+#     'stat_ooCIo.dat'  u ($3):($4)  w lp ls 14  notitle
+
 #plot 'stat_ooCI.dat'   u 1:($2)  w lp ls 13  notitle, \
 #     'stat_ooCIo.dat'  u 1:($2)  w lp ls 14  notitle

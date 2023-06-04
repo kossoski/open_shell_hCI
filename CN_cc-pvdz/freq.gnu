@@ -81,10 +81,15 @@ unset ylabel
 unset label
 set format y ""
 
-plot 'det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
-     'det_aD_ooCI.dat'    u 1:(sqrt(2*$5)*$3*fac) w lp ls 13 notitle, \
-     'det_aD_ooCIs.dat'   u 1:(sqrt(2*$5)*$3*fac) w lp ls 18 notitle, \
-     'det_aD_ooCIo.dat'   u 1:(sqrt(2*$5)*$3*fac) w lp ls 14 notitle
+plot 'rpt2/det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
+     'rpt2/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 3  notitle, \
+     'rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 8  notitle, \
+     'rpt2/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 4  notitle
+
+#plot 'det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
+#     'det_aD_ooCI.dat'    u 1:(sqrt(2*$5)*$3*fac) w lp ls 13 notitle, \
+#     'det_aD_ooCIs.dat'   u 1:(sqrt(2*$5)*$3*fac) w lp ls 18 notitle, \
+#     'det_aD_ooCIo.dat'   u 1:(sqrt(2*$5)*$3*fac) w lp ls 14 notitle
 
 ###################################################################################
 ###################################################################################

@@ -19,7 +19,7 @@ set xtics 10**3
 set mxtics 1
 
 # VIEW 1:
-set yrange[0.92:1.06]
+set yrange[0.94:1.06]
 set format y "%.2f"
 set ytics 0.02
 ###################################################################################
@@ -63,10 +63,16 @@ unset ylabel
 unset label
 set format y ""
 
-plot 'det_aD_FCI.dat'     u 2:(2*$3*$3*$5) w l  ls 2  notitle, \
-     'det_aD_ooCI.dat'    u 1:(2*$3*$3*$5) w lp ls 13 notitle, \
-     'det_aD_ooCIs.dat'   u 1:(2*$3*$3*$5) w lp ls 18 notitle, \
-     'det_aD_ooCIo.dat'   u 1:(2*$3*$3*$5) w lp ls 14 notitle
+
+plot 'rpt2/det_aD_FCI.dat'     u 2:(2*$3*$3*$5) w l  ls 2  notitle, \
+     'rpt2/det_aD_CI.dat'      u 1:(2*$3*$3*$5) w lp ls 3  notitle, \
+     'rpt2/det_aD_CIs.dat'     u 1:(2*$3*$3*$5) w lp ls 8  notitle, \
+     'rpt2/det_aD_CIo.dat'     u 1:(2*$3*$3*$5) w lp ls 4  notitle
+
+#plot 'det_aD_FCI.dat'     u 2:(2*$3*$3*$5) w l  ls 2  notitle, \
+#     'det_aD_ooCI.dat'    u 1:(2*$3*$3*$5) w lp ls 13 notitle, \
+#     'det_aD_ooCIs.dat'   u 1:(2*$3*$3*$5) w lp ls 18 notitle, \
+#     'det_aD_ooCIo.dat'   u 1:(2*$3*$3*$5) w lp ls 14 notitle
 
 ###################################################################################
 ###################################################################################

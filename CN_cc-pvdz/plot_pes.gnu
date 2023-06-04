@@ -13,9 +13,11 @@ set encoding iso_8859_1
 ###################################################################################
 # SYSTEM DEPENDENT PART:
 
-set xrange[0.6:7.0]
+#set xrange[0.6:5.5]
+set xrange[0.6:4.0]
 xmin=0.6
-xmax=7.0
+xmax=3.9
+set xtics 1
 
 # VIEW 1:
 set yrange[-92.6:-91.6]
@@ -124,14 +126,31 @@ set format y ""
 #fit [7.0:9.0] [*:*] f(x) 'pes_fci.dat' u 1:($2) via a,b
 #set label 20 'FCI' at 8.9,-4.03 rotate by r(a) center tc ls 2 #font 'Verdana,20'
 
-plot 'pes_rohf.dat'      w l ls 1 notitle, \
-     'pes_ooCIS.dat'    w l ls 3 notitle, \
-     'pes_ooCISD.dat'   w l ls 3 notitle, \
-     'pes_ooCIs1.dat'   w l ls 8 notitle, \
-     'pes_ooCIo1.dat'   w l ls 4 notitle, \
-     'pes_ooCIo1.5.dat' w l ls 5 notitle, \
-     'pes_ooCIo2.dat'   w l ls 4 notitle, \
-     'pes_fci.dat'      w l ls 2 notitle
+plot 'rpt2/pes_rohf.dat'    w l ls 1 notitle, \
+     'rpt2/pes_CIS.dat'    w l ls 3 notitle, \
+     'rpt2/pes_CISD.dat'   w l ls 3 notitle, \
+     'rpt2/pes_CISDT.dat'  w l ls 3 notitle, \
+     'rpt2/pes_CISDTQ.dat' w l ls 3 notitle, \
+     'rpt2/pes_s1.dat'     w l ls 8 notitle, \
+     'rpt2/pes_s3.dat'     w l ls 8 notitle, \
+     'rpt2/pes_s5.dat'     w l ls 8 notitle, \
+     'rpt2/pes_CIo1.dat'   w l ls 4 notitle, \
+     'rpt2/pes_CIo1.5.dat' w l ls 5 notitle, \
+     'rpt2/pes_CIo2.dat'   w l ls 4 notitle, \
+     'rpt2/pes_CIo2.5.dat' w l ls 5 notitle, \
+     'rpt2/pes_CIo3.dat'   w l ls 4 notitle, \
+     'rpt2/pes_CIo3.5.dat' w l ls 5 notitle, \
+     'rpt2/pes_CIo4.dat'   w l ls 4 notitle, \
+     'pes_fci.dat'    w l ls 2 notitle
+
+#plot 'pes_rohf.dat'      w l ls 1 notitle, \
+#     'pes_ooCIS.dat'    w l ls 3 notitle, \
+#     'pes_ooCISD.dat'   w l ls 3 notitle, \
+#     'pes_ooCIs1.dat'   w l ls 8 notitle, \
+#     'pes_ooCIo1.dat'   w l ls 4 notitle, \
+#     'pes_ooCIo1.5.dat' w l ls 5 notitle, \
+#     'pes_ooCIo2.dat'   w l ls 4 notitle, \
+#     'pes_fci.dat'      w l ls 2 notitle
 #    'pes_ooCIo2.5.dat' w l ls 5 notitle, \
 
 ###################################################################################
