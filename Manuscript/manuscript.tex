@@ -162,7 +162,7 @@ The hCI methods introduced here were implemented in {\QP} \cite{Garniron_2019} t
 By allowing only for the determinants that are connected with the reference determinant(s) up to a given maximum hierarchy $h$,
 the CIPSI algorithm is restricted to the truncated Hilbert space defined by the reference and the value of $h$.
 {\QP} \cite{Garniron_2019} was employed to perform all the CI calculations presented here.
-In a given calculation, the energies are considered to be converged when the (largest) Epstein-Nesbet second-order perturbation correction computed in the truncated Hilbert space 
+In a given calculation, the energies are considered to be converged when the (largest) renormalized second-order Epstein-Nesbet (EN2) perturbation correction computed in the truncated Hilbert space 
 lies below \SI{0.01}{\milli\hartree}. \cite{Garniron_2018}
 %by spanning the most important regions of the truncated Hilbert space
 This selected CI procedure requires considerably fewer determinants than the total number of determinants in the truncated Hilbert space,
@@ -207,27 +207,35 @@ Meanwhile, a clear improvement from excitation-based CI to hCI is observed for t
 %HF orbitals
 %orbital optimization?
 
-% rPT2 vs PT2 
 
 We further assesssed the effect of the EN2 perturbative correction for both the open-shell systems studied here 
 and the closed-shell systems (\ce{HF}, \ce{F2}, \ce{N2}, ethylene, \ce{H4}, and \ce{H8}) addressed in our first report on hCI. \cite{Kossoski_2022}
 The full set of PECSs is shown in the {\SupInf}.
-At stretched geometries, the EN2 correction can lead to kinks and large jumps in the PECSs.
-Such problems were encountered at some CI methods for \ce{CN}, vinyl, \ce{H8}, and \ce{H7}, and to a less extent, for \ce{N2} (only for hCI1).
-For the remaining five systems, the EN2 correction did not produce problematic PECs.
+At stretched geometries, the perturbative correction can lead to kinks and large jumps in the PECs.
+Such problems were encountered at some levels of CI for \ce{CN}, vinyl, \ce{H8}, and \ce{H7}, and to a less extent, for \ce{N2} (only for hCI1).
+For the remaining five systems (\ce{HF}, \ce{F2}, ethylene, \ce{H4}, and \ce{OH}),
+the EN2 correction produced smooth PECs at dissociation
+Around the equilibrium geometry, the perturbative correction produced well-behaved PECs at all levels of CI and for all systems, except for \ce{CN},
+which is related to the close-lying states around equilibrium.
 
-Around the equilibrium geometry, the EN2 correction produced well-behaved PECs at all levels of CI and for all systems, 
-except for \ce{CN}, which is related to its different states around equilibrium.
-%
-xe
-\ce{OH} massive improvement
-\ce{CN} \ce{H4} \ce{N2} \ce{F2} \ce{HF} big improvement
-\ce{H7} \ce{H8} vinyl ethylene some improvement
-%
-freq
-\ce{OH} massive improvement
-\ce{HF} \ce{H8} vinyl ethylene some improvement
-\ce{CN} \ce{F2} \ce{N2} \ce{H4} \ce{H7} big improvement
+We found that the EN2 perturbative correction generally reduces the errors of all observables considered here, for a given level of excitation-based CI and hCI routes.
+As such, it accelerates the rate of convergence as a function of the excitation degree or hierarchy parameter.
+Importantly, the perturbative corrected hCI route still outperforms the excitation-based counterpart, just as for the uncorrected comparison.
+Furthermore, the reduction of the errors is overall more monotonic than without the perturbative correction.
+This is illustrated in Fig.\ref{} for the particular case of \ce{F2}.
+For the sCI route, however, the EN2 correction does not bring a clear improvement to render it competitive in relation to the excitation and hierarchy-based alternatives.
+
+% rPT2 vs PT2 there are important differences
+
+%xe
+%\ce{OH} massive improvement
+%\ce{CN} \ce{H4} \ce{N2} \ce{F2} \ce{HF} big improvement
+%\ce{H7} \ce{H8} vinyl ethylene some improvement
+ 
+%freq
+%\ce{OH} massive improvement
+%\ce{CN} \ce{F2} \ce{N2} \ce{H4} \ce{H7} big improvement
+%\ce{HF} \ce{H8} vinyl ethylene some improvement
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -236,8 +244,11 @@ freq
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In Tab.~\ref{tab:1} we present the statistical errors of the different methods, organized by their computational scaling.
+% hCI1 and hCI1.5
 We found that $\Delta$hCI2 and $\Delta$CISD display comparable MAEs, despite the somewhat more favourable MSE and RMSE of the latter.
-$\Delta$hCI2 still tends to underestimate the excitation energies, though to a much lesser extent than observed for the lower-order hCI methods.
+This means that the additional determinants present in the former method recover a larger fraction of the correlation energy for excited state than for the ground state,
+thus creating a bias toward underestimated excitation energies.
+Even though this unbalance is still observed for $\Delta$hCI2, it is much less serious than observed for the lower-order state-specific hCI methods.
 
 \begin{table}[ht!]
 \caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), and Root-Mean Square Error (RMSE) in Units of eV, with Respect to Reference Theoretical Values,
@@ -277,7 +288,7 @@ Despite the rather poor performance of lower-order hCI methods for excitation en
 we further investigated whether higher-order versions could be competitive against the traditional excitation-based counterparts.
 For that, we performed calculations for a subset of 14 excited states of small molecular systems (\ce{H2O}, \ce{BF}, \ce{HCF}, \ce{HCl}, and \ce{N2}),
 with corresponding statistical errors shown in Tab.~\ref{tab:2}.
-Even though this is a small set, it should be enough to obtain the main trends on the statistics of the different methods.
+Even though this is a small set, it should be enough to obtain the main trends on the accuracy of higher-order methods.
 
 
 \begin{table}[ht!]
@@ -323,10 +334,11 @@ However, this improvement does not reflect on the state specific route (compare 
 Moving one step further, even though the state-specific route ($\Delta$hCI2.5) is far more accurate than the ground-state based route (hCI2.5),
 it is actually less accurate then $\Delta$hCI2.
 An improved performance is found for the methods displaying an $\order*{N^8}$ computational scaling.
-The four methods, hCI3, $\Delta$hCI3, CISDT, and $\Delta$CISDT, display quite similar MAEs and RMSEs.
-Therefore, there is no advantage by moving from excitation-based to hierarchy-based CI at this order, just as discussed above for the $\Delta$hCI2 and $\Delta$CISD.
-Similarly, the $\Delta$hCI3 does not improve with respect to hCI3, as also observed for $\Delta$CISDT and CISDT. \cite{Kossoski_2023}
-We notice, however, the negative MSEs for the state-specific methods, in contrast to the positives values obtained for the ground-state based route.
+The four methods, hCI3, $\Delta$hCI3, CISDT, and $\Delta$CISDT, present quite similar MAEs and RMSEs.
+Therefore, there is no real advantage in moving from excitation-based to hierarchy-based CI at this order, just as discussed above for the $\Delta$hCI2 and $\Delta$CISD.
+Similarly, the $\Delta$hCI3 is not more accurate than hCI3, as also observed for $\Delta$CISDT and CISDT. \cite{Kossoski_2023}
+We notice, however, that the state-specific methods present negative MSEs, in contrast to the positives values obtained in the ground-state based route.
+This reflects an umbalanced description of correlation effects, favoring the excited states.
 At the next order, $\Delta$hCI3.5 has significantly smaller errors, but at a costly $\order*{N^9}$ scaling.
 
 
@@ -338,10 +350,10 @@ At the next order, $\Delta$hCI3.5 has significantly smaller errors, but at a cos
 
 We refer back to Tab.~\ref{tab:1} to discuss the performance of seniority-based CI for excited states.
 sCI2 delivers quite poor results (MAE of \SI{1.06}{eV}), whereas $\Delta$sCI2 reduces the statistical errors (MAE of \SI{0.60}{eV}).
-This improvement, however, is not as expressive as typically observed for excitataion-based and hierarchy-based methods.
-(Compare, for instance, with the cases of hCI2.5 and $\Delta$hCI2.5 shown in Tab.~\ref{tab:2}).
-The large errors, even at the state-specific route, combined with the formal $\order*{e^N}$ scaling of these methods,
-render them unsuitable for calculations of accurate excitation energies.
+This improvement, however, is not as expressive as observed for excitataion-based and hierarchy-based methods.
+Compare, for instance, with the cases of hCI2.5 and $\Delta$hCI2.5 shown in Tab.~\ref{tab:2}.
+The large errors, even following the state-specific approach, combined with the formal $\order*{e^N}$ scaling of these methods,
+render seniority-based CI methods unsuitable for calculations of excitation energies.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -349,9 +361,21 @@ render them unsuitable for calculations of accurate excitation energies.
 \label{sec:ccl}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We conclude that 
-Meanwhile, 
-, and therefore not useful.
+%three CI routes (excitation, hierarchy, and seniority-based).
+
+We have considered both closed and open shell systems, considering ground-state properties and excitation energies, for a diverse set of molecular systems.
+Extending our previous findings for closed-shell \cite{Kossoski_2022} to open-shell systems,
+we conclude that the hCI route has an edge in comparison to excitation-based CI,
+and that seniority-based CI methods lead to far less accurate results than the two former alternatives, for a given computational cost.
+We also found that, for closed- and open-shell systems,
+%EN2 perturbative corrections lead to faster and more monotonic convergence of different properties
+EN2 perturbative corrections lead to substantial improvements for hCI and excitation-based CI routes (while keeping the upper hand for the former), but do not help much with the deficiencies of the sCI route.
+
+
+We further assessed the performance of sCI and hCI methods, based on either HF ground-state orbitals or state-specific orbitals, to describe excited states of closed-shell systems and radicals.
+Overall, sCI methods present relatively poor results considering their high computational costs, and thus should not be useful in practice.
+%it is fair to conclude that 
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
