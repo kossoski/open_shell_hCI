@@ -74,35 +74,57 @@ Configuration interaction (CI) offers a systematic way to solve the many-body el
 By including progressively more determinants in the Hilbert space, the wave function becomes increasingly closer to the exact one, and so does the electronic energy.
 In full CI (FCI), all determinants are accounted for and the problem is solved exactly (for a given basis set).
 In practice, however, one resorts to approximate CI methods, where only the determinants that satisfy a given criterion are included in the truncated Hilbert space.
-For small systems, FCI is still attainable and one can thus gauge the performance of approximate CI methods.
-Excitation-based CI
-Seniority based CI (sCI) \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967}
-sCI works well to describe molecular dissociation \cite{Bytautas_2015,Alcoba_2014,Alcoba_2014b}
-Limited studies for radicals and excited states
 
-We have recently introduced hierarchy CI (hCI), \cite{Kossoski_2022}
-where the Hilbert space is partitioned according to a hierarchy parameter $h$ that combines the excitation degree $e$ and the seniority number $s$.
-For different properties and molecular systems, hCI showed an improved convergence to the FCI results when compared to the traditional excitation-based CI. \cite{Kossoski_2022}
+The most well-known CI route is excitation-based.
+Starting from a reference determinant, typically the Hartree-Fock (HF) determinant,
+one generates all determinants that are connected to it by excitating at most $e$ electrons.
+The excitation degree $e$ thus defines the order of the approximate CI model:
+CI with single excitations (CIS); CI with single and double excitations (CISD), CI with single, double and triple excitations (CISDT), and so on.
+A different CI route is based on the seniority number $s$ (the number of unpaired electrons in a given determinant).
+In seniority-based CI (sCI) \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967}, there is no reference determinant, and one accounts for all determinants having seniority equal or less than $s$.
+For systems with an even number of electrons, the first approximate model is defined by $s=0$ (sCI0), usually refered to as doubly-occupied CI (DOCI), \cite{}
+which is followed by the higher-order models sCI2, sCI4, and so on.
+For an odd number of electrons, the seniority route follows along odd numbers of $s$: sCI1, sCI3, and so on.
+%Limited studies for radicals and excited states
+
+%sCI works well to describe molecular dissociation \cite{Bytautas_2015,Alcoba_2014,Alcoba_2014b}
+%For small systems, FCI is still attainable and one can thus gauge the performance of approximate CI methods.
+We have recently introduced a third CI route, hierarchy CI (hCI), \cite{Kossoski_2022}
+where the Hilbert space is partitioned according to a hierarchy parameter $h$ that combines the excitation degree $e$ and the seniority number $s$ according to $h = (e+s/2)/2$.
+For different properties and closed-shell molecular systems, 
+hCI was found to display an overall faster convergence to the FCI results than the traditional excitation-based CI, as a function of the number of determinants $\Ndet$. \cite{Kossoski_2022}
 However, hCI has only been defined for a closed-shell reference, thus systems with an even number of electrons.
-A generalization of the method for radicals has not yet been proposed.
+Here, our first goal is to generalize hCI for open-shell systems and to assess the performance of this class of methods by performing calculations for various properties of several radicals.
+%A generalization of the method for open-shell systems has not yet been proposed.
+%excitations of increasingly higher order give rise to a systematically improvable sequence of CI methods:
+The second goal is to evaluate how perturbation theory, more precisely the second-order Epstein-Nesbet (EN2) perturbative correction, \cite{}
+impacts different properties of ground-state closed-shell systems and radicals, for excitation-based, sCI and hCI methods.
 
-The higher-lying CI roots give access to excited states.
-Whereas the performance of excitation-based CI for excited states is well stablished, \cite{} this remains an open question for sCI methods,
-despite the growing number of methods targeting excited states that exploit the concept of seniority number. \cite{} 
-Similarly, the favourable results of hCI when compared to excitation-based CI for ground states raises the question on how well it can describe excitation energies.
+%Whereas the first CI root represents the electronic ground state, higher-lying roots give access to excited states.
+%Similarly, the favourable results of hCI when compared to excitation-based CI for ground states raises the question on how well it can describe excitation energies.
+%The performance of excitation-based CI for excited states is well stablished, \cite{} but remains an open question for sCI methods,
+Inspired by the results of hCI for ground-state closed-shell systems, \cite{Kossoski_2022} our third goal is to define and assess the accuracy of hCI methods for excited states.
+Finally, to the best of our knowledge, sCI methods have not yet been directly used to target excited states,
+despite the growing number of excited state methods that exploit the concept of seniority number. \cite{} 
+Our fourth goal is therefore to introduce and gauge sCI methods for excited states.
+There are two approaches to target excited states with CI methods.
+One can employ the ground-state HF orbitals and obtain excitation energies from the higher-lying eigenvalues of the CI matrix.
+Instead, one may optimize the orbitals for the excited state of interest (described with an appropriate reference), followed by a separate CI calculation,
+in a so-called state-specific approach ($\Delta$CI).
+There has been a recent surge in the development of state-specific methods, covering 
+single-reference and multiconfigurational self-consistent field,
+\cite{Ziegler_1977,Burton_2021,Shea_2018,Tran_2019,Tran_2020,Hardikar_2020,Burton_2022,Hanscam_2022,Kossoski_2023,Marie_2023}
+% add references for SCF
+%\cite{Ziegler_1977,Burton_2021}
+%multiconfigurational SCF, \cite{Shea_2018,Tran_2019,Tran_2020,Hardikar_2020,Burton_2022,Kossoski_2023,Marie_2023}
+density functional theory, 
+\cite{Filatov_1999,Kowalczyk_2011,Kowalczyk_2013,Gilbert_2008,Barca_2018,Hait_2020,Hait_2021,Hardikar_2020,Zhao_2020,Levi_2020,Carter-Fenk_2020,Toffoli_2022,Schmerwitz_2022}
+and coupled-cluster 
+\cite{Piecuch_2000,Mayhall_2010,Lee_2019,Kossoski_2021,Marie_2021,Rishi_2023}
+methods.
+By employing a minimal configuration state function reference, we have recently showed that excitation-based $\Delta$CI models deliver far more accurate excitation energies than the ground-state based analogues. \cite{Kossoski_2023}
+Based on this promising set of results for excitation-based CI, here we explore both ground-state based and state-specific approaches for sCI and hCI models.
 
-When targeting excited states with CI methods, one can employ the ground-state HF orbitals or instead optimize the orbitals for each state of interest, in a so-called state-specific approach.
-Promising results for state-specific excitation-based CI.
-\cite{Kossoski_2023}
-Here we introduce analogous state-specific seniority-based CI ($\Delta$sCI) and hierarchy-based CI ($\Delta$hCI).
-How do these methods perform for excited states, from both closed-shell and open-shell systems?
-
-Here we address the knowledge gaps outlined above by setting four goals.
-Our first goal is to generalize hCI \cite{Kossoski_2022} for the case of an open-shell reference determinant, thus extending its domain to radical species.
-The second is to assess the performance of this method for ground state radicals, similarly to what has been done for closed-shell systems. \cite{Kossoski_2022}
-%Seniority hCI
-The third goal is to assess the improvement from perturbative corrections to ground-state radicals and closed-shell systems, for both excitation-based and hierarchy-based CI methods.
-Finally, we introduce and gauge seniority-based and hierarchy-based CI methods for excited states, along both the standard ground-state based route and the state-specific route. \cite{Kossoski_2023}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -132,6 +154,7 @@ whereas those without the $\Delta$ mean that ground-state HF orbitals were emplo
 \section{Computational details}
 \label{sec:compdet}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+along the same lines of our previous 
 
 To gauge the performance of hCI against excitation-based and seniority-based CI for radical systems,
 we have calculated the potential energy curves (PECs) for the dissociation of four radical systems:
@@ -221,9 +244,9 @@ which is related to the close-lying states around equilibrium.
 We found that the EN2 perturbative correction generally reduces the errors of all observables considered here, for a given level of excitation-based CI and hCI routes.
 As such, it accelerates the rate of convergence as a function of the excitation degree or hierarchy parameter.
 Importantly, the perturbative corrected hCI route still outperforms the excitation-based counterpart, just as for the uncorrected comparison.
-Furthermore, the reduction of the errors is overall more monotonic than without the perturbative correction.
-This is illustrated in Fig.\ref{} for the particular case of \ce{F2}.
-For the sCI route, however, the EN2 correction does not bring a clear improvement to render it competitive in relation to the excitation and hierarchy-based alternatives.
+Furthermore, the reduction of the errors is overall more monotonic than without the perturbative correction,
+which is illustrated in Fig.\ref{} for the particular case of \ce{F2}.
+For the sCI route, however, the EN2 correction does not bring a clear improvement to render it competitive in relation to the excitation-based and hCI alternatives.
 
 % rPT2 vs PT2 there are important differences
 
@@ -362,18 +385,32 @@ render seniority-based CI methods unsuitable for calculations of excitation ener
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %three CI routes (excitation, hierarchy, and seniority-based).
+%Here we address the knowledge gaps outlined above by setting four goals.
+%Extending our previous findings for closed-shell \cite{Kossoski_2022} to open-shell systems,
+%We further explored Epstein-Nesbet second-order perturbative corrections to the various approximate CI methods.
+%The second is to assess the performance of this method for ground state radicals, similarly to what has been done for closed-shell systems. \cite{Kossoski_2022}
 
-We have considered both closed and open shell systems, considering ground-state properties and excitation energies, for a diverse set of molecular systems.
-Extending our previous findings for closed-shell \cite{Kossoski_2022} to open-shell systems,
-we conclude that the hCI route has an edge in comparison to excitation-based CI,
-and that seniority-based CI methods lead to far less accurate results than the two former alternatives, for a given computational cost.
-We also found that, for closed- and open-shell systems,
+%The third goal is to assess the improvement from perturbative corrections to ground-state radicals and closed-shell systems, for both excitation-based and hierarchy-based CI methods.
+%For hCI and excitation-based CI, the perturbative correction tends to accelerate and stabilize the convergence of different properties toward the FCI results.
 %EN2 perturbative corrections lead to faster and more monotonic convergence of different properties
-EN2 perturbative corrections lead to substantial improvements for hCI and excitation-based CI routes (while keeping the upper hand for the former), but do not help much with the deficiencies of the sCI route.
+%We have considered both closed and open shell systems, considering ground-state properties and excitation energies, for a diverse set of molecular systems.
+%Finally, we introduce and gauge seniority-based and hierarchy-based CI methods for excited states, along both the standard ground-state based route and the state-specific route. \cite{Kossoski_2023}
 
+Here we have generalized hCI \cite{Kossoski_2022} for the case of an open-shell reference determinant, thus extending its applicability to radical species and excited states.
+By surveying the dissociation of several open-shell systems, 
+we found that the hCI route has an edge in comparison to excitation-based CI, for both weakly correlated (equilibrium geometries) and strongly correlating (dissociation) regimes.
+Meanwhile, seniority-based CI leads to far less accurate results in comparison to hCI or excitation-based CI, for a given computational cost.
+These findings are in line with what had been found for closed-shell systems. \cite{Kossoski_2022}
+We also found that, for closed- and open-shell systems,
+the EN2 perturbative corrections lead to substantial improvements for hCI and excitation-based CI routes (while keeping the upper hand for the former), but do not help much with the deficiencies of the sCI route.
 
-We further assessed the performance of sCI and hCI methods, based on either HF ground-state orbitals or state-specific orbitals, to describe excited states of closed-shell systems and radicals.
-Overall, sCI methods present relatively poor results considering their high computational costs, and thus should not be useful in practice.
+We further gauged the performance of hCI and sCI methods, based on either HF ground-state orbitals or state-specific orbitals, to describe excited states of closed-shell systems and radicals.
+Despite their elevated computational cost, sCI methods produced relatively poor results (even in a state-specific approach), and thus should not be useful in practice.
+Similarly, for lower orders of hCI (hCI1 and hCI1.5), the performance is very poor,
+with ground-state (state-specific) orbitals leading to largely overestimated (underestimated) excitation energies.
+The situation improves at the state-specific $\Delta$hCI2 order, even though its accuracy is somewhat worse than $\Delta$CISD, both methods sharing the same computational scaling. 
+Unfortunately, $\Delta$hCI2.5 does not lead to more accurate results, whereas all the CI methods at next next order (CISDT, $\Delta$CISDT, hCI3, and $\Delta$hCI3) show comparable performance.
+Overall, hCI methods for excited states are either innacurate given their computational cost ($h=1$, $h=1.5$ and $h=2.5$) or comparable to excitation-based CI at the same order ($h=2$ and $h=3$).
 %it is fair to conclude that 
 
 
