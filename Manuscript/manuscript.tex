@@ -193,9 +193,9 @@ and the PECs were computed along the \ce{C=C} double bond breaking coordinate, w
 For \ce{H7}, we considered equally spaced and linearly arranged hydrogen atoms, and the PECs were computed along the symmetric dissociation coordinate.
 The results were analyzed along the same lines of our report on hCI for closed-shell systems. \cite{Kossoski_2022}
 Namely, for the different CI models considered here, 
-we evaluated the convergence of the non-parallelity error (NPE), the distance error, the vibrational frequencies, and the equilibrium geometries, as functions of $\Ndet$.
+we evaluated the convergence of the non-parallelity error (NPE), the distance error, the harmonic vibrational frequencies, and the equilibrium bond lengths, as functions of $\Ndet$.
 The NPE (distance error) of a given level of theory is defined as the maximum minus (plus) the minimum differences between its corresponding PEC and the FCI one, for a given range of coordinates.
-Details about how the vibrational frequencies and equilibrium geometries were obtained from the calculated PECs,
+Details about how the harmonic vibrational frequencies and equilibrium geometries were obtained from the calculated PECs,
 and the ranges defining the NPE and distance errors can be found in the \SupInf.
 
 The various CI models introduced here were further assessed based on calculated vertical excitation energies for 60 electronic states,
@@ -229,7 +229,7 @@ The computed excitation energies were compared against the reference values prov
 % H8 missing 9.0 for T+pt2
 
 The full set of PECs for the open-shell systems (\ce{OH}, \ce{CN}, \ce{H7}, and vinyl) are presented in the {\SupInf},
-along with the NPEs, distance errors, equilibrium geometries and vibrational frequencies, plotted as a function of $\Ndet$ for the different CI models.
+along with the NPEs, distance errors, equilibrium bond lengths and harmonic vibrational frequencies, plotted as a function of $\Ndet$ for the different CI models.
 The present results for open-shell systems are discussed in detail in the following,
 and display similar trends to the ones previously reported for closed-shell systems. \cite{Kossoski_2022}
 hCI typically improves the convergence of the different properties when compared to excitation-based CI.
@@ -277,13 +277,18 @@ For the sCI route, however, the EN2 correction does not bring a clear improvemen
 \label{sec:res_B}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In Tab.~\ref{tab:1} we present the statistical errors of the different methods, organized by their computational scaling.
+The statistical errors on the excitation energies, for the different CI models considered here,
+are presented in Tab.~\ref{tab:1} and Tab.~\ref{tab:2},
+%organized by their computational scaling,
+for singly excited states of closed-shell and open-shell systems, respectively.
+
 % hCI1 and hCI1.5
 We found that $\Delta$hCI2 and $\Delta$CISD display comparable MAEs, despite the somewhat more favourable MSE and RMSE of the latter.
 This means that the additional determinants present in the former model recover a larger fraction of the correlation energy for excited state than for the ground state,
 thus creating a bias toward underestimated excitation energies.
 Even though this unbalance is still observed for $\Delta$hCI2, it is much less serious than observed for the lower-order state-specific hCI methods.
 
+%This provides a fair starting point for the subsequent sCI calculations, similarly to what was as discussed above for hCI models.
 
 \begin{table}[ht!]
 \caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), and Root-Mean Square Error (RMSE) in Units of eV, with Respect to Reference Theoretical Values, for the Set of 
@@ -341,8 +346,8 @@ $\Delta$sCI1      & -0.15 & 0.28 & 0.40 \\
 
 Despite the rather poor performance of lower-order hCI models for excitation energies,
 we further investigated whether higher-order versions could be competitive against the traditional excitation-based counterparts.
-For that, we performed calculations for a subset of 14 excited states of small molecular systems (\ce{H2O}, \ce{BF}, \ce{HCF}, \ce{HCl}, and \ce{N2}),
-with corresponding statistical errors shown in Tab.~\ref{tab:2}.
+For that, we performed calculations for a subset of 14 singly-excited states of small closed-shell molecular systems (\ce{H2O}, \ce{BF}, \ce{HCF}, \ce{HCl}, and \ce{N2}),
+with corresponding statistical errors shown in Tab.~\ref{tab:3}.
 Even though this is a small set, it should be enough to obtain the main trends on the accuracy of higher-order models.
 
 
@@ -350,7 +355,7 @@ Even though this is a small set, it should be enough to obtain the main trends o
 \caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), and Root-Mean Square Error (RMSE) in Units of eV, with Respect to Reference Theoretical Values,
 for the Set of 14 Singly Excited States of Closed-Shell Systems Listed in the {\SupInf}.
 }
-\label{tab:2}
+\label{tab:3}
 \begin{ruledtabular}
 \begin{tabular}{lddd}
 method            &     \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} \\
@@ -397,14 +402,46 @@ At the next order, $\Delta$hCI3.5 has significantly smaller errors, but at a muc
 \label{sec:res_C}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We refer to Tab.~\ref{tab:1} and ~\ref{tab:2} to discuss the performance of seniority-based CI for excited states.
-sCI2 delivers quite poor results (MAE of \SI{1.06}{eV}), whereas $\Delta$sCI2 reduces the statistical errors (MAE of \SI{0.60}{eV}).
-This improvement, however, is not as expressive as observed for excitataion-based and hierarchy-based methods.
-Compare, for instance, with the cases of hCI2.5 and $\Delta$hCI2.5 shown in Tab.~\ref{tab:1}.
-The large errors, even following the state-specific approach, combined with the formal $\order*{e^N}$ scaling of these methods,
-render seniority-based CI unsuitable for calculations of excitation energies.
-
+We refer back to Tab.~\ref{tab:1} to discuss the performance of seniority-based CI for excited states of closed-shell systems.
+The first model, sCI2/sCI2, systematically overestimates the excitation energies, with MAEs of \SI{1.40}{\eV}.
+There are two factors at play that explain such large errors.
+First, the ground state description is favored due to the use of ground-state HF orbitals.
+Indeed, with state-specific orbitals, the $\Delta$sCI2/sCI2 model reduces the MAEs to \SI{0.77}{\eV}, though still overestimating the excitation energies.
+The second factor is due to an unbalanced description of correlation for ground and excited states.
+%While the ground state reference (which has $s=0$) can access determinants with unpaired electrons (in the $s=2$ sector)
+While sCI2/sCI2 accounts for an additional seniority sector ($s=2$) for the ground state reference (which has $s=0$), 
+the excited state reference already lives in the same $s=2$ seniority sector.
+In other words, unpaired excitations are allowed for the ground state but not for the excited state, relative to their respective reference determinants, which creates a bias toward the former.
+A possible solution to this unbalance is to restrict the determinants to the maximum seniority number of the reference.
+This is precisely the sCI2/sCI0 model, which delivers a MAE of \SI{0.42}{\eV}, compared to \SI{1.40}{\eV} of sCI2/sCI2.
+However, when going to state-specific orbitals, $\Delta$sCI2/sCI0 systematically undershoots the excitation energies and provides a MAE of \SI{0.88}{\eV}.
+Ultimately, we did not find a combination of sCI model and orbitals that produced reasonable excitation energies for closed-shell systems.
+This highlights the challenge in describing on an equal footing states with qualitatively different characters (a ground state closed-shell and an excited-state open-shell).
+%sCI2 delivers quite poor results (MAE of \SI{1.06}{eV}), whereas $\Delta$sCI2 reduces the statistical errors (MAE of \SI{0.60}{eV}).
+%This improvement, however, is not as expressive as observed for excitataion-based and hierarchy-based methods.
+%Compare, for instance, with the cases of hCI2.5 and $\Delta$hCI2.5 shown in Tab.~\ref{tab:1}.
+%The large errors, even following the state-specific approach, combined with the formal $\order*{e^N}$ scaling of these methods, render seniority-based CI unsuitable for calculations of excitation energies.
 pCCD-CI for excited states \cite{Nowak_2023}
+
+The situation for open-shell systems is quite different.
+As shown in Tab.~\ref{tab:2}, sCI delivers considerably more accurate excitation energies than for open-shell than for closed-shell systems.
+This general observation can be understood from the fact that both ground and excited states of open-shells share the same type of reference (a single $s=1$ open-shell determinant),
+which is not the case for closed-shells.
+The same type of reference provides a fair starting point for the subsequent sCI calculations, similarly to what was as discussed above for hCI models.
+% check for s=3 reference
+sCI1 presents a MAE of \SI{0.44}{\eV} and overestimates the excitation energy (MSE of \SI{+0.27}{\eV}), reflecting the bias toward the ground state due to ground-state orbitals.
+With state-specific orbitals, $\Delta$sCI1 reduces the MAE to \SI{0.28}{\eV} and the MSE to \SI{-0.15}{\eV}, which is smaller in absolute value than in sCI1.
+
+Even though $\Delta$sCI1 is less accurate and more expensive than CI models like $\Delta$CISD and $\Delta$hCI2, 
+its descent errors are encouraging for the development of polynomial scaling coupled cluster methods based on the concept of seniority.
+For closed-shell systems, sCI0 energies can be very well reproduced with pair coupled cluster doubles (pCCD), \cite{Kossoski_2021} a method of mean-field cost.
+Similarly, some formulation of pCCD to open-shell systems could share a connection to low-order seniority-based CI models like sCI1.
+If that is the case, then a state-specific approach of such pCCD open-shell formulation could approach the accuracy of $\Delta$sCI1 (MAE of \SI{0.28}{\eV}) at a mean-field cost,
+serving as a better starting point to methods targeting the remaining weak correlation than if starting from the (also mean-field though less accurate) $\Delta$CSF model (MAE of \SI{0.50}{\eV}).
+To the best of our knoweledge, there has been a single proposed extension of pCCD to open-shell systems,
+based on the ionization-potential equation-of-motion formalism. \cite{Boguslawski_2021}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
