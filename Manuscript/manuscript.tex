@@ -123,7 +123,7 @@ single-reference and multiconfigurational self-consistent field,
 %multiconfigurational SCF, \cite{Shea_2018,Tran_2019,Tran_2020,Hardikar_2020,Burton_2022,Kossoski_2023,Marie_2023}
 density functional theory, 
 \cite{Filatov_1999,Kowalczyk_2011,Kowalczyk_2013,Gilbert_2008,Barca_2018,Hait_2020,Hait_2021,Hardikar_2020,Zhao_2020,Levi_2020,Carter-Fenk_2020,Toffoli_2022,Schmerwitz_2022}
-and coupled-cluster 
+and coupled-cluster (CC)
 \cite{Piecuch_2000,Mayhall_2010,Lee_2019,Kossoski_2021,Marie_2021,Rishi_2023}
 methods.
 In particular, by employing a minimal configuration state function reference, 
@@ -260,7 +260,7 @@ We found that the EN2 perturbative correction generally reduces the errors of al
 As such, it accelerates the rate of convergence as a function of the excitation degree or hierarchy parameter.
 Importantly, the perturbative corrected hCI route still outperforms the excitation-based counterpart, just as for the uncorrected comparison.
 Furthermore, the reduction of the errors is overall more monotonic than without the perturbative correction,
-which is illustrated in Fig.\ref{} for the particular case of \ce{F2}.
+which is outlined in Fig.\ref{} for the particular case of \ce{F2}.
 For the sCI route, however, the EN2 correction does not bring a clear improvement to render it competitive in relation to the excitation-based and hCI alternatives.
 
 
@@ -282,7 +282,10 @@ For the sCI route, however, the EN2 correction does not bring a clear improvemen
 \label{sec:res_B}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For each CI model considered here, we evaluated the mean signed error (MSE), mean absolute error (MAE), and root-mean square error (RMSE) associated with the excitation energy.
+% intro
+
+For each CI model considered here, we evaluated the mean signed error (MSE), mean absolute error (MAE), and root-mean square error (RMSE) 
+with respect to reference theoretical values for the excitation energies.
 The statistical errors are presented in Tab.~\ref{tab:1} and Tab.~\ref{tab:2},
 for singly excited states of closed-shell and open-shell systems, respectively.
 For the lower order models, the calculations were performed for 46 (closed-shell) and 20 (open-shell) excited states.
@@ -290,61 +293,90 @@ In turn, a subset of 14 (closed-shell) and 5 (open-shell) excited states was con
 Even though these subsets are too small for meaningful absolute statistics, they can still show the main trends on the higher order CI models.
 %A detailed comparison of excitation-based CI along the ground-state and the state-specific routes can be found elsewhere. \cite{Kossoski_2023}
 %The focus of the present discussion lies on the comparison between hCI, sCI, and excitation-based CI, for both routes,
-%
-%There are two key elements that explain the main trends on the observed statistical errors. The first concerns the set of molecular orbitals.
 
-We start the discussion with the excitations from closed-shell systems, with corresponding statistics shown in Tab.~\ref{tab:1}.
+% ground-state based hCI
+
+We start the discussion with the excitations from closed-shell systems, with corresponding statistical errors shown in Tab.~\ref{tab:1}.
+%
 The first level of hCI, hCI1, produces poor excitation energies, with a MAE of \SI{1.07}{\eV}.
 This model shares the same computational scaling with CIS, but includes the paired double excitations, 
 which clearly do not improve the descent CIS results (MAE of \SI{0.61}{\eV}).
 Moving one rank up, to hCI1.5, the MAE increases to \SI{1.91}{\eV}, and reaches a maxium of \SI{3.53}{\eV} at the hCI2 level.
-From that point on, the errors systematically decrease.
-hCI2.5 is stil as inaccurate (MAE of \SI{1.95}{\eV}) as hCI1.5.
-Finally, at the hCI3 level, significantly smaller errors are achieved (MAE of \SI{0.19}{\eV}),
-which are further reduced at the hCI3.5 level (MAE of \SI{0.11}{\eV}).
+Here we notice that hCI2 delivers somewhat smaller errors than CISD (MAE of \SI{4.09}{\eV}), even though both are way too large.
+From that point on, the next hCI models generate progressively better results.
+Despite the improvement with respect to hCI2, hCI2.5 is stil as inaccurate (MAE of \SI{1.95}{\eV}) as hCI1.5.
+At the hCI3 level, significantly smaller errors are finally achieved (MAE of \SI{0.19}{\eV}).
+This is quite close to that obtained with the excitation-based model of same order, CISDT (\SI{0.17}{\eV}).
+Even smaller errors are produced at the hCI3.5 level (MAE of \SI{0.11}{\eV}), but at a considerable computational cost.
 
-The errors of the hCI models thus increase as one augments the hierarchy parameter $h$, reaching a maximum at hCI2, and then decrease towards higher orders.
+% first origin of the unbalance hCI
+
+%There are two key elements that explain the main trends on the observed statistical errors. The first concerns the set of molecular orbitals.
+The errors of the hCI models first increase as one augments the hierarchy parameter $h$, reaching a maximum at hCI2, and then decrease towards higher orders.
 This behavior paralles what is found with excitation-based CI, where CISD is far less accurate than CIS, which in turn is less accurate than CISDT and CISDTQ.
 This can be understood based on the role of the excited determinants for ground and excited states.
-%
-The excited determinants of the low-order hCI models (hCI1 and hCI1.5) already account for some correlation of the ground state, but represent mostly orbital relaxation of the excited state, which thus remains less correlated.
+The excited determinants of the low-order hCI models (hCI1 and hCI1.5) already account for some correlation of the ground state,
+but represent mostly orbital relaxation of the excited state, which thus remains less correlated.
 This favored description of the ground state explains the overestimated excitation energies.
-The effect becomes exagerated at the hCI2 (and CISD) models, since it captures most of the ground state correlation through the unpaired double excitations.
-Higher orders models are needed to recover most of the excited state correlation and the excitation energy errors thus decrease.
+The effect becomes exagerated at the hCI2 (and CISD) models, since it captures most of the ground state correlation through the unpaired double excitations,
+but still little correlation for the excited state.
+Higher orders models are needed to recover most of the excited state correlation, and at this point the errors on the excitation energies start to decrease.
 %(though always overestimating the reference values).
-The same argument also explains why hCI systematically overestimates the excitation energies, just as excitation-based CI does.
+The same argument also explains why hCI systematically overestimates the excitation energies, just as for excitation-based CI.
 
-The trends discussed above are directly linked with the use of ground-state HF orbitals.
-Employing state-specific orbitals would be expected to suppress this bias and improve the accuracy, as observed, for instance, when going from CISD to $\Delta$CISD \cite{Kossoski_2023}.
-For the lower orders of state-specific hCI ($\Delta$hCI1 and $\Delta$hCI1.5), we actually found larger errors than with the ground-state based approach, though by underestimating the excitation energies.
-Besides the set of orbitals, a second key aspect must be considered.
+% state-specific hCI and second origin of the unbalance
+
+The trend discussed above stems from the use of ground-state HF orbitals.
+Employing state-specific orbitals would be expected to suppress the bias toward the ground state and lead to improved results, as observed, for instance, when going from CISD to $\Delta$CISD \cite{Kossoski_2023}.
+However, for the lower orders of state-specific hCI ($\Delta$hCI1 and $\Delta$hCI1.5), we actually found larger errors than with the ground-state based approach, though by underestimating the excitation energies.
+%Besides the set of orbitals, a second key aspect must be considered.
+Besides the set of orbitals, the types of determinants included at each order play an equally important role and explains our observation.
 For a given hierarchy parameter $h$, different classes of determinants are accessed from the ground state reference (a closed-shell determinant) and from the excited state reference (a single open-shell CSF).
-The case of $\Delta$hCI1 is illustrated in Fig.~\ref{fig:DhCI1}.
+The case of $\Delta$hCI1 is portrayed in Fig.~\ref{fig:DhCI1}.
 %For the ground state calculation, it accounts for two classes of excited determinants, generated by single excitation and by paired double excitation from the closed-shell reference.
 %For the singly-excited state, four types of determinants are generated. On top of the single and paired double excitations from the doubly-occupied orbitals, 
 There is arguably more diversity in the types of determinants employed for the excited-state calculation than for the ground-state one.
-Because of that, lower orders of hCI may be expected to capture a larger fraction of correlation for the former calculation.
+Because of that, lower orders of hCI may be expected to capture a larger fraction of correlation for the excited state than for ground state.
 %and are thus not suitable for calculations of excitation energies for closed-shell systems.
 Although hCI is constructed to account for all classes of determinants whose number share the same computational scaling,
 at the lower orders this procedure does not lead to a balanced description of correlation, at least for excitations of closed-shell systems.
 As will be discussed later for the excitations of open-shell systems, this inbalance probably arises from the distinct reference determinants employed for the closed-shell excitations.
 %
 Another important point to realize is that a state-specific approach is not necessarily more accurate than a ground-state based approach.
-Both the orbitals and the classes of determinants of a given CI model play an important role in the fine balance of ground- and excited-state correlation effects.
+Both the orbitals and the classes of determinants of a given CI model control the fine balance of ground- and excited-state correlation effects.
 
-Ramping up to $\Delta$hCI2, this inbalance is reduced to a great extent, even though the excitation energies are still underestimated.
+%Ramping up to $\Delta$hCI2, this inbalance is reduced to a great extent.
+%even though the excitation energies are still underestimated.
 %Even though this unbalance is still observed for $\Delta$hCI2, it is much less serious than observed for the lower-order state-specific hCI methods.
-$\Delta$hCI2 display a MAE of \SI{0.20}{\eV}, comparable to that of $\Delta$CISD (\SI{0.17}{\eV}) display comparable MAEs.
-Albeit small, this difference is probably statistically significant, and $\Delta$CISD should still outperform $\Delta$hCI2 by some margin.
-Similarly, $\Delta$hCI2 has a more negative MSE (\SI{-0.19}{\eV} than $\Delta$CISD (\SI{-0.13}{\eV})
+
+% state-specific vs. ground-state hCI
+
+The state-specific advantage only shows up at the $\Delta$hCI2 level, which is substantially more accurate than hCI2 (MAEs of \SI{0.20}{\eV} and \SI{3.53}{\eV}).
+This improvement parallels our previous finding on the excitation-based CI models of the same order, CISD and $\Delta$CISD. \cite{Kossoski_2023}
+Even though hCI2 is somewhat more accurate than CISD (both have large errors), their state-specific versions share a comparable performance.
+Actually, $\Delta$hCI2 is slightly less accurate than $\Delta$CISD (MAEs of \SI{0.20}{\eV} and \SI{0.17}{\eV}).
+Moreover, $\Delta$hCI2 has a more negative MSE than $\Delta$CISD (\SI{-0.19}{\eV} against \SI{-0.13}{\eV}).
+Albeit small, these differences are statistically significant, and $\Delta$CISD would still be preferable to $\Delta$hCI2 by some margin.
+
 %This means that the additional determinants present in the former model recover a larger fraction of the correlation energy for excited state than for the ground state, thus creating a bias toward underestimated excitation energies.
 Ramping up to $\Delta$hCI2.5 increases the errors (MAE of \SI{0.27}{\eV}),
-which is probably due to another layer of inbalance concerning the (ground-state and excited-state) determinants that enter at this stage.
-(Despite the different number of states considered, the observed difference between $\Delta$hCI2 and $\Delta$hCI2.5 is statistically significant.)
-The situation improves at $\Delta$hCI3 (MAE of \SI{0.21}{\eV}),
-while $\Delta$hCI3.5 generates considerably more accurate results (MAE of \SI{0.08}{\eV}),
+which probably reflects another set of unbalanced state-specific determinants that enters at this stage.
+(Despite the differing number of states considered, the observed variation on the accuracy of $\Delta$hCI2 and $\Delta$hCI2.5 is statistically significant.)
+Even though $\Delta$hCI2.5 is much more accurate than hCI2.5, $\Delta$hCI2 or $\Delta$CISD remain cheaper and more accurate.
 
-%Despite the rather poor performance of lower-order hCI models for excitation energies,
+The situation improves at $\Delta$hCI3 (MAE of \SI{0.21}{\eV}),
+while $\Delta$hCI3.5 generates considerably more accurate results (MAE of \SI{0.08}{\eV}).
+There is no gain in going from hCI3 to $\Delta$hCI3 and from hCI3.5 to $\Delta$hCI3.5,
+similarly to what had been found for CISDT and $\Delta$CISDT. \cite{Kossoski_2023}
+%which also parallels the comparison between CISDT and $\Delta$CISDT. \cite{Kossoski_2023}
+We notice, however, that the state-specific route presents negative MSEs, in contrast to the positives values obtained with the ground-state based route.
+Furthermore, excitation-based CI and hCI perform similarly at this order (the former perhaps slightly better),
+as also observed for $\Delta$CISD and $\Delta$hCI2.
+
+
+%As discussed above, adopting the state-specific approach at lower-order hCI models ($\Delta$hCI1 and $\Delta$hCI1.5)
+%actually worsens the results with respect to the ground-state approach (hCI1 and hCI1.5).
+
 %we further investigated whether higher-order versions could be competitive against the traditional excitation-based counterparts.
 %For that, we performed calculations for a subset of 14 singly-excited states of small closed-shell molecular systems (indicated in the {\SupInf}).
 %(\ce{H2O}, \ce{BF}, \ce{HCF}, \ce{HCl}, and \ce{N2}),
@@ -367,7 +399,7 @@ method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{
 \hline
 CIS               & 46  & +0.04 & 0.61 & 0.60 \\
 CISD              & 14  & +4.09 & 4.09 & 4.18 \\
-CISDT             & 14  & +0.10 & 0.19 & 0.20 \\
+CISDT             & 14  & +0.12 & 0.17 & 0.18 \\
 CISDTQ            & 14  & +0.15 & 0.15 & 0.17 \\
 %
 \hline
@@ -389,7 +421,7 @@ $\Delta$hCI1      & 46  & -1.36 & 1.40 & 1.50 \\
 $\Delta$hCI1.5    & 46  & -2.91 & 2.91 & 3.10 \\
 $\Delta$hCI2      & 46  & -0.19 & 0.20 & 0.25 \\
 $\Delta$hCI2.5    & 14  & -0.27 & 0.27 & 0.30 \\
-$\Delta$hCI3      & 14  & -0.21 & 0.21 & 0.24 \\
+$\Delta$hCI3      & 14  & -0.22 & 0.22 & 0.24 \\
 $\Delta$hCI3.5    & 14  & -0.08 & 0.08 & 0.09 \\
 %
 \hline
@@ -402,20 +434,44 @@ $\Delta$sCI2/sCI0 & 46  & -0.99 & 0.99 & 1.15 \\
 \end{ruledtabular}
 \end{table}
 
-We now move to the discussion about the excitation energies of open-shell systems.
+We now shift to excitations for open-shell systems.
 The statistical errors are shown in Tab.~\ref{tab:2}.
-%
-The case of $\Delta$hCI2 was discussed above for the larger set of excitation energies.
-Here we further notice that hCI2 was found to be somewhat more accurate than CISD, even though the errors are still too large.
-However, this improvement does not reflect on the state specific route (compare $\Delta$hCI2 and $\Delta$CISD in Tabs.~\ref{tab:1} and ~\ref{tab:2}).
-Moving to the next order, even though the state-specific route ($\Delta$hCI2.5) is far more accurate than the ground-state based route (hCI2.5),
-it is actually less accurate then $\Delta$hCI2.
-An improved performance is found for hCI3, $\Delta$hCI3, CISDT, and $\Delta$CISDT, which present quite similar MAEs and RMSEs.
-There is thus no advantage in moving from excitation-based to hCI at this order, similarly to what discussed before for the $\Delta$hCI2 and $\Delta$CISD models.
-Moreover, $\Delta$hCI3 is not more accurate than hCI3, as also observed for $\Delta$CISDT and CISDT. \cite{Kossoski_2023}
-We notice, however, that the state-specific models present negative MSEs, in contrast to the positives values obtained in the ground-state based route.
-This reflects an umbalanced description of correlation effects, favoring the excited states.
-At the next order, $\Delta$hCI3.5 has significantly smaller errors, but at a much more elevated computational cost.
+%in the following comparison to the results for closed-shell excitations,
+%In comparison to the previous discussion,
+The key difference on the calculations for open-shell excitations is that the same type of reference determinant were employed for ground- and excited-state calculations,
+whereas the closed-shell excitations relied on different types of reference determinants.
+This accounts for the more accurate results for open-shell excitations and explains most of the differences with respect to excitations from closed-shell systems, outlined in detail below.
+
+%We first point out the similarities and later the key differences with respect to the closed-shell discussion.
+
+When using ground-state orbitals, we found the performance initially degrates and later improves as the order increases, for both excitation-based CI and hCI.
+This is similar to what was observed for the closed-shell excitations, 
+and can be traced back to a bias towards the ground state due to the choice of orbitals.
+%more ground-state correlation being recovered at the lower orders since one starts from ground-state orbitals.
+An important difference, however, is that the maximum error appears at a lower order (hCI1.5) and is significantly smaller (MAE of \SI{1.11}{\eV}) for open-shells
+than for closed-shells (at hCI2 with a MAE of \SI{3.53}{\eV}).
+This reflects the choice of reference, since both ground and excited states of the open shells considered here are qualitatively described with the same type of determinant.
+%This reflects the fact that ground and excited states of the open shells considered here are qualitatively described with the same type of determinant.
+For the same reason, the MSEs are systematically smaller for the open-shell excitations.
+
+Once state-specific orbitals are employed, there is no longer a bias towards the ground state related to the orbitals.
+In a big contrast to the closed-shell case, here the lower orders of hCI, $\Delta$hCI1 (MAE of \SI{0.34}{\eV}) and $\Delta$hCI1.5 (MAE of \SI{0.46}{\eV}), 
+become more accurate than their ground-state based counterparts, hCI1 (MAE of \SI{0.77}{\eV}) and hCI1.5 (MAE of \SI{1.11}{\eV}).
+Again, thanks to the same type of reference in ground- and excited-state calculations.
+The case of $\Delta$hCI1 for open-shell excitation is depicted in Fig.~\ref{fig:DhCI1}, in comparison to the more unbalanced case of excitation from closed-shells.
+We notice, however, an apparent residual bias from the somewhat negative MSEs (\SI{-0.19}{\eV} with $\Delta$hCI1 and \SI{-0.10}{\eV} with $\Delta$hCI1.5).
+%and that $\Delta$hCI1 is slightly more accurate than $\Delta$hCI1.5.
+
+This residual bias disappears at the next order, $\Delta$hCI2, whereas for the closed-shell systems even $\Delta$hCI3.5 still understimated excitation energies. 
+The same holds for excitation-based CI.
+For open-shells, $\Delta$hCI2 is arguably slightly more accurate (MAE of \SI{0.11}{\eV}) than $\Delta$CISD (MAE of \SI{0.12}{\eV}), also based on the larger differences on the RMSEs.
+In further contrast to the closed-shell case,
+$\Delta$hCI2.5 is more accurate than $\Delta$hCI2, producing a MAE of \SI{0.06}{\eV}.
+(Accounting only for the 5 states considered for $\Delta$hCI2.5, $\Delta$hCI2 would have a MAE of \SI{0.09}{\eV}.)
+The statistics at the next orders ($h=3$ and $h=3.5$) is limited, 
+but suggests a possible advantage of the hCI models against the excitation-based ones,
+and that the ground-state routes perform slightly better than the state-specific ones.
+
 
 \begin{table}[ht!]
 \caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), and Root-Mean Square Error (RMSE) in Units of eV, with Respect to Reference Theoretical Values, for the Set of 
@@ -438,7 +494,7 @@ hCI2              & 5  & +0.69 & 0.69 & 0.85 \\
 hCI2.5            & 5  & +0.01 & 0.03 & 0.04 \\
 hCI3              & 5  & -0.00 & 0.02 & 0.03 \\
 hCI3.5            & 5  & -0.00 & 0.01 & 0.02 \\
-hCI4              & 5  &       &      &      \\
+%hCI4              & 5  &       &      &      \\
 %
 \hline
 $\Delta$CSF       & 20 & -0.04 & 0.41 & 0.58 \\
@@ -453,7 +509,7 @@ $\Delta$hCI2      & 20 & -0.01 & 0.11 & 0.16 \\
 $\Delta$hCI2.5    & 5  & -0.06 & 0.06 & 0.12 \\
 $\Delta$hCI3      & 5  & -0.03 & 0.03 & 0.06 \\
 $\Delta$hCI3.5    & 5  & -0.02 & 0.02 & 0.02 \\
-$\Delta$hCI4      & 5  &       &      &      \\
+%$\Delta$hCI4      & 5  &       &      &      \\
 %
 \hline
 sCI1              & 20 & +0.24 & 0.39 & 0.61 \\
@@ -461,6 +517,13 @@ $\Delta$sCI1      & 20 & -0.11 & 0.27 & 0.38 \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
+
+Methods that make use of the concept of seniority to generate excited determinants 
+are not invariant under orbital rotations within the occupied and virtual subspaces. \cite{Bytautas_2011,Limacher_2014,Stein_2014}
+This applies for the hCI and sCI models considered here.
+Here we employed HF ground-state orbitals or excited-state orbitals optimized for a minimal reference. \cite{Kossoski_2023}
+Further exploiting the rotations within occupied and virtual subspaces could render more suitable orbitals for hCI and sCI calculations.
+Alternatively, one could fully optimize the orbitals at a given CI model.
 
 %\begin{table}[ht!]
 %\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), and Root-Mean Square Error (RMSE) in Units of eV, with Respect to Reference Theoretical Values,
@@ -502,43 +565,44 @@ $\Delta$sCI1      & 20 & -0.11 & 0.27 & 0.38 \\
 %This provides a fair starting point for the subsequent sCI calculations, similarly to what was as discussed above for hCI models.
 
 We refer back to Tab.~\ref{tab:1} to discuss the performance of seniority-based CI for excited states of closed-shell systems.
-The first model, sCI2/sCI2, systematically overestimates the excitation energies, and presents a MAEs of \SI{1.40}{\eV}.
+The first model, sCI2/sCI2, systematically overestimates the excitation energies, and presents a MAEs of \SI{1.34}{\eV}.
 The same two factors discussed above for hCI explain such large errors.
 First, the ground state description is favored due to the use of ground-state HF orbitals.
-Indeed, with state-specific orbitals, the $\Delta$sCI2/sCI2 model reduces the MAEs to \SI{0.77}{\eV}, though still overestimating the excitation energies.
+Indeed, with state-specific orbitals, the $\Delta$sCI2/sCI2 model reduces the MAE to \SI{0.79}{\eV}, though still overestimating the excitation energies.
 Second, there is an unbalanced description of correlation for ground and excited states.
 %While the ground state reference (which has $s=0$) can access determinants with unpaired electrons (in the $s=2$ sector)
 While sCI2/sCI2 accounts for an additional seniority sector ($s=2$) for the ground state reference (which has $s=0$), 
-the excited state reference already lives in the same $s=2$ seniority sector.
-In other words, unpaired excitations are allowed for the ground state but not for the excited state, relative to their respective reference determinants, which creates a bias toward the former.
+no further electron unpaired is allowed for the excited state, whose reference already lives in the $s=2$ seniority sector.
+In other words, unpaired excitations are allowed for the ground state but not for the excited state, relative to their respective reference determinants, which creates a bias towards the former.
 A possible solution to this unbalance is to restrict the determinants to the maximum seniority number of the reference.
-This is precisely the sCI2/sCI0 model, which delivers a MAE of \SI{0.42}{\eV}, compared to \SI{1.40}{\eV} of sCI2/sCI2.
-However, when going to state-specific orbitals, $\Delta$sCI2/sCI0 systematically undershoots the excitation energies and provides a MAE of \SI{0.88}{\eV}.
+This is precisely the sCI2/sCI0 model, which delivers a MAE of \SI{0.57}{\eV}, compared to \SI{1.34}{\eV} of sCI2/sCI2.
+However, when going to state-specific orbitals, $\Delta$sCI2/sCI0 systematically undershoots the excitation energies and provides a MAE of \SI{0.99}{\eV}.
+Clearly, the $s=2$ sector captures more correlation for the excited states than the $s=0$ does for the ground state.
 Ultimately, we did not find a combination of sCI model and orbitals that produced reasonable excitation energies for closed-shell systems.
-This highlights the challenge in describing on an equal footing states with qualitatively different characters (a ground state closed-shell and an excited-state open-shell).
 %sCI2 delivers quite poor results (MAE of \SI{1.06}{eV}), whereas $\Delta$sCI2 reduces the statistical errors (MAE of \SI{0.60}{eV}).
 %This improvement, however, is not as expressive as observed for excitataion-based and hierarchy-based methods.
 %Compare, for instance, with the cases of hCI2.5 and $\Delta$hCI2.5 shown in Tab.~\ref{tab:1}.
 %The large errors, even following the state-specific approach, combined with the formal $\order*{e^N}$ scaling of these methods, render seniority-based CI unsuitable for calculations of excitation energies.
 pCCD-CI for excited states \cite{Nowak_2023}
 
-The situation for open-shell systems is quite different.
-As shown in Tab.~\ref{tab:2}, sCI delivers considerably more accurate excitation energies for open-shell than for closed-shell systems.
-This general observation can be understood from the fact that both ground and excited states of open-shells share the same type of reference (a single $s=1$ open-shell determinant),
-thus significantly minimizing an unbalanced account of correlation, encountered for excitations from closed-shells.
-The same type of reference provides a fair starting point for the subsequent sCI calculations, similarly to what was as discussed above for hCI models applied to excitations of open-shell systems.
+The situation for open-shell systems is quite different, in close parallel to the previous discussion of hCI.
+As shown in Tab.~\ref{tab:2}, sCI provides considerably more accurate excitation energies for open-shell than for closed-shell systems.
+The reason should not be surprising at this point:
+both ground and excited states of open-shells share the same type of reference (a single $s=1$ open-shell determinant).
 % check for s=3 reference
-sCI1 presents a MAE of \SI{0.44}{\eV} and overestimates the excitation energy (MSE of \SI{+0.27}{\eV}), reflecting the bias toward the ground state due to ground-state orbitals.
-With state-specific orbitals, $\Delta$sCI1 reduces the MAE to \SI{0.28}{\eV} and the MSE to \SI{-0.15}{\eV}, which is smaller in absolute value than found for sCI1.
+Moreover, the state-specific approach is clearly superior.
+sCI1 presents a MAE of \SI{0.39}{\eV} and overestimates the excitation energy (MSE of \SI{+0.24}{\eV}), reflecting the bias toward the ground state due to ground-state orbitals.
+With state-specific orbitals, $\Delta$sCI1 reduces the MAE to \SI{0.27}{\eV} and the MSE to \SI{-0.11}{\eV}, which is smaller in absolute value than found for sCI1.
 
-Even though $\Delta$sCI1 is less accurate and more expensive than CI models like $\Delta$CISD and $\Delta$hCI2, 
-its descent errors are encouraging for the development of polynomial scaling coupled cluster methods based on the concept of seniority.
-For closed-shell systems, sCI0 energies can be very well reproduced with pair coupled cluster doubles (pCCD), \cite{Kossoski_2021} a method of mean-field cost.
-Similarly, some formulation of pCCD to open-shell systems could share a connection to low-order seniority-based CI models like sCI1.
-If that is the case, then a state-specific approach of such pCCD open-shell formulation could approach the accuracy of $\Delta$sCI1 (MAE of \SI{0.28}{\eV}) at a mean-field cost,
-serving as a better starting point to methods targeting the remaining weak correlation than if starting from the (also mean-field though less accurate) $\Delta$CSF model (MAE of \SI{0.50}{\eV}).
-To the best of our knoweledge, there has been a single proposed extension of pCCD to open-shell systems,
-based on the ionization-potential equation-of-motion formalism. \cite{Boguslawski_2021}
+Even though $\Delta$sCI1 is less accurate and has less favourable computational scaling than CI models like $\Delta$CISD and $\Delta$hCI2,
+its descent errors are encouraging for another reason.
+the development of polynomial scaling CC methods based on the concept of seniority.
+For closed-shell systems, sCI0 energies can be very well reproduced with pair coupled cluster doubles (pCCD), \cite{Kossoski_2021} a method that has mean-field cost.
+Similarly, a formulation of pCCD to open-shell systems might share a analogous connection to low-order seniority-based CI models like sCI1.
+If that is the case, then a state-specific approach of such pCCD formulation adapted to open-shells may approach the accuracy of $\Delta$sCI1 (MAE of \SI{0.27}{\eV}) at a mean-field cost.
+This method could then provide a better starting point to recover the remaining weak correlation than if starting from the (also mean-field though less accurate) $\Delta$CSF model (MAE of \SI{0.41}{\eV}).
+To the best of our knoweledge, there has been a single proposed extension of pCCD to open-shell systems, \cite{Boguslawski_2021}
+based on the ionization-potential equation-of-motion (EOM) formalism.
 
 
 
@@ -560,23 +624,48 @@ based on the ionization-potential equation-of-motion formalism. \cite{Boguslawsk
 %Finally, we introduce and gauge seniority-based and hierarchy-based CI methods for excited states, along both the standard ground-state based route and the state-specific route. \cite{Kossoski_2023}
 
 Here we have generalized hCI \cite{Kossoski_2022} for the case of an open-shell reference determinant, thus extending its applicability to radical species and excited states.
-By surveying the dissociation of several open-shell systems, 
-we found that the hCI route has an edge in comparison to excitation-based CI, for both weakly correlated (equilibrium geometries) and strongly correlating (dissociation) regimes.
+In the first part,
+by surveying the dissociation of several open-shell systems, 
+we found that the hCI route generally outperforms excitation-based CI, for both weakly correlated (equilibrium geometries) and strongly correlating (dissociation) regimes.
 Meanwhile, seniority-based CI leads to far less accurate results in comparison to hCI or excitation-based CI, for a given computational cost.
 These findings are in line with what had been found for closed-shell systems. \cite{Kossoski_2022}
-We also found that, for closed- and open-shell systems,
-the EN2 perturbative corrections lead to substantial improvements for hCI and excitation-based CI routes (while keeping the upper hand for the former), but do not help much with the deficiencies of the sCI route.
+We further evaluated, for closed- and open-shell systems, the impact of EN2 perturbative corrections.
+They lead to substantial improvements for hCI and excitation-based CI routes (while keeping the advantage of the former), 
+but do not help much with the deficiencies of the sCI route.
 
-We further gauged the performance of hCI and sCI methods, based on either HF ground-state orbitals or state-specific orbitals, to describe excited states of closed-shell systems and radicals.
-Despite their elevated computational cost, sCI models produced relatively poor results (even in a state-specific approach), and thus should not be useful in practice.
-Similarly, for lower orders of hCI (hCI1 and hCI1.5), the performance is very poor,
+In the second part,
+we gauged the performance of hCI to describe excited states of closed-shell and open-shell systems, based on either HF ground-state orbitals or state-specific orbitals.
+We discussed the 
+%
+For lower orders of hCI (hCI1 and hCI1.5), the performance is poor,
 with ground-state (state-specific) orbitals leading to largely overestimated (underestimated) excitation energies.
 The situation improves at the state-specific $\Delta$hCI2 order, even though its accuracy is somewhat worse than $\Delta$CISD, both models sharing the same computational scaling. 
-Unfortunately, $\Delta$hCI2.5 does not lead to more accurate results, whereas all the CI models at next next order (CISDT, $\Delta$CISDT, hCI3, and $\Delta$hCI3) show comparable performance.
+Unfortunately, $\Delta$hCI2.5 does not lead to more accurate results, whereas all the CI models at next next order (CISDT, $\Delta$CISDT, hCI3, and $\Delta$hCI3) typically show comparable performances.
 Overall, hCI models for excited states are either innacurate given their computational cost ($h=1$, $h=1.5$ and $h=2.5$) or comparable to excitation-based CI at the same order ($h=2$ and $h=3$).
 %it is fair to conclude that 
+The present findings highlight the challenge in describing on an equal footing states with qualitatively different characters (like ground and singly-excited states of closed-shell systems).
+%, and thus should not be useful in practice.
 
+Here we put forward the interesting perspective of developing hierarchy-based CC (hCC) methods for excited states.
+For instance, EOM-CC with single and double excitations (EOM-CCSD) \cite{} is very accurate for excitation energies of singly-excited states, \cite{Loos_2018,Loos_2020,Loos_2020a},
+whereas CISD provides too big excitation energies, 
+even though both methods use ground-state orbitals and span the same excited determinants.
+Here we found that hCI2 is more accurate than CISD to some extent. In particular, the overestimated energies are slightly less exaggerated in the former.
+We wonder whether this improvement would be transferable to an analogous EOM formulation built on top of hCC truncated at $h=2$, EOM-hCC2.
+Importantly, it is not obvious what the computational scaling of such a method would be.
+Along the same line, it would be interesting to develop and test the performance of cheaper orders like EOM-hCC1.
+Alternatively, one could develop hCC methods to target excited states along the state-specific route.
 
+%This general observation can be understood from the fact that 
+%The same type of reference provides a fair starting point for the subsequent sCI calculations, similarly to what was as discussed above for hCI models applied to excitations of open-shell systems.
+%thus significantly minimizing an unbalanced account of correlation, encountered for excitations from closed-shells.
+
+Finally, in the third part of this contribution we employed different sCI models to compute excitation energies of closed-shell and open-shell systems.
+In spite of their formal exponential computational scaling, the sCI models did not produce attractive results compared with more competitive CI alternatives.
+The relevance of these calculations is related to the connection between seniority-based CI and pCCD methods.
+We raised the question whether there is an extension of pCCD to open-shell systems that can provide very similar energies to sCI1 (but with a polynomial scaling),
+which is already established (pCCD and sCI0) for closed-shell systems. \cite{Kossoski_2021}
+In this sense, the present results obtained with sCI1 for open-shell excitations are appealing and encourage the development of such a generalized pCCD.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{acknowledgements}
