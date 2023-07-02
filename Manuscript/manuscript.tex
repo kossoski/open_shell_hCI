@@ -176,10 +176,10 @@ This selected CI procedure requires considerably fewer determinants than the tot
 while delievering fairly converged absolute and excitation energies.
 The ground- and excited-state CI energies are obtained with the Davidson iterative algorithm. \cite{Davidson_1975}
 For a given approximate CI model, we futher evaluated the bare and the renormalized EN2 perturbative correction. \cite{Garniron_2019} 
-%associated with the determinants left outside the truncated space.
-This calculation involves a single loop over the determinants left outside the truncated space but connected to it via at most double excitations.
-Looping over these external doubly excited determinants thus represents an additional $\order*{N^4}$ factor on top of the computational scaling of the CI calculation.
-For example, hCI2 and CISD present a $\order*{N^6}$ computational scaling, whereas hCI2+EN2 and CISD+EN2 scale as $\order*{N^{10}}$,
+This calculation involves a single loop over the determinants left outside the truncated (internal) space but connected to it via at most double excitations.
+Looping over these external doubly excited determinants has a computational scaling equal to $\Ndet$,
+thus $\order*{2e+4}$ for excitation-based CI and $\order*{2h+4}$ for hCI, where $e$ or $h$ define the internal CI space.
+For example, hCI2 and CISD present a $\order*{N^6}$ computational scaling, whereas hCI2+EN2 and CISD+EN2 scale as $\order*{N^8}$,
 though with a small prefactor stemming from the EN2 calculation.
 
 To gauge the performance of hCI against excitation-based and seniority-based CI for radical systems,
