@@ -174,7 +174,7 @@ Notice that Eq.~\eqref{eq:h} simplifies to the previous definition \cite{Kossosk
 The above definition ensures that all types of determinants with a given scaling enter at the same hierarchy $h$.
 % computational scaling
 We show in Fig.~\ref{fig:hCI} how the seniority-excitation map of determinants is partitioned for a closed-shell reference, and for open-shell references with one or two unpaired electrons.
-%the different types of determinants that are accessed for a closed-shell reference, and for open-shell references with one or two unpaired electrons.
+For these three types of reference, Fig.~\ref{fig:determinants} shows the classes of determinants included up to hCI1.
 hCI can also be interpreted as the CI model that provides increasingly more dissimilar determinants from the given reference determinant.
 This dissimilarity is represented by the hierarchy $h$, which accounts for differences in orbital occupation (through the excitation degree $e$)
 and differences in the number of unpaired electrons (through the term $(s-s_0)/2$).
@@ -182,14 +182,15 @@ and differences in the number of unpaired electrons (through the term $(s-s_0)/2
 %%% FIG 2 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{determinants}
-\caption{}
+\caption{Classes of determinants generated in hCI0, hCI0.5 and hCI1, for three different reference determinants:
+closed-shell (top left), open-shell with one unpaired electron (top right) and open-shell with two unpaired electrons (bottom).
+Each class is determined by the specific seniority and occupation of the orbital blocks of the reference (doubly-occupied, singly-occupied and unoccupied).
+}
 \label{fig:determinants}
 \end{figure*}
 %%% %%% %%%
 
-Fig.~\ref{fig:hCI} shows the classes of determinants included at the lower orders of hCI (up to hCI2),
-for a close-shell reference and for an open-shell reference with one and two unpaired electrons.
-The first order for a closed-shell reference determinant is hCI1, which accounts for all single excitations (as CIS) 
+The first order for a closed-shell reference determinant is hCI1 (see top left of Fig.~\ref{fig:determinants}), which accounts for all single excitations (as CIS) 
 plus all paired doubled excitations (two electrons promoted from the same occupied orbital into the same virtual orbital).
 For both types of determinants, their number scales as $N^2$, and are thus taken into account at the same hierarchy of hCI ($h=1$ in this case).
 An odd number of excitations from a closed-shell reference always leave unpaired electrons, thus the empty blocks at $s=0$ and $e$ odd.
@@ -201,12 +202,12 @@ More generally, in hCI, the number of determinants $\Ndet$ scales polynomially w
 Similarly, for excitation-based CI, $\Ndet$ scales as $N^{2e}$, where $e$ is the excitation degree.
  
 For an odd number of electrons, $s$ assumes odd values starting from $s=1$.
-The simplest reference is an open-shell determinant with one unpaired electron (center pannel of Fig.~\ref{fig:hCI}).
+The simplest reference is an open-shell determinant with one unpaired electron (see center pannel of Fig.~\ref{fig:hCI} and top right of Fig.~\ref{fig:determinants}).
 In contrast to the closed-shell reference case, here there are no empty blocks in the excitation-seniority map.
-Actually, the hCI series starts at the hCI0.5 level, accounting for the single excitations from and into the singly-occupied orbital only.
-More generally, since there are more classes of orbitals for the open-shell case (doubly-occupied, singly-occupied and unnocupied) than for the closed-shell case (doubly-occpupied or unnocupied),
+Actually, the hCI series presents the hCI0.5 level, accounting for the single excitations from and into the singly-occupied orbital only.
+More generally, since there are more types of orbitals for the open-shell case (doubly-occupied, singly-occupied and unoccupied) than for the closed-shell case (doubly-occpupied or unoccupied),
 there is correspondingly more classes of determinants at a given level of hCI.
-The case hCI1 is shown in Fig.~\ref{fig:determinants}.
+This can be appreciated from the comparison of hCI1 for closed- and open-shell references, shown in Fig.~\ref{fig:determinants}.
 
 Finally, one can employ a high-spin reference determinant to define the hCI models.
 The case of two unpaired electrons is shown in the right pannel of Fig.~\ref{fig:hCI}.
@@ -215,8 +216,10 @@ reflecting the shift from the $s_0=0$ to the $s_0=2$ reference.
 In the two previous cases, the hCI0 level only includes the reference determinant.
 For a $s=2$ reference, however, hCI0 not only accounts for the reference determinant,
 but also the two closed-shell determinants produced by the single excitation that pairs the two unpaired electrons.
-One can adopt even higher-spin references, further displacing the hCI sequence to the right.
-In this case, hCI0 includes all the lower spin determinants obtained by partially or totally pairing the unpaired electrons.
+The lower order classes of determinants can be seen in the bottom of Fig.~\ref{fig:determinants},
+which clearly outnumber the fewer classes associated with a closed-shell reference.
+One could adopt even higher-spin references, further displacing the hCI sequence to the right.
+In this case, hCI0 would include all the lower spin determinants obtained by partially or totally pairing the unpaired electrons.
 Notice that the number of such determinants do not depend on the size of the system (scaling as $N^0$), and are thus included at the $h=0$ level, in line with the spirit of hCI.
 hCI can be built in a similar way on top of a high-spin reference for odd number of electrons.
 
@@ -401,13 +404,12 @@ The same argument also explains why hCI systematically overestimates the excitat
 The trend discussed above stems from the use of ground-state HF orbitals.
 Employing state-specific orbitals would be expected to suppress the bias toward the ground state and lead to improved results, as observed, for instance, when going from CISD to $\Delta$CISD \cite{Kossoski_2023}.
 However, for the lower orders of state-specific hCI ($\Delta$hCI1 and $\Delta$hCI1.5), we actually found larger errors than with the ground-state based approach, though by underestimating the excitation energies.
-%Besides the set of orbitals, a second key aspect must be considered.
 Besides the set of orbitals, the types of determinants included at each order play an equally important role and explains our observation.
 For a given hierarchy parameter $h$, different classes of determinants are accessed from the ground state reference (a closed-shell determinant) and from the excited state reference (a single open-shell CSF).
-The case of $\Delta$hCI1 is portrayed in Fig.~\ref{fig:hCI1}.
+The case of $\Delta$hCI1 can be understood by comparing the hCI1 determinants for these two references, shown in Fig.~\ref{fig:determinants}.
 %For the ground state calculation, it accounts for two classes of excited determinants, generated by single excitation and by paired double excitation from the closed-shell reference.
 %For the singly-excited state, four types of determinants are generated. On top of the single and paired double excitations from the doubly-occupied orbitals, 
-There is arguably more diversity in the types of determinants employed for the excited-state calculation than for the ground-state one.
+There is clearly more diversity in the classes of determinants employed for the excited-state calculation than for the ground-state one, reflecting the different references employed.
 Because of that, lower orders of hCI may be expected to capture a larger fraction of correlation for the excited state than for ground state.
 %and are thus not suitable for calculations of excitation energies for closed-shell systems.
 Although hCI is constructed to account for all classes of determinants whose number share the same computational scaling,
@@ -530,7 +532,7 @@ Once state-specific orbitals are employed, there is no longer a bias towards the
 In a big contrast to the closed-shell case, here the lower orders of hCI, $\Delta$hCI1 (MAE of \SI{0.34}{\eV}) and $\Delta$hCI1.5 (MAE of \SI{0.46}{\eV}), 
 become more accurate than their ground-state based counterparts, hCI1 (MAE of \SI{0.77}{\eV}) and hCI1.5 (MAE of \SI{1.11}{\eV}).
 Again, thanks to the same type of reference in ground- and excited-state calculations.
-The case of $\Delta$hCI1 for open-shell excitation is depicted in Fig.~\ref{fig:hCI1}, in comparison to the more unbalanced case of excitation from closed-shells.
+The case of $\Delta$hCI1 for open-shell excitation is depicted in Fig.~\ref{fig:determinants}, in comparison to the more unbalanced case of excitation from closed-shells.
 We notice, however, an apparent residual bias from the somewhat negative MSEs (\SI{-0.19}{\eV} with $\Delta$hCI1 and \SI{-0.10}{\eV} with $\Delta$hCI1.5).
 %and that $\Delta$hCI1 is slightly more accurate than $\Delta$hCI1.5.
 

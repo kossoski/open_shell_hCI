@@ -2,7 +2,7 @@
 #
 
 set terminal postscript eps size 16.0,9.0 enhanced color \
-    font 'Helvetica,34' linewidth 2
+    font 'Helvetica,40' linewidth 2
 set output 'determinants.eps'
 
 set xrange[0.5:34.5]
@@ -14,16 +14,25 @@ unset xtics
 unset ytics
 unset border
 
-#set style line  1  lt 1 lw 3 lc "dark-violet"
-set style line  1  lt 1 lw 3 lc "gray10"
-set style line  10 lt 1 lw 2 lc "black"
-set style line  20 lt 1 lw 4 lc "black"
+rgb(r,g,b) = 65536 * int(r) + 256 * int(g) + int(b)
+
+set style line  1  lt 1 lw 3 lc rgbcolor rgb(186, 19, 26)
+set style line  10 lt 1 lw 3 lc "black"
+set style line  20 lt 1 lw 5 lc "black"
 set style line  30 lt 1 lw 4 lc "medium-blue"
 set style line  40 lt 1 lw 4 lc "red"
-set style line  50 lt 1 lw 4 lc "sea-green"
+
+set style line  50 lt 1 lw 4 lc rgbcolor rgb(101,194,149)
+set style line  60 lt 1 lw 4 lc rgbcolor rgb(  0,166, 93)
+set style line  70 lt 1 lw 4 lc rgbcolor rgb(  0,108, 59)
 
 set style arrow 1  head filled size screen 0.006,25,00 ls 1 lw 2
 set style arrow 10 nohead ls 10
+set style arrow 20 nohead ls 20
+
+set style arrow 5  heads filled size screen 0.0025,90,00 ls 50 lw 7
+set style arrow 6  heads filled size screen 0.0025,90,00 ls 60 lw 7
+set style arrow 7  heads filled size screen 0.0025,90,00 ls 70 lw 7
 
 al=0.8 # arrowlength
 dx=1.0
@@ -70,10 +79,10 @@ xi=xi+nx
 ##################################################################################################################################
 a1=1
 a2=2
-a3=3
+a3=4
 b1=1
 b2=2
-b3=4
+b3=3
 
 xi=xi+nx
 xf=xi+dx
@@ -318,10 +327,10 @@ yi=2.0
 ##################################################################################################################################
 a1=1
 a2=2
-a3=3
+a3=4
 b1=1
 b2=2
-b3=4
+b3=3
 
 xi=xi+nx
 xf=xi+dx
@@ -710,19 +719,30 @@ set arrow from xi+2*p3x,yi+b3*p3y+al2 to xi+2*p3x,yi+b3*p3y-al2 as 1
 ##################################################################################################################################
 
 
-set label "reference\ndeterminant" at  0.5, 14.0 tc ls 10 font "Helvetica,34"
-set label "hCI0"   at  1.1, 12.0 tc ls 50 font "Helvetica,34"
-set label "hCI1"   at  6.1, 12.0 tc ls 50 font "Helvetica,34"
+set label "reference"       at  0.3, 14.2 tc ls 10 font "Helvetica,40"
+set label "{/:Bold hCI0}"   at  0.9, 12.0 tc ls 50 font "Helvetica,40"
+set arrow                  from 0.1, 12.5 to 3.1,12.5 as 5
+set label "{/:Bold hCI1}"   at  5.9, 12.0 tc ls 70 font "Helvetica,40"
+set arrow                  from 0.1, 13.1 to 8.1,13.1 as 7
 
-set label "reference\ndeterminant" at  14.5, 14.0 tc ls 10 font "Helvetica,34"
-set label "hCI0"   at 15.1, 12.0 tc ls 50 font "Helvetica,34"
-set label "hCI0.5" at 19.8, 12.0 tc ls 50 font "Helvetica,34"
-set label "hCI1"   at 28.1, 12.0 tc ls 50 font "Helvetica,34"
+set label "reference"       at  14.3, 14.2 tc ls 10 font "Helvetica,40"
+set label "{/:Bold hCI0}"   at 14.9, 12.0 tc ls 50 font "Helvetica,40"
+set arrow                 from 14.1, 12.5 to 17.1,12.5 as 5
+set label "{/:Bold hCI0.5}" at 19.6, 12.0 tc ls 60 font "Helvetica,40"
+set arrow                 from 14.1, 12.8 to 23.1,12.8 as 6
+set label "{/:Bold hCI1}"   at 27.9, 12.0 tc ls 70 font "Helvetica,40"
+set arrow                 from 14.1, 13.1 to 33.1,13.1 as 7
 
-set label "reference\ndeterminant" at  0.5, 2.0 tc ls 10 font "Helvetica,34"
-set label "hCI0"   at  1.1,  0.0 tc ls 50 font "Helvetica,34"
-set label "hCI0.5" at 12.1,  0.0 tc ls 50 font "Helvetica,34"
-set label "hCI1"   at 25.1,  0.0 tc ls 50 font "Helvetica,34"
+set label "reference"       at  0.3, 2.2 tc ls 10 font "Helvetica,40"
+set label "{/:Bold hCI0}"   at  3.1,  0.0 tc ls 50 font "Helvetica,40"
+set arrow                 from  0.1,  0.5 to  7.1, 0.5 as 5
+set label "{/:Bold hCI0.5}" at 11.6,  0.0 tc ls 60 font "Helvetica,40"
+set arrow                 from  0.1,  0.8 to  17.1, 0.8 as 6
+set label "{/:Bold hCI1}"   at 25.9,  0.0 tc ls 70 font "Helvetica,40"
+set arrow                 from  0.1,  1.1 to  35.1, 1.1 as 7
+
+set arrow                  from -1.0, 11.3 to 37.0,11.3 as 20
+set arrow                  from 11.5, 11.3 to 11.5,24.0 as 20
 
 plot -1 notitle
 
