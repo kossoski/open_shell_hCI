@@ -12,7 +12,7 @@ set output 'plot_distance.eps'
 #set yrange[1e-3:1]
 #set logscale y
 #set format y "10^{%T}"
-set yrange[-0.1:1.1]
+set yrange[0.0:1.1]
 set ytics 0.2
 
 set xrange[1:1e10]

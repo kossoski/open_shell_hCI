@@ -15,7 +15,7 @@ set encoding iso_8859_1
 #xmin=2.30
 #xmax=2.70
 xmin=2.35
-xmax=2.65
+xmax=2.70
 
 set xrange[1.7:12.0]
 

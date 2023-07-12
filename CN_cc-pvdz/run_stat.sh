@@ -2,7 +2,7 @@
 
 norbitals=28
 nelectrons=13
-xcut=5.5
+xcut=4.0
 
 if [ -f "input" ]; then
   rm "input"

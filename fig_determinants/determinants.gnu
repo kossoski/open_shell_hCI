@@ -26,7 +26,7 @@ set style line  50 lt 1 lw 4 lc rgbcolor rgb(101,194,149)
 set style line  60 lt 1 lw 4 lc rgbcolor rgb(  0,166, 93)
 set style line  70 lt 1 lw 4 lc rgbcolor rgb(  0,108, 59)
 
-set style arrow 1  head filled size screen 0.006,25,00 ls 1 lw 2
+set style arrow 1  head filled size screen 0.006,25,00 ls 1 lw 5
 set style arrow 10 nohead ls 10
 set style arrow 20 nohead ls 20
 
@@ -190,10 +190,10 @@ set arrow from xi+2*p3x,yi+b2*p3y+al2 to xi+2*p3x,yi+b2*p3y-al2 as 1
 # SET 6
 ##################################################################################################################################
 a1=1
-a2=4
+a2=2
 a3=3
 b1=1
-b2=4
+b2=3
 
 xi=xi+nx
 xf=xi+dx
@@ -741,8 +741,8 @@ set arrow                 from  0.1,  0.8 to  17.1, 0.8 as 6
 set label "{/:Bold hCI1}"   at 25.9,  0.0 tc ls 70 font "Helvetica,40"
 set arrow                 from  0.1,  1.1 to  35.1, 1.1 as 7
 
-set arrow                  from -1.0, 11.3 to 37.0,11.3 as 20
-set arrow                  from 11.5, 11.3 to 11.5,24.0 as 20
+#set arrow                  from -1.0, 11.3 to 37.0,11.3 as 20
+#set arrow                  from 11.5, 11.3 to 11.5,24.0 as 20
 
 plot -1 notitle
 

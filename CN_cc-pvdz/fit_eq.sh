@@ -156,7 +156,7 @@ if [[ $(grep 'a25 ' a0.dat) ]]; then grep '3   ' det_CIo.dat | cut -c 4- >> det.
 paste det.dat a.dat D.dat > det_aD.dat
 
 grep 'FCI'      det_aD.dat | sed 's/FCI/1 /g'     >  det_aD_FCI.dat
-grep 'FCI'      det_aD.dat | sed 's/FCI/1.0E9 /g' >> det_aD_FCI.dat
+grep 'FCI'      det_aD.dat | sed 's/FCI/1.0E10 /g' >> det_aD_FCI.dat
 
 grep 'ROHF'     det_aD.dat | sed 's/ROHF/0 /g'     >  det_aD_CI.dat
 grep 'hfCIS '   det_aD.dat | sed 's/hfCIS /1 /g'   >> det_aD_CI.dat
@@ -256,7 +256,7 @@ grep 'xe25 ' xe0.dat | sed 's/xe25/ooCIo3   /g' >> xe.dat
 paste det.dat xe.dat D.dat > det_xe.dat
 
 grep 'FCI' det_xe.dat | sed 's/FCI/1 /g'   >  det_xe_FCI.dat
-grep 'FCI' det_xe.dat | sed 's/FCI/1E9 /g' >> det_xe_FCI.dat
+grep 'FCI' det_xe.dat | sed 's/FCI/1E10 /g' >> det_xe_FCI.dat
 
 grep 'ROHF'     det_xe.dat | sed 's/ROHF/0 /g'     >  det_xe_CI.dat
 grep 'hfCIS '   det_xe.dat | sed 's/hfCIS /1 /g'   >> det_xe_CI.dat

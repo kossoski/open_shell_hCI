@@ -13,9 +13,9 @@ set encoding iso_8859_1
 ###################################################################################
 # SYSTEM DEPENDENT PART:
 
-set xrange[0.6:5.5]
+set xrange[0.6:4.0]
 xmin=0.6
-xmax=5.5
+xmax=4.0
 
 # VIEW 1:
 set yrange[-92.6:-91.6]

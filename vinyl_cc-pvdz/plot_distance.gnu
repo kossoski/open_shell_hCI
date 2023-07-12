@@ -10,7 +10,7 @@ set output 'plot_distance.eps'
 ###################################################################################
 # SYSTEM DEPENDENT PART:
 #set xrange[-0.1:4.1]
-set yrange[-0.1:0.7]
+set yrange[0.0:0.8]
 #set logscale y
 #set format y "10^{%T}"
 
