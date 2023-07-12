@@ -146,14 +146,17 @@ which means moving diagonaly in this seniority-excitation map.
 
 %%% FIG 1 %%%
 \begin{figure*}%[h!]
-\includegraphics[width=0.3\linewidth]{table_hCI_closed_shell}
-\hspace{0.02\linewidth}
-\includegraphics[width=0.3\linewidth]{table_hCI_one_open_shell}
-\hspace{0.02\linewidth}
-\includegraphics[width=0.3\linewidth]{table_hCI_two_open_shell}
-\caption{Partitioning of the Hilbert space according to the excitation degree $e$ with respect to a given reference determinant and the seniority number $s$.
-The color tones represent the determinants that are included at a given hCI model,
-for a closed-shell reference (left), an open-shell reference with one unpaired electron (center) and an open-shell reference with two unpaired electrons (right).}
+\includegraphics[width=0.05\linewidth]{det_closed.eps}
+\includegraphics[width=0.25\linewidth]{table_hCI_closed_shell}
+\hspace{0.03\linewidth}
+\includegraphics[width=0.05\linewidth]{det_1open.eps}
+\includegraphics[width=0.25\linewidth]{table_hCI_one_open_shell}
+\hspace{0.03\linewidth}
+\includegraphics[width=0.05\linewidth]{det_2open.eps}
+\includegraphics[width=0.25\linewidth]{table_hCI_two_open_shell}
+\caption{Partitioning of the Hilbert space according to the seniority number $s$ and the excitation degree $e$ with respect to a given reference determinant (shown by its side),
+for a closed-shell reference (left), an open-shell reference with one unpaired electron (center) and an open-shell reference with two unpaired electrons (right).
+The color tones represent the determinants that are included at a given hCI model.}
 \label{fig:hCI}
 \end{figure*}
 %%% %%% %%%
@@ -205,6 +208,7 @@ For an odd number of electrons, $s$ assumes odd values starting from $s=1$.
 The simplest reference is an open-shell determinant with one unpaired electron (see center pannel of Fig.~\ref{fig:hCI} and top right of Fig.~\ref{fig:determinants}).
 In contrast to the closed-shell reference case, here there are no empty blocks in the excitation-seniority map.
 Actually, the hCI series presents the hCI0.5 level, accounting for the single excitations from and into the singly-occupied orbital only.
+For HF orbitals, however, these excitations do not connect with the reference, and hCI0.5 thus provides the same energy as restricted open-shell HF.
 More generally, since there are more types of orbitals for the open-shell case (doubly-occupied, singly-occupied and unoccupied) than for the closed-shell case (doubly-occpupied or unoccupied),
 there is correspondingly more classes of determinants at a given level of hCI.
 This can be appreciated from the comparison of hCI1 for closed- and open-shell references, shown in Fig.~\ref{fig:determinants}.
@@ -253,17 +257,21 @@ To gauge the performance of hCI against excitation-based and seniority-based CI 
 we have calculated the ground-state potential energy curves (PECs) for the dissociation of four radical systems:
 \ce{OH}, \ce{CN}, vinyl (\ce{C2H3}), and \ce{H7}.
 These calculations employed the ground-state restricted open-shell HF orbitals and the frozen core approximation.
-%which display a variable number of bond breaking.
 The equilibrium geometry of vinyl was taken from Ref.~\onlinecite{Loos_2020},
-%also reproduced in the \SupInf,
-and the PECs were computed along the \ce{C=C} double bond breaking coordinate, with the remaining internal coordinates kept frozen.
+and is also reproduced in the {\SupInf}.
+Their PECs were computed along the \ce{C=C} double bond breaking coordinate, with the remaining internal coordinates kept frozen.
 For \ce{H7}, we considered equally spaced and linearly arranged hydrogen atoms, and the PECs were computed along the symmetric dissociation coordinate.
+
 The results were analyzed along the same lines of our report on hCI for closed-shell systems. \cite{Kossoski_2022}
 Namely, for the different CI models considered here, 
 we evaluated the convergence of the non-parallelity error (NPE), the distance error, the harmonic vibrational frequencies, and the equilibrium bond lengths, as functions of $\Ndet$.
-The NPE (distance error) of a given level of theory is defined as the maximum minus (plus) the minimum differences between its corresponding PEC and the FCI one, for a given range of coordinates.
+The NPE of a given level of theory is defined as the maximum minus the minimum differences between its corresponding PEC and the FCI one, for a given range of coordinates.
+Here we redefine the previous definition of the distance error \cite{Kossoski_2022} to accommodate for the fact the approximate PEC might appear below the FCI when perturbative corrections are employed.
+The previous definition could provide negative values in this case, whereas this metric should provide the overall extent of proximity between two PECs.
+Here, we define the distance error based on the signed differences between two PECs, as the absolute value of their maximum difference plus the absolute value of their minimum difference, 
+evaluated at given coordinate interval.
 Details about how the harmonic vibrational frequencies and equilibrium geometries were obtained from the calculated PECs,
-and the ranges defining the NPE and distance errors can be found in the \SupInf.
+along with the ranges defining the NPE and distance errors can be found in the \SupInf.
 
 The various CI models introduced here were further assessed based on calculated vertical excitation energies for 60 electronic states,
 from 18 closed-shell systems and 8 radicals, with geometries extracted from the QUEST database. \cite{Veril_2021}
@@ -301,42 +309,78 @@ CI models carrying the $\Delta$ symbol denote a state-specific approach, whereas
 \label{sec:res_A}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% redefine the distance errors because of negative values?
 % vinyl missing point at 5.2 for s3i+pt2 and at 2.0 for s5+pt2
 % CN correct dissociating part for h4 and h3.5
 % H8 missing points for Q+pt2
 % H8 missing 9.0 for T+pt2
 
 The full set of PECs for the open-shell systems (\ce{OH}, \ce{CN}, \ce{H7}, and vinyl) are presented in the {\SupInf},
-along with the NPEs, distance errors, equilibrium bond lengths and harmonic vibrational frequencies, plotted as a function of $\Ndet$ for the different CI models.
-The present results for open-shell systems are discussed in detail in the following,
-and display similar trends to the ones previously reported for closed-shell systems. \cite{Kossoski_2022}
-hCI typically improves the convergence of the different properties when compared to excitation-based CI.
-Concerning the NPEs, such improvement is clear for \ce{OH} and \ce{CN} (involving a single bond breaking), less so for vinyl (double bond breaking),
+whereas Fig.~\ref{fig:plot_all} contains the NPEs, distance errors, equilibrium bond lengths and harmonic vibrational frequencies plotted as a function of $\Ndet$ for the different CI models.
+The present results for open-shell systems display similar trends to the ones previously reported for closed-shell systems. \cite{Kossoski_2022}
+The main finding is that hCI typically improves the convergence of the different properties when compared to excitation-based CI.
+Concerning the NPEs, such improvement is clear for \ce{OH} and \ce{CN} (involving a single bond breaking), becoming less so for vinyl (double bond breaking),
 whereas for \ce{H7} (multiple bond breaking), hCI and excitation-based CI perform similarly.
-This behavior had also been observed for dissociation of closed-shell systems. \cite{Kossoski_2022}
+This dependence on the order of bond breaking had also been observed for closed-shell systems. \cite{Kossoski_2022}
 The same trend is observed for the distance error, although the improvement from excitation-based CI to hCI is less marked than for the NPEs.
-hCI further leads to a faster convergence of the equilibrium geometry of \ce{CN}, while comparable results are found for the geometries of the other systems.
-Meanwhile, a clear improvement from excitation-based CI to hCI is observed for the vibrational frequencies, except for \ce{H7}, where no difference is found.
+hCI further leads to a faster convergence of the equilibrium geometry of \ce{CN}, but does not improve upon excitation-based CI for the geometries of the other systems.
+Finally, hCI systematically outperforms excitation-based CI in the calculation of vibrational frequencies, except for \ce{H7}, where no big difference is found.
+
+%%% FIG 3 %%%
+\begin{figure*}%[h!]
+\includegraphics[width=1.0\linewidth]{plot_all}
+\caption{
+Non-parallelity errors, distance errors, equilibrium distances, and vibrational frequencies (or force constants), for \ce{OH}, \ce{CN}, \ce{H7}, and vinyl,
+as a function of the number of determinants, according to hCI (green), excitation-based CI (red) and sCI (blue) models.}
+\label{fig:plot_all}
+\end{figure*}
+%%% %%% %%%
+
+sCI models deliver a poor convergence of all observables.
+The single exception is the NPE for \ce{OH} obtained from sCI0, smaller than the NPEs obtained from CISD and hCI1.5 or hCI2, methods having a comparable computational cost in this case.
+Going to larger basis sets or larger systems, the computational burden of sCI models would increase considerably more than hCI or excitation-based CI models, 
+due to its exponential scaling, rendering this route even less atractive.
+Analogous conclusions had been drawn for sCI applied to closed-shell systems, \cite{Kossoski_2022}
+and here we show that the same holds for radicals.
 
 %orbital optimization?
 
 We further assesssed the effect of the EN2 perturbative correction for both the open-shell systems studied here 
 and the closed-shell systems (\ce{HF}, \ce{F2}, \ce{N2}, ethylene, \ce{H4}, and \ce{H8}) addressed in our first report on hCI. \cite{Kossoski_2022}
-The full set of PECSs is shown in the {\SupInf}.
+The corresponding PECSs are shown in the {\SupInf}.
 At stretched geometries, the perturbative correction can lead to kinks and large jumps in the PECs.
 Such problems were encountered at some levels of CI for \ce{CN}, vinyl, \ce{H8}, and \ce{H7}, and to a less extent, for \ce{N2} (only for hCI1).
 For the remaining five systems (\ce{HF}, \ce{F2}, ethylene, \ce{H4}, and \ce{OH}),
 the EN2 correction produced smooth PECs at dissociation.
 Around the equilibrium geometry, the perturbative correction produced well-behaved PECs at all levels of CI and for all systems, 
-except for \ce{CN}, which is related to crossing of states around equilibrium.
+except for \ce{CN}.
+In this case, there are several close-lying excited states around the equilibrium geometry. \cite{}
+Since the unperturbed PEC corresponds to the lowest-lying solution, it often presents kinks where the ground state changes its character.
+Because of that, the perturbative correction produces discontinuous PECs.
 
-We found that the EN2 perturbative correction generally reduces the errors of all observables considered here, for a given level of excitation-based CI and hCI routes.
-As such, it accelerates the rate of convergence as a function of the excitation degree or hierarchy parameter.
-Importantly, the perturbative corrected hCI route still outperforms the excitation-based counterpart, just as for the uncorrected comparison.
+%%% FIG 4 %%%
+\begin{figure}%[h!]
+\includegraphics[width=1.0\linewidth]{plot_oh_rpt2}
+\includegraphics[width=1.0\linewidth]{plot_f2_rpt2}
+\caption{
+Non-parallelity errors, distance errors, equilibrium distances, and vibrational frequencies, for \ce{OH} (top four pannels) and \ce{F2} (bottom four pannels),
+as a function of the number of determinants, according to hCI (green), excitation-based CI (red) and sCI (blue) models,
+with (light tones) and without (dark tones) the EN2 perturbative correction.
+}
+\label{fig:plot_rpt2}
+\end{figure}
+%%% %%% %%%
+
+To illustrate the effect of the EN2 perturbative correction, we show the results for \ce{OH} and \ce{F2} in Fig.\ref{fig:plot_rpt2}.
+The full set of results can be found in the \SupInf.
+We found that the EN2 correction generally reduces the errors of all observables considered here, for a given level of CI.
+As such, it accelerates the rate of convergence as a function of the number of determinants in the unperturbed calculation.
+Importantly, the perturbative corrected hCI route still outperforms the excitation-based counterpart.
 Furthermore, the reduction of the errors is overall more monotonic than without the perturbative correction,
-which is outlined in Fig.\ref{} for the particular case of \ce{F2}.
-For the sCI route, however, the EN2 correction does not bring a clear improvement to render it competitive in relation to the excitation-based and hCI alternatives.
+clearly seen in the case of \ce{F2}, shown in Fig.\ref{fig:plot_rpt2}.
+In some cases, the EN2 correction does not improve the convergence of the sCI route.
+This can be seen for the equilibrium geometry and vibrational frequency of \ce{F2}.
+
+%sCI route, however, the EN2 correction does not bring a clear improvement to render it competitive in relation to the excitation-based and hCI alternatives.
 
 
 % rPT2 vs PT2 there are important differences
