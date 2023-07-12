@@ -114,7 +114,7 @@ close(Fi);
 
         if($x==$xcut){
           my $npe = $maxy - $miny;
-          my $closeness = abs($maxy) + abs($miny);
+          my $closeness = $maxy + $miny;
           print Fo "$index[$j] $index2[$j] $det[$j]  $npe  $closeness  $maxy  $miny \n";
 	}
 	#     }
