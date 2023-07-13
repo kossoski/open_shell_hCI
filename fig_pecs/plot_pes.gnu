@@ -47,12 +47,12 @@ set ytics 0.1
 set xlabel "Distance ({\305})"
 set label '{/:Bold OH}' at 4.0,-75.180 tc ls 2 font 'Helvetica,34'
 plot '../OH_cc-pvdz/pes_rohf.dat'   w l ls 1 notitle, \
-     '../OH_cc-pvdz/pes_CIS.dat'    w l ls 3 notitle, \
-     '../OH_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
-     '../OH_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../OH_cc-pvdz/pes_s1.dat'     w l ls 8 notitle, \
      '../OH_cc-pvdz/pes_s3.dat'     w l ls 8 notitle, \
      '../OH_cc-pvdz/pes_s5.dat'     w l ls 8 notitle, \
+     '../OH_cc-pvdz/pes_CIS.dat'    w l ls 3 notitle, \
+     '../OH_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
+     '../OH_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../OH_cc-pvdz/pes_CIo1.dat'   w l ls 4 notitle, \
      '../OH_cc-pvdz/pes_CIo1.5.dat' w l ls 5 notitle, \
      '../OH_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle, \
@@ -69,12 +69,12 @@ set ytics 0.2
 set xlabel "Distance ({\305})"
 set label '{/:Bold CN}' at 2.2,-91.55 tc ls 2 font 'Helvetica,34'
 plot '../CN_cc-pvdz/pes_rohf.dat'   w l ls 1 notitle, \
-     '../CN_cc-pvdz/pes_CIS.dat'    w l ls 3 notitle, \
-     '../CN_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
-     '../CN_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../CN_cc-pvdz/pes_s1.dat'     w l ls 8 notitle, \
      '../CN_cc-pvdz/pes_s3.dat'     w l ls 8 notitle, \
      '../CN_cc-pvdz/pes_s5.dat'     w l ls 8 notitle, \
+     '../CN_cc-pvdz/pes_CIS.dat'    w l ls 3 notitle, \
+     '../CN_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
+     '../CN_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../CN_cc-pvdz/pes_CIo1.dat'   w l ls 4 notitle, \
      '../CN_cc-pvdz/pes_CIo1.5.dat' w l ls 5 notitle, \
      '../CN_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle, \
@@ -90,12 +90,12 @@ set ytics 0.1
 set xlabel "Distance (a_{0})"
 set label '{/:Bold vinyl}' at 4.8,-76.960 tc ls 2 font 'Helvetica,34'
 plot '../vinyl_cc-pvdz/pes_rohf.dat'   w l ls 1 notitle, \
-     '../vinyl_cc-pvdz/pes_CIS.dat'    w l ls 3 notitle, \
-     '../vinyl_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
-     '../vinyl_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../vinyl_cc-pvdz/pes_s1.dat'     w l ls 8 notitle, \
      '../vinyl_cc-pvdz/pes_s3.dat'     w l ls 8 notitle, \
      '../vinyl_cc-pvdz/pes_s5.dat'     w l ls 8 notitle, \
+     '../vinyl_cc-pvdz/pes_CIS.dat'    w l ls 3 notitle, \
+     '../vinyl_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
+     '../vinyl_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../vinyl_cc-pvdz/pes_CIo1.dat'   w l ls 4 notitle, \
      '../vinyl_cc-pvdz/pes_CIo1.5.dat' w l ls 5 notitle, \
      '../vinyl_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle, \
@@ -110,12 +110,12 @@ set ytics 0.2
 set xlabel "Distance (a_{0})"
 set label '{/:Bold H_7}' at 5.2,-2.843 tc ls 2 font 'Helvetica,34'
 plot '../H7_cc-pvdz/pes_rohf.dat'   w l ls 1 notitle, \
-     '../H7_cc-pvdz/pes_CIS.dat'    w l ls 3 notitle, \
-     '../H7_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
-     '../H7_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../H7_cc-pvdz/pes_s1.dat'     w l ls 8 notitle, \
      '../H7_cc-pvdz/pes_s3.dat'     w l ls 8 notitle, \
      '../H7_cc-pvdz/pes_s5.dat'     w l ls 8 notitle, \
+     '../H7_cc-pvdz/pes_CIS.dat'    w l ls 3 notitle, \
+     '../H7_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
+     '../H7_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../H7_cc-pvdz/pes_CIo1.dat'   w l ls 4 notitle, \
      '../H7_cc-pvdz/pes_CIo1.5.dat' w l ls 5 notitle, \
      '../H7_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle, \

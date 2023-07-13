@@ -55,11 +55,11 @@ set format y "%.2f"
 set ytics 0.02
 
 set label '{/:Bold OH}' at 30000000,0.092 tc ls 2 font 'Helvetica,44'
-plot '../OH_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
-     '../OH_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
+plot '../OH_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
+     '../OH_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
+     '../OH_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
      '../OH_cc-pvdz/stat_CIo.dat'  u ($3):($4)  w lp ls 4  notitle, \
      '../OH_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 30  notitle, \
-     '../OH_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
      '../OH_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 40  notitle
 unset label
 ###################################################################################
@@ -76,11 +76,11 @@ set xrange[1:1e7]
 set yrange[0.0:0.4]
 set ytics 0.1
 
-plot '../OH_cc-pvdz/stat_CI.dat'   u ($3):($5)  w lp ls 3  notitle, \
-     '../OH_cc-pvdz/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
+plot '../OH_cc-pvdz/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
+     '../OH_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 80  notitle, \
+     '../OH_cc-pvdz/stat_CI.dat'   u ($3):($5)  w lp ls 3  notitle, \
      '../OH_cc-pvdz/stat_CIo.dat'  u ($3):($5)  w lp ls 4  notitle, \
      '../OH_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 30  notitle, \
-     '../OH_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 80  notitle, \
      '../OH_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 40  notitle
 ###################################################################################
 
@@ -95,11 +95,11 @@ set format y "%.2f"
 set ytics 0.01
 
 plot '../OH_cc-pvdz/det_xe_FCI.dat'     u 2:3 w l  ls 2  notitle, \
-     '../OH_cc-pvdz/det_xe_CI.dat'      u 1:3 w lp ls 3  notitle, \
      '../OH_cc-pvdz/det_xe_CIs.dat'     u 1:3 w lp ls 8  notitle, \
+     '../OH_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 80  notitle, \
+     '../OH_cc-pvdz/det_xe_CI.dat'      u 1:3 w lp ls 3  notitle, \
      '../OH_cc-pvdz/det_xe_CIo.dat'     u 1:3 w lp ls 4  notitle, \
      '../OH_cc-pvdz/rpt2/det_xe_CI.dat'      u 1:3 w lp ls 30  notitle, \
-     '../OH_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 80  notitle, \
      '../OH_cc-pvdz/rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 40  notitle
 ###################################################################################
 
@@ -126,11 +126,11 @@ mu=mass1*mass2/(mass1+mass2)*amu
 fac = sqrt(hartree/mu)/(2.0*pi*c) * 0.01 * 10**10
 
 plot '../OH_cc-pvdz/det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
-     '../OH_cc-pvdz/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 3  notitle, \
      '../OH_cc-pvdz/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 8  notitle, \
+     '../OH_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 80  notitle, \
+     '../OH_cc-pvdz/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 3  notitle, \
      '../OH_cc-pvdz/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 4  notitle, \
      '../OH_cc-pvdz/rpt2/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 30  notitle, \
-     '../OH_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 80  notitle, \
      '../OH_cc-pvdz/rpt2/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 40  notitle
 ###################################################################################
 

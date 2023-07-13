@@ -43,11 +43,11 @@ set yrange[-100.30:-99.80]
 set xlabel "Distance ({\305})"
 set label '{/:Bold HF}' at 3.0,-99.77 tc ls 2 font 'Helvetica,34'
 plot '../HF_cc-pvdz/pes_rhf.dat'   w l ls 1 notitle, \
-     '../HF_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
-     '../HF_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../HF_cc-pvdz/pes_s0.dat'     w l ls 8 notitle, \
      '../HF_cc-pvdz/pes_s2.dat'     w l ls 8 notitle, \
      '../HF_cc-pvdz/pes_s4.dat'     w l ls 8 notitle, \
+     '../HF_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
+     '../HF_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../HF_cc-pvdz/pes_CIo1.dat'   w l ls 4 notitle, \
      '../HF_cc-pvdz/pes_CIo1.5.dat' w l ls 5 notitle, \
      '../HF_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle, \
@@ -63,11 +63,11 @@ set yrange[-199.15:-198.6]
 set xlabel "Distance ({\305})"
 set label '{/:Bold F_2}' at 4.1,-198.567 tc ls 2 font 'Helvetica,34'
 plot '../F2_cc-pvdz/pes_rhf.dat'   w l ls 1 notitle, \
-     '../F2_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
-     '../F2_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../F2_cc-pvdz/pes_s0.dat'     w l ls 8 notitle, \
      '../F2_cc-pvdz/pes_s2.dat'     w l ls 8 notitle, \
      '../F2_cc-pvdz/pes_s4.dat'     w l ls 8 notitle, \
+     '../F2_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
+     '../F2_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../F2_cc-pvdz/pes_CIo1.dat'   w l ls 4 notitle, \
      '../F2_cc-pvdz/pes_CIo1.5.dat' w l ls 5 notitle, \
      '../F2_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle, \
@@ -83,11 +83,11 @@ set yrange[-78.40:-77.7]
 set xlabel "Distance (a_{0})"
 set label '{/:Bold ethylene}' at 6.5,-77.655 tc ls 2 font 'Helvetica,34'
 plot '../ethylene_cc-pvdz/pes_rhf.dat'   w l ls 1 notitle, \
-     '../ethylene_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
-     '../ethylene_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../ethylene_cc-pvdz/pes_s0.dat'     w l ls 8 notitle, \
      '../ethylene_cc-pvdz/pes_s2.dat'     w l ls 8 notitle, \
      '../ethylene_cc-pvdz/pes_s4.dat'     w l ls 8 notitle, \
+     '../ethylene_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
+     '../ethylene_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../ethylene_cc-pvdz/pes_CIo1.dat'   w l ls 4 notitle, \
      '../ethylene_cc-pvdz/pes_CIo1.5.dat' w l ls 5 notitle, \
      '../ethylene_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle, \
@@ -104,11 +104,11 @@ set yrange[-109.35:-108.30]
 set xlabel "Distance (a_{0})"
 set label '{/:Bold N_2}' at 2.2,-108.235 tc ls 2 font 'Helvetica,34'
 plot '../N2_cc-pvdz/pes_rhf.dat'   w l ls 1 notitle, \
-     '../N2_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
-     '../N2_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../N2_cc-pvdz/pes_s0.dat'     w l ls 8 notitle, \
      '../N2_cc-pvdz/pes_s2.dat'     w l ls 8 notitle, \
      '../N2_cc-pvdz/pes_s4.dat'     w l ls 8 notitle, \
+     '../N2_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
+     '../N2_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../N2_cc-pvdz/pes_CIo1.dat'   w l ls 4 notitle, \
      '../N2_cc-pvdz/pes_CIo1.5.dat' w l ls 5 notitle, \
      '../N2_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle, \
@@ -123,11 +123,11 @@ set yrange[-2.3:-1.7]
 set xlabel "Distance (a_{0})"
 set label '{/:Bold H_4}' at 5.0,-1.66 tc ls 2 font 'Helvetica,34'
 plot '../H4_cc-pvdz/pes_rhf.dat'   w l ls 1 notitle, \
-     '../H4_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
-     '../H4_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../H4_cc-pvdz/pes_s0.dat'     w l ls 8 notitle, \
      '../H4_cc-pvdz/pes_s2.dat'     w l ls 8 notitle, \
      '../H4_cc-pvdz/pes_s4.dat'     w l ls 8 notitle, \
+     '../H4_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
+     '../H4_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../H4_cc-pvdz/pes_CIo1.dat'   w l ls 4 notitle, \
      '../H4_cc-pvdz/pes_CIo1.5.dat' w l ls 5 notitle, \
      '../H4_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle, \
@@ -141,11 +141,11 @@ set yrange[-4.6:-3.0]
 set xlabel "Distance (a_{0})"
 set label '{/:Bold H_8}' at 5.0,-2.90 tc ls 2 font 'Helvetica,34'
 plot '../H8_cc-pvdz/pes_rhf.dat'   w l ls 1 notitle, \
-     '../H8_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
-     '../H8_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../H8_cc-pvdz/pes_s0.dat'     w l ls 8 notitle, \
      '../H8_cc-pvdz/pes_s2.dat'     w l ls 8 notitle, \
      '../H8_cc-pvdz/pes_s4.dat'     w l ls 8 notitle, \
+     '../H8_cc-pvdz/pes_CISD.dat'   w l ls 3 notitle, \
+     '../H8_cc-pvdz/pes_CISDT.dat'  w l ls 3 notitle, \
      '../H8_cc-pvdz/pes_CIo1.dat'   w l ls 4 notitle, \
      '../H8_cc-pvdz/pes_CIo1.5.dat' w l ls 5 notitle, \
      '../H8_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle, \

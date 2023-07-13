@@ -55,11 +55,11 @@ set format y "%.2f"
 set ytics 0.02
 set ylabel 'Non-parallelity error (Hartree)'
 
-plot '../F2_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
-     '../F2_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
+plot '../F2_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
+     '../F2_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
+     '../F2_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
      '../F2_cc-pvdz/stat_CIo.dat'  u ($3):($4)  w lp ls 4  notitle, \
      '../F2_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 30  notitle, \
-     '../F2_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
      '../F2_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 40  notitle
 unset label
 ###################################################################################
@@ -73,11 +73,11 @@ set format y "%.1f"
 set ylabel 'Distance error (Hartree)'
 
 set label '{/:Bold F_2}' at 0.006,0.81 tc ls 2 font 'Helvetica,44'
-plot '../F2_cc-pvdz/stat_CI.dat'   u ($3):($5)  w lp ls 3  notitle, \
-     '../F2_cc-pvdz/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
+plot '../F2_cc-pvdz/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
+     '../F2_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 80  notitle, \
+     '../F2_cc-pvdz/stat_CI.dat'   u ($3):($5)  w lp ls 3  notitle, \
      '../F2_cc-pvdz/stat_CIo.dat'  u ($3):($5)  w lp ls 4  notitle, \
      '../F2_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 30  notitle, \
-     '../F2_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 80  notitle, \
      '../F2_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 40  notitle
 ###################################################################################
 
@@ -90,11 +90,11 @@ set ytics 0.02
 set ylabel "Equilibrium distance ({\305})"
 
 plot '../F2_cc-pvdz/det_xe_FCI.dat'     u 2:3 w l  ls 2  notitle, \
-     '../F2_cc-pvdz/det_xe_CI.dat'      u 1:3 w lp ls 3  notitle, \
      '../F2_cc-pvdz/det_xe_CIs.dat'     u 1:3 w lp ls 8  notitle, \
+     '../F2_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 80  notitle, \
+     '../F2_cc-pvdz/det_xe_CI.dat'      u 1:3 w lp ls 3  notitle, \
      '../F2_cc-pvdz/det_xe_CIo.dat'     u 1:3 w lp ls 4  notitle, \
      '../F2_cc-pvdz/rpt2/det_xe_CI.dat'      u 1:3 w lp ls 30  notitle, \
-     '../F2_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 80  notitle, \
      '../F2_cc-pvdz/rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 40  notitle
 ###################################################################################
 
@@ -117,14 +117,13 @@ mu=mass1*mass2/(mass1+mass2)*amu
 fac = sqrt(hartree/mu)/(2.0*pi*c) * 0.01 * 10**10
 
 plot '../F2_cc-pvdz/det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
-     '../F2_cc-pvdz/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 3  notitle, \
      '../F2_cc-pvdz/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 8  notitle, \
+     '../F2_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 80  notitle, \
+     '../F2_cc-pvdz/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 3  notitle, \
      '../F2_cc-pvdz/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 4  notitle, \
      '../F2_cc-pvdz/rpt2/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 30  notitle, \
-     '../F2_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 80  notitle, \
      '../F2_cc-pvdz/rpt2/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 40  notitle
 ###################################################################################
-
 
 unset label
 unset ylabel
