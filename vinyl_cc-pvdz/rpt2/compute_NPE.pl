@@ -104,6 +104,10 @@ close(Fi);
             my @line =  split( /\s+/, $_ );
             $m++;
             $x = $line[0];
+    	    if($x ne $x0[$m]) {
+     		    print "Not the same coordinates for file $files[$j]! \n";
+    		    exit;
+	    }
             $y = $line[1];
             $dy    = $y - $y0[$m];
             $maxy = max($maxy,$dy);
@@ -114,7 +118,7 @@ close(Fi);
 
         if($x==$xcut){
           my $npe = $maxy - $miny;
-          my $closeness = abs($maxy) + abs($miny);
+	  my $closeness = abs($maxy) + abs($miny);
           print Fo "$index[$j] $index2[$j] $det[$j]  $npe  $closeness  $maxy  $miny \n";
 	}
 	#     }
