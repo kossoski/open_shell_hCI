@@ -84,7 +84,8 @@ if ( file_exists(filename) ){
 stats filename using 1:2 nooutput
 a1=1.0; xe1=STATS_pos_min_y; C1=STATS_min_y
 stats filename using 1:(last_y=$2) every ::STATS_records-1::STATS_records-1 nooutput
-D1=last_y-C1
+#D1=last_y-C1
+D1=1.0
 fit [xmin:xmax] [*:*] f1(x) filename u 1:($2) via D1,a1,xe1,C1
 }
  

@@ -53,9 +53,9 @@ set xrange[1:1e7]
 set yrange[0.0:0.35]
 
 set label '{/:Bold OH}' at 10000,0.38 tc ls 2 font 'Helvetica,44'
-plot '../OH_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
-     '../OH_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
-     '../OH_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 4  notitle
+plot '../OH_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
+     '../OH_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 30  notitle, \
+     '../OH_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 40  notitle
 unset label
 ###################################################################################
 
@@ -67,9 +67,9 @@ set multiplot next
 #set yrange[0.0:0.5]
 
 #set label '{/:Bold CN}' at 20000,0.545 tc ls 2 font 'Helvetica,44'
-#plot '../CN_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
-#     '../CN_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
-#     '../CN_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 4  notitle
+#plot '../CN_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
+#     '../CN_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 30  notitle, \
+#     '../CN_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 40  notitle
 #unset label
 ###################################################################################
 
@@ -80,9 +80,9 @@ set format y "%.2f"
 set ytics 0.02
 
 set label '{/:Bold vinyl}' at 100000,0.153 tc ls 2 font 'Helvetica,44'
-plot '../vinyl_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
-     '../vinyl_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
-     '../vinyl_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 4  notitle
+plot '../vinyl_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
+     '../vinyl_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 30  notitle, \
+     '../vinyl_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 40  notitle
 unset label
 ###################################################################################
 
@@ -93,9 +93,9 @@ set format y "%.1f"
 set ytics 0.5
 
 set label '{/:Bold H_7}' at 20000,1.61 tc ls 2 font 'Helvetica,44'
-plot '../H7_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
-     '../H7_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
-     '../H7_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 4  notitle
+plot '../H7_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
+     '../H7_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($4)  w lp ls 30  notitle, \
+     '../H7_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($4)  w lp ls 40  notitle
 unset label
 ###################################################################################
 
@@ -108,9 +108,9 @@ set ytics 0.2
 set xrange[1:1e7]
 set yrange[0.0:0.7]
 
-plot '../OH_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
-     '../OH_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 3  notitle, \
-     '../OH_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 4  notitle
+plot '../OH_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 80  notitle, \
+     '../OH_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 30  notitle, \
+     '../OH_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 40  notitle
 ###################################################################################
 
 #unset ylabel
@@ -121,18 +121,18 @@ set multiplot next
 #set yrange[0.0:1.0]
 #set ytics 0.2
 
-#plot '../CN_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
-#     '../CN_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 3  notitle, \
-#     '../CN_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 4  notitle
+#plot '../CN_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 80  notitle, \
+#     '../CN_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 30  notitle, \
+#     '../CN_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 40  notitle
 ###################################################################################
 
 ###################################################################################
 set xrange[1:1e12]
 set yrange[0.0:0.8]
 
-plot '../vinyl_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
-     '../vinyl_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 3  notitle, \
-     '../vinyl_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 4  notitle
+plot '../vinyl_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 80  notitle, \
+     '../vinyl_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 30  notitle, \
+     '../vinyl_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 40  notitle
 ###################################################################################
 
 ###################################################################################
@@ -140,9 +140,9 @@ set xrange[1:1e9]
 set yrange[0.0:1.5]
 set ytics 0.5
 
-plot '../H7_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
-     '../H7_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 3  notitle, \
-     '../H7_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 4  notitle
+plot '../H7_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 80  notitle, \
+     '../H7_cc-pvdz/rpt2/stat_CI.dat'   u ($3):($5)  w lp ls 30  notitle, \
+     '../H7_cc-pvdz/rpt2/stat_CIo.dat'  u ($3):($5)  w lp ls 40  notitle
 ###################################################################################
 
 # LINE 4
@@ -156,9 +156,9 @@ set format y "%.2f"
 set ytics 0.01
 
 plot '../OH_cc-pvdz/rpt2/det_xe_FCI.dat'     u 2:3 w l  ls 2  notitle, \
-     '../OH_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 8  notitle, \
-     '../OH_cc-pvdz/rpt2/det_xe_CI.dat'      u 1:3 w lp ls 3  notitle, \
-     '../OH_cc-pvdz/rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 4  notitle#, \
+     '../OH_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 80  notitle, \
+     '../OH_cc-pvdz/rpt2/det_xe_CI.dat'      u 1:3 w lp ls 30  notitle, \
+     '../OH_cc-pvdz/rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 40  notitle#, \
 ###################################################################################
 
 
@@ -170,9 +170,9 @@ set multiplot next
 #set ytics 0.01
 
 #plot '../CN_cc-pvdz/rpt2/det_xe_FCI.dat'     u 2:3 w l  ls 2  notitle, \
-#     '../CN_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 8  notitle, \
-#     '../CN_cc-pvdz/rpt2/det_xe_CI.dat'      u 1:3 w lp ls 3  notitle, \
-#     '../CN_cc-pvdz/rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 4  notitle#, \
+#     '../CN_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 80  notitle, \
+#     '../CN_cc-pvdz/rpt2/det_xe_CI.dat'      u 1:3 w lp ls 30  notitle, \
+#     '../CN_cc-pvdz/rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 40  notitle#, \
 ###################################################################################
 
 ###################################################################################
@@ -182,9 +182,9 @@ set format y "%.2f"
 set ytics 0.01
 
 plot '../vinyl_cc-pvdz/rpt2/det_xe_FCI.dat'     u 2:3 w l  ls 2  notitle, \
-     '../vinyl_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 8  notitle, \
-     '../vinyl_cc-pvdz/rpt2/det_xe_CI.dat'      u 1:3 w lp ls 3  notitle, \
-     '../vinyl_cc-pvdz/rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 4  notitle#, \
+     '../vinyl_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 80  notitle, \
+     '../vinyl_cc-pvdz/rpt2/det_xe_CI.dat'      u 1:3 w lp ls 30  notitle, \
+     '../vinyl_cc-pvdz/rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 40  notitle#, \
 ###################################################################################
 
 
@@ -196,9 +196,9 @@ set ytics 0.01
 set ylabel "Equilibrium distance (a_{0})"
 
 plot '../H7_cc-pvdz/rpt2/det_xe_FCI.dat'     u 2:3 w l  ls 2  notitle, \
-     '../H7_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 8  notitle, \
-     '../H7_cc-pvdz/rpt2/det_xe_CI.dat'      u 1:3 w lp ls 3  notitle, \
-     '../H7_cc-pvdz/rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 4  notitle#, \
+     '../H7_cc-pvdz/rpt2/det_xe_CIs.dat'     u 1:3 w lp ls 80  notitle, \
+     '../H7_cc-pvdz/rpt2/det_xe_CI.dat'      u 1:3 w lp ls 30  notitle, \
+     '../H7_cc-pvdz/rpt2/det_xe_CIo.dat'     u 1:3 w lp ls 40  notitle#, \
 ###################################################################################
 
 
@@ -224,9 +224,9 @@ mu=mass1*mass2/(mass1+mass2)*amu
 fac = sqrt(hartree/mu)/(2.0*pi*c) * 0.01 * 10**10
 
 plot '../OH_cc-pvdz/rpt2/det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
-     '../OH_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 8  notitle, \
-     '../OH_cc-pvdz/rpt2/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 3  notitle, \
-     '../OH_cc-pvdz/rpt2/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 4  notitle
+     '../OH_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 80  notitle, \
+     '../OH_cc-pvdz/rpt2/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 30  notitle, \
+     '../OH_cc-pvdz/rpt2/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 40  notitle
 ###################################################################################
 
 set multiplot next
@@ -242,9 +242,9 @@ set multiplot next
 #fac = sqrt(hartree/mu)/(2.0*pi*c) * 0.01 * 10**10
 
 #plot '../CN_cc-pvdz/rpt2/det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
-#     '../CN_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 8  notitle, \
-#     '../CN_cc-pvdz/rpt2/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 3  notitle, \
-#     '../CN_cc-pvdz/rpt2/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 4  notitle
+#     '../CN_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 80  notitle, \
+#     '../CN_cc-pvdz/rpt2/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 30  notitle, \
+#     '../CN_cc-pvdz/rpt2/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 40  notitle
 ###################################################################################
 
 ###################################################################################
@@ -260,9 +260,9 @@ mu=mass1*mass2/(mass1+mass2)*amu
 fac = sqrt(hartree/mu)/(2.0*pi*c) * 0.01 * 10**10
 
 plot '../vinyl_cc-pvdz/rpt2/det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notitle, \
-     '../vinyl_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 8  notitle, \
-     '../vinyl_cc-pvdz/rpt2/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 3  notitle, \
-     '../vinyl_cc-pvdz/rpt2/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 4  notitle
+     '../vinyl_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 80  notitle, \
+     '../vinyl_cc-pvdz/rpt2/det_aD_CI.dat'      u 1:(sqrt(2*$5)*$3*fac) w lp ls 30  notitle, \
+     '../vinyl_cc-pvdz/rpt2/det_aD_CIo.dat'     u 1:(sqrt(2*$5)*$3*fac) w lp ls 40  notitle
 ###################################################################################
 
 ###################################################################################
@@ -273,9 +273,9 @@ set format y "%.2f"
 set ytics 0.02
 
 plot '../H7_cc-pvdz/rpt2/det_aD_FCI.dat'     u 2:(2*$3*$3*$5) w l  ls 2  notitle, \
-     '../H7_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(2*$3*$3*$5) w lp ls 8  notitle, \
-     '../H7_cc-pvdz/rpt2/det_aD_CI.dat'      u 1:(2*$3*$3*$5) w lp ls 3  notitle, \
-     '../H7_cc-pvdz/rpt2/det_aD_CIo.dat'     u 1:(2*$3*$3*$5) w lp ls 4  notitle
+     '../H7_cc-pvdz/rpt2/det_aD_CIs.dat'     u 1:(2*$3*$3*$5) w lp ls 80  notitle, \
+     '../H7_cc-pvdz/rpt2/det_aD_CI.dat'      u 1:(2*$3*$3*$5) w lp ls 30  notitle, \
+     '../H7_cc-pvdz/rpt2/det_aD_CIo.dat'     u 1:(2*$3*$3*$5) w lp ls 40  notitle
 ###################################################################################
 
 
