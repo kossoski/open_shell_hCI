@@ -6,7 +6,7 @@
 
 set terminal postscript eps size 18.0,21.0 enhanced color \
     font 'Helvetica,34' linewidth 2
-set output 'plot_all_closed.eps'
+set output 'plot_all_closed_zoom.eps'
 set encoding iso_8859_1
 
 if (!exists("MP_LEFT"))   MP_LEFT = 0.09

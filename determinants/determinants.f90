@@ -2,24 +2,19 @@ program determinants
 
 implicit none
 
-integer*16 :: na, nb ! Number of alpha electrons, Number of beta electrons
-integer*16 :: k      ! Number of spatial orbitals
+integer*16 :: na, nb  ! Number of alpha electrons, Number of beta electrons
+integer*16 :: k       ! Number of spatial orbitals
 
-integer*16 :: va, vb ! Number of alpha virtual orbitals, Number of beta virtual orbitals
-integer*16 :: n, o, v
-integer*16 :: s0     ! Seniority of the reference determinant
 logical    :: closed_shell = .false.
+integer*16 :: va, vb  ! Number of alpha virtual orbitals, Number of beta virtual orbitals
+integer*16 :: n, o, v ! For closed-shells, number of electrons, occupied orbitals, and virtual orbitals
+integer*16 :: s0      ! Seniority of the reference determinant
+integer*16 :: rhf, fci, sCI(4), eCI(4), hCI(8), hCI_bl(8,8)
 
-integer*16 :: rhf, fci
-integer*16 :: sCI(4)
-integer*16 :: eCI(4)
-integer*16 :: hCI(8)
-integer*16 :: hCI_bl(8,8)
-
-integer :: nunit
 character(len=8), parameter :: fmt1 = "(*(i16))"
 character(len=8), parameter :: fmt2 = "(a,i16)"
 character(len=32) :: filename
+integer :: nunit
 
 call read_input
 
@@ -110,7 +105,7 @@ subroutine det_sCI_closed
 
 integer*16 :: s  ! Seniority of the determinant
 integer*16 :: nd ! Number of doubly occupied orbitals
-integer*16 :: i
+integer*16 :: i  ! Index of the seniority
 integer*16 :: tmp1, tmp2
 
 call binomial_coefficient(k,o,tmp1)
@@ -163,12 +158,12 @@ end if
 
 hCI(1) = hCI_bl(1,1)
 hCI(2) = hCI_bl(1,2) + hCI_bl(2,1)
-hCI(3) = hCI_bl(2,2) + hCI_bl(3,1)
-hCI(4) = hCI_bl(2,3) + hCI_bl(3,2) + hCI_bl(4,1) 
-hCI(5) = hCI_bl(2,4) + hCI_bl(3,3) + hCI_bl(4,2) + hCI_bl(5,1)
-hCI(6) = hCI_bl(2,5) + hCI_bl(3,4) + hCI_bl(4,3) + hCI_bl(5,2) + hCI_bl(6,1)
-hCI(7) = hCI_bl(2,7) + hCI_bl(3,5) + hCI_bl(4,4) + hCI_bl(5,3) + hCI_bl(6,2) + hCI_bl(7,1)
-hCI(8) = hCI_bl(2,8) + hCI_bl(3,6) + hCI_bl(4,5) + hCI_bl(5,4) + hCI_bl(6,3) + hCI_bl(7,2) + hCI_bl(8,1)
+hCI(3) =               hCI_bl(2,2) + hCI_bl(3,1)
+hCI(4) =               hCI_bl(2,3) + hCI_bl(3,2) + hCI_bl(4,1)
+hCI(5) =                             hCI_bl(3,3) + hCI_bl(4,2) + hCI_bl(5,1)
+hCI(6) =                             hCI_bl(3,4) + hCI_bl(4,3) + hCI_bl(5,2) + hCI_bl(6,1)
+hCI(7) =                                           hCI_bl(4,4) + hCI_bl(5,3) + hCI_bl(6,2) + hCI_bl(7,1)
+hCI(8) =                                           hCI_bl(4,5) + hCI_bl(5,4) + hCI_bl(6,3) + hCI_bl(7,2) + hCI_bl(8,1)
 
 hCI(1) = hCI(1) + rhf
 hCI(2) = hCI(2) + hCI(1)
@@ -236,7 +231,7 @@ do i=1,8
 
         s = s0*(2*i-p) + 2*(i-q-r)
         j = s/2+1
-        !write(*,*) i, j, s, s0, p, r, q
+
         hCI_bl(i,j) = hCI_bl(i,j) + tmp1 * tmp2 * tmp3
 
       end do
@@ -256,14 +251,10 @@ implicit none
 integer*16 :: tmp1, tmp2, tmp3, tmp4, tmp5
 integer*16 :: i, j, p, q, r, s, t
 
-!do i=1,8
-do i=1,2
+do i=1,8
   do p=0,i
 
     call binomial_coefficient(va,p,tmp1)
-!   call binomial_coefficient(va,p,tmp3)
-!   call binomial_coefficient(na,p,tmp4)
-!   tmp1 = tmp3 * tmp4
 
     do t=0,p
 
@@ -273,8 +264,6 @@ do i=1,2
 
       do r=0,i-p
 
-!       call binomial_coefficient(p,r,tmp3)
-!       call binomial_coefficient(vb-p,i-p-r,tmp4)
         call binomial_coefficient(na-nb+p-t,r,tmp3)
         call binomial_coefficient(vb-(p+na-nb-t),i-p-r,tmp4)
         tmp3 = tmp3 * tmp4
@@ -285,20 +274,14 @@ do i=1,2
           call binomial_coefficient(nb-p+t,i-p-q,tmp5)
           tmp4 = tmp4 * tmp5
 
-! working here
-          s = s0 + s0*(2*i-p) + 2*(i-q-r-t)
-  
-          if(mod(s,2)==0) j = (s-s0)/2+1
-          if(mod(s,2)==1) j = (s-s0-1)/2+1
-          write(*,*) i, j, p, s, tmp1 , tmp2 , tmp3 , tmp4
-!         write(*,*) i, j, p, t, r, q, tmp1 , tmp2 , tmp3 , tmp4
-!         write(*,*) i, j, s, p, t, r, q, tmp1 , tmp2 , tmp3 , tmp4, tmp5, tmp1 * tmp2 * tmp3 * tmp4
+          s = s0 + 2*(i-q-r-t)
+          j = (s-s0)/2+1
+
           hCI_bl(i,j) = hCI_bl(i,j) + tmp1 * tmp2 * tmp3 * tmp4
 
         end do
       end do
     end do
-          write(*,*) 
 
   end do
 end do
@@ -465,26 +448,24 @@ end subroutine print_all_det
 !-------------------------------------
 subroutine binomial_coefficient(n,k,c)
 
-        implicit none
-        ! (n k) = n!/((n-k)!k!)
+implicit none
+! (n k) = n!/((n-k)!k!)
 
-        integer*16, intent(in)  :: n, k
-        integer*16, intent(out) :: c
-        integer*16 :: i
-        real*8 :: cr
+integer*16, intent(in)  :: n, k
+integer*16, intent(out) :: c
+integer*16              :: i
+real*8                  :: cr
 
-        if( n.lt.k .or. k.lt.0 ) then
-          c = 0
-!         c = 1
-          return
-        end if
+if( n.lt.k .or. k.lt.0 ) then
+  c = 0
+  return
+end if
 
-        cr = 1.0d0
-!       do i=1,k
-        do i=1,min(k,n-k)
-          cr = cr * real( n+1-i ) / real( i )
-        end do
-        c = int( cr )
+cr = 1.0d0
+do i=1,min(k,n-k)
+  cr = cr * real( n+1-i ) / real( i )
+end do
+c = int( cr )
 
 end subroutine binomial_coefficient
 !-------------------------------------

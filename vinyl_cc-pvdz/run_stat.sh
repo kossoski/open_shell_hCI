@@ -1,17 +1,18 @@
 #!/bin/bash
 
 norbitals=43
-nelectrons=15
+nelec_alpha=8
+nelec_beta=7
 xcut=9.0
 
 if [ -f "input" ]; then
   rm "input"
 fi
-echo "$nelectrons $norbitals" > input
-../determinants/determinants_odd.x < input
+echo "$nelec_alpha $nelec_beta $norbitals" > input
+../determinants/determinants.x < input
 rm "input"
 
 for i in {1..6}
 do
-./compute_NPE.pl $i $xcut 
+./compute_NPE.pl $i $xcut
 done

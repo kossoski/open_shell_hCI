@@ -51,7 +51,8 @@ set xlabel 'N_{det}'
 set ylabel 'NPE (E_h)'
 
 ###################################################################################
-set xrange[1:1e7]
+set xrange[1:1e8]
+set xtics 10**2
 set yrange[0.0:0.30]
 set ytics 0.1
 set format y "%.1f"
@@ -93,7 +94,7 @@ unset label
 ###################################################################################
 
 ###################################################################################
-set xrange[1:1e12]
+set xrange[1:1e13]
 set yrange[0.0:0.15]
 set format y "%.2f"
 set ytics 0.03
@@ -132,7 +133,8 @@ set format y "%.1f"
 set ytics 0.2
 
 ###################################################################################
-set xrange[1:1e7]
+set xrange[1:1e8]
+set xtics 10**2
 set yrange[0.0:0.7]
 set ytics 0.1
 #set logscale y
@@ -165,7 +167,7 @@ plot '../CN_cc-pvdz/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
 ###################################################################################
 
 ###################################################################################
-set xrange[1:1e12]
+set xrange[1:1e13]
 set yrange[0.0:0.7]
 
 plot '../vinyl_cc-pvdz/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
@@ -194,7 +196,8 @@ plot '../H7_cc-pvdz/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
 set ylabel "Equilibrium distance ({\305})"
 
 ###################################################################################
-set xrange[1:1e7]
+set xrange[1:1e8]
+set xtics 10**2
 #set yrange[0.955:0.985]
 set yrange[0.955:0.990]
 set format y "%.2f"
@@ -227,7 +230,7 @@ plot '../CN_cc-pvdz/det_xe_FCI.dat'     u 2:3 w l  ls 2  notitle, \
 
 ###################################################################################
 #set ylabel "Equilibrium distance (a_{0})"
-set xrange[1:1e12]
+set xrange[1:1e13]
 #set yrange[2.46:2.53]
 set yrange[1.30:1.34]
 set format y "%.2f"
@@ -273,7 +276,8 @@ c       = 299792458.0          # m/s
 mole    = 6.02214076e23
 
 ###################################################################################
-set xrange[1:1e7]
+set xrange[1:1e8]
+set xtics 10**2
 #set yrange[3650:4100]
 set yrange[3600:4100]
 set format y "%.0f"
@@ -315,7 +319,7 @@ plot '../CN_cc-pvdz/det_aD_FCI.dat'     u 2:(sqrt(2*$5)*$3*fac) w l  ls 2  notit
 
 ###################################################################################
 set ylabel "Vibrational frequency (cm^{-1})"
-set xrange[1:1e12]
+set xrange[1:1e13]
 #set yrange[800:900]
 set yrange[800:900]
 set format y "%.0f"
