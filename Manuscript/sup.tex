@@ -26,6 +26,8 @@
 \newcommand{\tabc}[1]{\multicolumn{1}{c}{#1}}
 \newcommand{\QP}{\textsc{quantum package}}
 
+\newcommand{\Ndet}{N_\text{det}}
+
 \newcommand{\EHF}{E_\text{HF}}
 \newcommand{\EDOCI}{E_\text{DOCI}}
 \newcommand{\EFCI}{E_\text{FCI}}
@@ -139,32 +141,19 @@ The non-parallelity error and distance error were computed for the following int
 \includegraphics[width=1.0\linewidth]{plot_pes}
 \caption{
 Potential energy curves for \ce{OH}, \ce{CN}, vinyl, and \ce{H7},
-according to hCI (green), excitation-based CI (red) and sCI (blue) models.
-}
+according to FCI (black), hCI (green) (dashed lines for half-integer $h$), eCI (red), and sCI (blue) models, with the cc-pVDZ basis set and frozen-core approximation.}
 \label{fig:plot_pes}
 \end{figure*}
 %%% %%% %%%
 
-
-%%% FIG S3 %%%
-\begin{figure*}%[h!]
-\includegraphics[width=1.0\linewidth]{plot_pes_closed}
-\caption{
-Potential energy curves for \ce{HF}, \ce{F2}, \ce{N2}, ethylene, \ce{H4}, and \ce{H8},
-according to hCI (green), excitation-based CI (red) and sCI (blue) models,
-with (light tones) and without (dark tones) the EN2 perturbative correction.
-Results first reported in Ref. \onlinecite{Kossoski_2022}.
-}
-\label{fig:plot_pes_closed}
-\end{figure*}
-%%% %%% %%%
-
-%%% FIG S3 %%%
+%%% FIG S2 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_pt2_rpt2_OH}
 \caption{
-\ce{OH}
-}
+Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency, for \ce{OH},
+as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+with the standard (full lines with circles) and renormalized (dashed lines with triangles) EN2 perturbative correction.
+The dashed lines represent the FCI results.}
 \label{fig:plot_pt2_rpt2_oh}
 \end{figure*}
 %%% %%% %%%
@@ -173,88 +162,106 @@ Results first reported in Ref. \onlinecite{Kossoski_2022}.
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_pt2_rpt2_CN}
 \caption{
-\ce{CN}
-}
+Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency, for \ce{CN},
+as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+with the standard (full lines with circles) and renormalized (dashed lines with triangles) EN2 perturbative correction.
+The dashed lines represent the FCI results.}
 \label{fig:plot_pt2_rpt2_cn}
 \end{figure*}
 %%% %%% %%%
 
-%%% FIG S3 %%%
+%%% FIG S4 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_pt2_rpt2_vinyl}
 \caption{
-vinyl
-}
+Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency, for vinyl,
+as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+with the standard (full lines with circles) and renormalized (dashed lines with triangles) EN2 perturbative correction.
+The dashed lines represent the FCI results.}
 \label{fig:plot_pt2_rpt2_vinyl}
 \end{figure*}
 %%% %%% %%%
 
-%%% FIG S3 %%%
+%%% FIG S5 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_pt2_rpt2_H7}
 \caption{
-\ce{H7}
-}
 \label{fig:plot_pt2_rpt2_h7}
+Non-parallelity error (NPE), distance error, equilibrium distance, and force constant, for \ce{H7},
+as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+with the standard (full lines with circles) and renormalized (dashed lines with triangles) EN2 perturbative correction.
+The dashed lines represent the FCI results.}
 \end{figure*}
 %%% %%% %%%
 
-%%% FIG S3 %%%
+%%% FIG S6 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_pt2_rpt2_HF}
 \caption{
-\ce{HF}
-}
+Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency, for \ce{HF},
+as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+with the standard (full lines with circles) and renormalized (dashed lines with triangles) EN2 perturbative correction.
+The dashed lines represent the FCI results.}
 \label{fig:plot_pt2_rpt2_hf}
 \end{figure*}
 %%% %%% %%%
 
-%%% FIG S3 %%%
+%%% FIG S7 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_pt2_rpt2_F2}
 \caption{
-\ce{F2}
-}
+Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency, for \ce{F2},
+as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+with the standard (full lines with circles) and renormalized (dashed lines with triangles) EN2 perturbative correction.
+The dashed lines represent the FCI results.}
 \label{fig:plot_pt2_rpt2_f2}
 \end{figure*}
 %%% %%% %%%
 
-%%% FIG S3 %%%
+%%% FIG S8 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_pt2_rpt2_ethylene}
 \caption{
-ethylene
-}
+Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency, for ethylene,
+as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+with the standard (full lines with circles) and renormalized (dashed lines with triangles) EN2 perturbative correction.
+The dashed lines represent the FCI results.}
 \label{fig:plot_pt2_rpt2_ethylene}
 \end{figure*}
 %%% %%% %%%
 
-%%% FIG S3 %%%
+%%% FIG S9 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_pt2_rpt2_N2}
 \caption{
-\ce{N2}
-}
+Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency, for \ce{N2},
+as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+with the standard (full lines with circles) and renormalized (dashed lines with triangles) EN2 perturbative correction.
+The dashed lines represent the FCI results.}
 \label{fig:plot_pt2_rpt2_n2}
 \end{figure*}
 %%% %%% %%%
 
-%%% FIG S3 %%%
+%%% FIG S10 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_pt2_rpt2_H4}
 \caption{
-\ce{H4}
-}
+Non-parallelity error (NPE), distance error, equilibrium distance, and force constant, for \ce{H4},
+as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+with the standard (full lines with circles) and renormalized (dashed lines with triangles) EN2 perturbative correction.
+The dashed lines represent the FCI results.}
 \label{fig:plot_pt2_rpt2_h4}
 \end{figure*}
 %%% %%% %%%
 
-%%% FIG S3 %%%
+%%% FIG S11 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_pt2_rpt2_H8}
 \caption{
-\ce{H8}
-}
+Non-parallelity error (NPE), distance error, equilibrium distance, and force constant, for \ce{H8},
+as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+with the standard (full lines with circles) and renormalized (dashed lines with triangles) EN2 perturbative correction.
+The dashed lines represent the FCI results.}
 \label{fig:plot_pt2_rpt2_h8}
 \end{figure*}
 %%% %%% %%%

@@ -58,7 +58,8 @@ set ytics 0.1
 set format y "%.1f"
 
 #set label '{/:Bold HF}' at 2000,0.32 tc ls 2 font 'Helvetica,44'
-set label '{/:Bold HF}' at 0.001,0.15 rotate by 90 tc ls 2 font 'Helvetica,44'
+#set label '{/:Bold HF}' at 0.001,0.15 rotate by 90 tc ls 2 font 'Helvetica,44'
+set label '{/:Bold HF}' at graph -0.49,0.4 rotate by 90 tc ls 2 font 'Helvetica,44'
 plot '../HF_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
      '../HF_cc-pvdz/pt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
      '../HF_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
@@ -78,7 +79,8 @@ set format y "%.1f"
 
 #set label '{/:Bold F_2}' at 20000,0.54 tc ls 2 font 'Helvetica,44'
 #set label '{/:Bold F_2}' at 0.00005,0.25 rotate by 90 tc ls 2 font 'Helvetica,44'
-set label '{/:Bold F_2}' at 0.00005,0.20 rotate by 90 tc ls 2 font 'Helvetica,44'
+#set label '{/:Bold F_2}' at 0.00005,0.20 rotate by 90 tc ls 2 font 'Helvetica,44'
+set label '{/:Bold F_2}' at graph -0.49,0.41 rotate by 90 tc ls 2 font 'Helvetica,44'
 plot '../F2_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
      '../F2_cc-pvdz/pt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
      '../F2_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
@@ -96,7 +98,8 @@ set ytics 0.1
 set format y "%.1f"
 
 #set label '{/:Bold ethylene}' at 2000,0.65 tc ls 2 font 'Helvetica,44'
-set label '{/:Bold Ethylene}' at 0.00002,0.13 rotate by 90 tc ls 2 font 'Helvetica,44' 
+#set label '{/:Bold Ethylene}' at 0.00002,0.13 rotate by 90 tc ls 2 font 'Helvetica,44' 
+set label '{/:Bold Ethylene}' at graph -0.49,0.26 rotate by 90 tc ls 2 font 'Helvetica,44' 
 plot '../ethylene_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
      '../ethylene_cc-pvdz/pt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
      '../ethylene_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
@@ -112,7 +115,8 @@ set xrange[1:1e9]
 set ytics 0.2
 
 #set label '{/:Bold N_2}' at 20000,1.08 tc ls 2 font 'Helvetica,44'
-set label '{/:Bold N_2}' at 0.0002,0.44 rotate by 90 tc ls 2 font 'Helvetica,44'
+#set label '{/:Bold N_2}' at 0.0002,0.44 rotate by 90 tc ls 2 font 'Helvetica,44'
+set label '{/:Bold N_2}' at graph -0.49,0.41 rotate by 90 tc ls 2 font 'Helvetica,44'
 plot '../N2_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
      '../N2_cc-pvdz/pt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
      '../N2_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
@@ -129,7 +133,8 @@ set xtics 10**1
 set ytics 0.1
 
 #set label '{/:Bold H_4}' at 200,0.54 tc ls 2 font 'Helvetica,44'
-set label '{/:Bold H_4}' at 0.01,0.25 rotate by 90 tc ls 2 font 'Helvetica,44'
+#set label '{/:Bold H_4}' at 0.01,0.25 rotate by 90 tc ls 2 font 'Helvetica,44'
+set label '{/:Bold H_4}' at graph -0.49,0.41 rotate by 90 tc ls 2 font 'Helvetica,44'
 plot '../H4_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
      '../H4_cc-pvdz/pt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
      '../H4_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
@@ -147,7 +152,8 @@ set xtics 10**2
 set ytics 0.2
 
 #set label '{/:Bold H_8}' at 20000,1.08 tc ls 2 font 'Helvetica,44'
-set label '{/:Bold H_8}' at 0.0003,0.45 rotate by 90 tc ls 2 font 'Helvetica,44'
+#set label '{/:Bold H_8}' at 0.0003,0.45 rotate by 90 tc ls 2 font 'Helvetica,44'
+set label '{/:Bold H_8}'  at graph -0.49,0.41 rotate by 90 tc ls 2 font 'Helvetica,44'
 plot '../H8_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
      '../H8_cc-pvdz/pt2/stat_CIs.dat'  u ($3):($4)  w lp ls 80  notitle, \
      '../H8_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \

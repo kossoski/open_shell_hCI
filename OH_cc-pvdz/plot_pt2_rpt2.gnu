@@ -46,7 +46,7 @@ set logscale x
 set format x "10^{%T}"
 set format y "%.1f"
 set ytics 0.1
-set xtics 10**3
+set xtics 10**2
 set mxtics 1
 #set grid xtics ytics mxtics mytics 
 #set xlabel 'Number of determinants'
@@ -55,7 +55,7 @@ set xlabel 'N_{det}'
 set ylabel 'NPE (Hartree)'
 
 ###################################################################################
-set xrange[1:1e7]
+set xrange[1:1e8]
 set yrange[0.0:0.08]
 set ytics 0.02
 set format y "%.2f"

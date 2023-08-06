@@ -46,7 +46,7 @@ set logscale x
 set format x "10^{%T}"
 set format y "%.1f"
 set ytics 0.1
-set xtics 10**3
+set xtics 10**2
 set mxtics 1
 #set grid xtics ytics mxtics mytics 
 #set xlabel 'Number of determinants'

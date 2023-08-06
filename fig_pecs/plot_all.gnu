@@ -62,7 +62,8 @@ set format y "%.1f"
 
 #set label '{/:Bold OH}' at 2000,0.38 tc ls 2 font 'Helvetica,44'
 #set label '{/:Bold OH}' at 0.0006,0.0001  rotate by 90  tc ls 2 font 'Helvetica,44'
-set label '{/:Bold OH}' at 0.0006,0.14  rotate by 90  tc ls 2 font 'Helvetica,44'
+#set label '{/:Bold OH}' at 0.0006,0.14  rotate by 90  tc ls 2 font 'Helvetica,44'
+set label '{/:Bold OH}' at graph -0.49,0.4 rotate by 90  tc ls 2 font 'Helvetica,44'
 plot '../OH_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
      '../OH_cc-pvdz/pt2/stat_CIs.dat'  u ($3):($5)  w lp ls 80  notitle, \
      '../OH_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
@@ -83,7 +84,8 @@ set ytics 0.1
 set format y "%.1f"
 
 #set label '{/:Bold CN}' at 20000,0.435 tc ls 2 font 'Helvetica,44'
-set label '{/:Bold CN}' at 0.000025,0.19  rotate by 90  tc ls 2 font 'Helvetica,44'
+#set label '{/:Bold CN}' at 0.000025,0.19  rotate by 90  tc ls 2 font 'Helvetica,44'
+set label '{/:Bold CN}' at graph -0.49,0.4 rotate by 90  tc ls 2 font 'Helvetica,44'
 plot '../CN_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
      '../CN_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
      '../CN_cc-pvdz/stat_CIo.dat'  u ($3):($4)  w lp ls 4  notitle
@@ -100,7 +102,8 @@ set format y "%.2f"
 set ytics 0.03
 
 #set label '{/:Bold vinyl}' at 100000,0.153 tc ls 2 font 'Helvetica,44'
-set label '{/:Bold Vinyl}' at 0.000002,0.055  rotate by 90  tc ls 2 font 'Helvetica,44'
+#set label '{/:Bold Vinyl}' at 0.000002,0.055  rotate by 90  tc ls 2 font 'Helvetica,44'
+set label '{/:Bold Vinyl}' at graph -0.49,0.35 rotate by 90  tc ls 2 font 'Helvetica,44'
 plot '../vinyl_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
      '../vinyl_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
      '../vinyl_cc-pvdz/stat_CIo.dat'  u ($3):($4)  w lp ls 4  notitle
@@ -117,7 +120,8 @@ set format y "%.1f"
 set ytics 0.1
 
 #set label '{/:Bold H_7}' at 20000,0.75 tc ls 2 font 'Helvetica,44'
-set label '{/:Bold H_7}' at 0.0001,0.33 rotate by 90 tc ls 2 font 'Helvetica,44'
+#set label '{/:Bold H_7}' at 0.0001,0.33 rotate by 90 tc ls 2 font 'Helvetica,44'
+set label '{/:Bold H_7}' at graph -0.49,0.41 rotate by 90 tc ls 2 font 'Helvetica,44'
 plot '../H7_cc-pvdz/stat_CIs.dat'  u ($3):($4)  w lp ls 8  notitle, \
      '../H7_cc-pvdz/stat_CI.dat'   u ($3):($4)  w lp ls 3  notitle, \
      '../H7_cc-pvdz/stat_CIo.dat'  u ($3):($4)  w lp ls 4  notitle
