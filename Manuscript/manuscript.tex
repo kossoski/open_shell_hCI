@@ -169,7 +169,7 @@ which means moving diagonally in the seniority-excitation map (denoted by the co
 \includegraphics[width=0.25\linewidth]{table_hCI_two_open_shell}
 \caption{Partitioning of the Hilbert space according to the seniority number $s$ and the excitation degree $e$ with respect to a given reference determinant (shown by its side),
 for a closed-shell reference (left), an open-shell reference with one unpaired electron (center) and an open-shell reference with two unpaired electrons (right).
-The color tones represent the determinants that are included at a given hCI model.}
+The color tones represent the determinants that are included at a given hCI model. hCI0 reduces to HF in the former two cases, where $s_0 = 0$ and $s_0 = 1$.}
 \label{fig:hCI}
 \end{figure*}
 %%% %%% %%%
@@ -207,7 +207,8 @@ Each class is determined by the specific seniority and occupation of the orbital
 \end{figure*}
 %%% %%% %%%
 
-The first order for a closed-shell reference determinant is hCI1 (see left of Fig.~\ref{fig:hCI}), which accounts for all single excitations (as CIS)
+For a closed-shell reference determinant ($s_0=0$), hCI0 reduces to the restricted HF determinant.
+The first non-trivial order is hCI1 (see left of Fig.~\ref{fig:hCI}), which accounts for all single excitations (as CIS)
 plus all paired doubled excitations (two electrons promoted from the same occupied orbital into the same virtual orbital),
 as shown in the top left of Fig.~\ref{fig:determinants}.
 For both classes of determinants, their number scales as $N^2$, and are thus taken into account at the same hierarchy of hCI ($h=1$ in this case).
@@ -242,7 +243,8 @@ hCI4   & hCI3+EN2   & CISDTQ & CISDT+EN2 & $\order*{N^{10}}$ \\
 \end{table}
 
 For an odd number of electrons, $s$ assumes odd values starting from $s=1$.
-The simplest reference is an open-shell determinant with one unpaired electron (see center pannel of Fig.~\ref{fig:hCI} and top right of Fig.~\ref{fig:determinants}).
+The simplest reference is an open-shell determinant with one unpaired electron ($s_0=1$), shown in the center pannel of Fig.~\ref{fig:hCI} and in the top right of Fig.~\ref{fig:determinants}.
+hCI0 also reduces to the restricted open-shell HF determinant.
 In contrast to the closed-shell case, here there are no empty blocks in the seniority-excitation map.
 Actually, the hCI series displays the hCI0.5 level, accounting only for the single excitations from and into the singly-occupied orbital.
 For HF orbitals, however, these excitations do not connect with the reference, and hCI0.5 provides the same energy as restricted open-shell HF.
@@ -250,20 +252,20 @@ More generally, since there are more types of orbitals for the open-shell refere
 there are correspondingly more classes of determinants at a given level of hCI.
 This can be appreciated from the comparison of hCI1 for closed- and open-shell references, shown in Fig.~\ref{fig:determinants}.
 
-Finally, one can employ a high-spin reference determinant to define the hCI models.
-The case of two unpaired electrons is shown in the right pannel of Fig.~\ref{fig:hCI},
-which would be appropriate for singly-excited states of closed-shells.
+Finally, one can employ a reference determinant having more unpaired electrons to define the hCI models.
+The case of two unpaired electrons ($s_0=2$) is shown in the right pannel of Fig.~\ref{fig:hCI},
+which would be appropriate for describing singly-excited states of closed-shells.
 The key difference in the hCI sequence, with respect to the closed-shell case, lies in the displacement by one block to the right in the seniority-excitation map,
 reflecting the shift from the $s_0=0$ to the $s_0=2$ reference.
-In the two cases discussed, the hCI0 level only included the reference determinant.
-For a $s=2$ reference, however, hCI0 not only accounts for the reference determinant,
+In addition, in the two previous cases, the hCI0 level only included the reference determinant.
+whereas for $s_0=2$, hCI0 not only accounts for the reference determinant,
 but also for the two closed-shell determinants produced by the single excitation that pairs the two unpaired electrons.
 The hCI1 classes of determinants for the $s_0=2$ reference can be seen in the bottom of Fig.~\ref{fig:determinants},
-which clearly outnumber the fewer classes associated with the $s_0=0$ and $s_0=1$ references.
-One could adopt even higher-spin references, further displacing the hCI sequence to the right in the seniority-excitation map.
+which clearly outnumber the fewer classes associated with the $s_0=0$ and $s_0=1$ cases.
+One could adopt references with even larger $s_0$, further displacing the hCI sequence to the right in the seniority-excitation map.
 In this case, hCI0 would include all the lower spin determinants obtained by partially or totally pairing the unpaired electrons.
 Notice that the number of such determinants do not depend on the size of the system (scaling as $N^0$), and are thus included at the $h=0$ level, in line with the spirit of hCI.
-In a similar fashion, hCI can be built on top of a high-spin reference for odd number of electrons.
+In a similar fashion, hCI can be built on top of a larger $s_0$ reference for odd number of electrons.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -786,7 +788,7 @@ In this sense, the present results obtained with $\Delta$sCI1 for open-shell exc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{acknowledgements}
-This work was performed using HPC resources from CALMIP (Toulouse) under allocation 2021-18005.
+This work was performed using HPC resources from CALMIP (Toulouse) under allocation 2023-18005.
 This project has received funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (Grant agreement No.~863481).
 \end{acknowledgements}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
