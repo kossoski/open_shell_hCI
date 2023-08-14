@@ -207,6 +207,7 @@ Each class is determined by the specific seniority and occupation of the orbital
 \end{figure*}
 %%% %%% %%%
 
+
 For a closed-shell reference determinant ($s_0=0$), hCI0 reduces to the restricted HF determinant.
 The first non-trivial order is hCI1 (see left of Fig.~\ref{fig:hCI}), which accounts for all single excitations (as CIS)
 plus all paired doubled excitations (two electrons promoted from the same occupied orbital into the same virtual orbital),
@@ -267,6 +268,14 @@ In this case, hCI0 would include all the lower spin determinants obtained by par
 Notice that the number of such determinants do not depend on the size of the system (scaling as $N^0$), and are thus included at the $h=0$ level, in line with the spirit of hCI.
 In a similar fashion, hCI can be built on top of a larger $s_0$ reference for odd number of electrons.
 
+For a reference containing unpaired electrons, an approximate CI model will generally produce spin-contaminated states.
+One can impose the solutions to have well-defined spin by including additional determinants generated via higher-order hierarchy, which account for the missing spin-flip configurations.
+The spin-contamination problem and its solution are therefore equivalent to that encountered in eCI. \cite{Maurice_1996}
+Here, we have employed this procedure and considered pure spin states.
+For the $s_0 = 2$ reference, one could alternatively employ a high-spin triplet determinant (two unpaired spin-up electrons), 
+rather than the low-spin determinant shown in Fig.~\ref{fig:ref}.
+Regardless of the choice, hCI (as eCI) produces the same energies for the triplet states, provided that a spin eigenstate is imposed for the low-spin reference.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Computational details}
@@ -318,15 +327,16 @@ from 18 closed-shell systems and 8 radicals, with geometries extracted from the 
 The full set of excited states and calculated excitation energies, for the various CI models, are provided in the {\SupInf}.
 We employed the aug-cc-pVDZ basis set for systems having up to three non-hydrogen atoms and the 6-31+G(d) basis set for the larger ones.
 Core orbitals were frozen.
-For the radicals, we further impose the CI solutions to be eigenstates of the spin angular momentum operator, which implies in accounting for a set of appropriate spin-flipped determinants.
-In this sense, our CIS calculations for radicals actually correspond to the so-called extended CIS, \cite{Maurice_1996} and equivalently for the other hCI, eCI and sCI models.
+We impose the CI solutions to be eigenstates of the spin angular momentum operator, which implies in accounting for a set of appropriate spin-flipped determinants stemming from higher-order excitation or hierarchy.
+In this sense, our CIS calculations for radicals actually correspond to the so-called extended CIS \cite{Maurice_1996} for instance, and equivalently for the other hCI, eCI and sCI models.
+Notice that spin-contaminated solutions would have different energies than the spin eigenstates considered here.
+
 We performed calculations following both the standard ground-state based CI route and the state-specific CI route. \cite{Kossoski_2023}
 For the latter, we employed the state-specific orbitals obtained in Ref.~\onlinecite{Kossoski_2023}.
 Notice that, in contrast to eCI, the energies obtained with sCI and hCI models are not invariant under rotations within the occupied and virtual subspaces.
 The computed excitation energies were benchmarked against the reference values of FCI quality provided in the QUEST database. \cite{Veril_2021}
-
 The restricted HF solution (restricted open-shell HF for the open-shell systems) was taken as the reference determinant for the hCI and eCI ground state calculations
-(left and middle pannels of Fig.~\ref{fig:hCI})
+(left and middle pannels of Fig.~\ref{fig:hCI}).
 For the state-specific hCI and eCI calculations, we employed a minimal CSF reference: \cite{Kossoski_2023}
 a single open-shell determinant for the doublet excited states and a single open-shell CSF for the excited states from closed-shell systems
 (middle and right pannels of Fig.~\ref{fig:hCI}, respectively).
