@@ -754,37 +754,37 @@ based on the ionization-potential equation-of-motion CC (EOM-CC) formalism.
 \label{sec:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Here, we have generalized hCI \cite{Kossoski_2022} for an arbitrary reference determinant, thus extending its applicability to radical species and state-specific excited state calculations.
+Here, we have generalized hCI \cite{Kossoski_2022} for an arbitrary reference determinant, thus extending its applicability to radical species and state-specific excited-state calculations.
 
 By surveying the dissociation of four radicals,
-we found that the hCI route outperforms or matches eCI, for both weakly correlated (equilibrium properties) and strongly correlating (dissociation) regimes.
-These and previous \cite{Kossoski_2022} findings demonstrate the ability of hCI models to recover weak and strong correlation for both open- and closed-shell systems.
+we found that the hCI route outperforms or matches eCI, for both weakly correlated (equilibrium properties) and strongly correlated (dissociation) regimes.
+These and previous \cite{Kossoski_2022} findings demonstrate the ability of hCI models to recover weak and strong correlations for both open- and closed-shell systems.
 Meanwhile, sCI leads to far less accurate results in comparison to hCI or eCI, for a given computational cost.
 For closed- and open-shell systems, the EN2 perturbative correction
-substantially accelerates and stabilizes the convergence of hCI and eCI routes (while keeping the advantage of the former),
+substantially accelerates and stabilizes the convergence of hCI and eCI (while keeping the advantage of the former),
 though it ameliorates the sCI route to a lesser extent.
-The standard EN2 correction typically produced more accurate results than its renormalized form, except perhaps for describing single bond breaking.
-Overall, lower order models like hCI1+EN2 were found to be fairly accurate given its low computational cost.
+The standard EN2 correction typically produced more accurate results than its renormalized form, except perhaps for describing single-bond breaking.
+Overall, lower-order models (like hCI1+EN2) were found to be fairly accurate given their low computational cost.
 In the future, it may be worth combining orbital optimization at a lower level of hCI \cite{Kossoski_2022} with the correction provided by perturbation theory.
 
-We further gauged the performance of hCI to describe excited states of closed-shell and open-shell systems, based on either HF ground-state orbitals or state-specific orbitals.
-For excitations of closed-shells, $\Delta$hCI2 and $\Delta$hCI3 are comparable to their excitation-based counterparts, $\Delta$CISD and $\Delta$CISDT,
-whereas $\Delta$hCI1, $\Delta$hCI1.5 and $\Delta$hCI2.5 models are inaccurate bearing in mind their computational cost.
+We further gauged the performance of hCI to describe excited states of closed- and open-shell systems, based on either HF ground-state orbitals or state-specific orbitals.
+For excitations of closed-shell systems, $\Delta$hCI2 and $\Delta$hCI3 are comparable to their excitation-based counterparts, $\Delta$CISD and $\Delta$CISDT,
+whereas $\Delta$hCI1, $\Delta$hCI1.5, and $\Delta$hCI2.5 are inaccurate bearing in mind their computational cost.
 The poor performance at lower orders is ascribed to the different minimal references employed,
-a single $s=0$ determinant for the ground state and a single $s=2$ CSF for the excited state,
+a single seniority-zero determinant for the ground state and a single seniority-two CSF for the excited state,
 which introduces a strong bias on the classes of determinants accessed in the hCI calculations.
-$\Delta$hCI performs significantly better for the doublet transitions, when compared to the results for closed-shells.
-In this case, the reference of both ground and excited states comprises the same type of single $s=1$ determinant.
+$\Delta$hCI performs significantly better for the doublet transitions when compared to the results for closed shells.
+In this case, the reference of both ground and excited states comprises the same type of single seniority-one determinant.
 The advantage of using state-specific orbitals over ground-state ones depends on the choice of reference and the order in which the CI is truncated.
 When similar references are adopted (as for the doublet transitions), such advantage is already evident at $\Delta$hCI1.
 In contrast, for unlike references (as for the closed-shell excitations), the state-specific approach only becomes advantageous at somewhat higher orders ($\Delta$hCI2).
-The present findings highlight the challenge in describing on an equal footing states with qualitatively different characters, in particular ground and singly-excited states of closed-shell systems.
+The present findings highlight the challenge in describing, on an equal footing, states with qualitatively different characters, in particular ground and singly-excited states of closed-shell systems.
 
 We put forward the interesting perspective of developing hierarchy-based CC (hCC) methods (hCC1, hCC2, and so on),
 along with derived EOM-CC formulations to target excited states (EOM-hCC1, EOM-hCC2, and so on).
 EOM-CC with single and double excitations (EOM-CCSD) \cite{Rowe_1968,Monkhorst_1977,Koch_1990,Stanton_1993}
 is very accurate for describing singly-excited states, \cite{Loos_2018,Loos_2020,Loos_2020a} albeit it slightly overestimates their excitation energies.
-In contrast, CISD provides too big excitation energies, \cite{Koch_1990,Kossoski_2023}
+In contrast, CISD provides too large excitation energies, \cite{Koch_1990,Kossoski_2023}
 even though both CISD and EOM-CCSD methods span the same excited determinants and rely on HF ground-state orbitals.
 Here, we found that hCI2 is more accurate than CISD, despite their large absolute errors. In particular, the overestimated energies are less exaggerated in the former.
 We ponder whether this improvement would be transferable to EOM-hCC2.
@@ -792,14 +792,13 @@ Along the same line, it would be interesting to develop and gauge the performanc
 Importantly, it is not obvious what the computational scaling of such methods would be.
 Alternatively, one can envision state-specific hCC methods to target excited states.
 
-Finally, we employed different sCI models to compute excitation energies of closed-shell and open-shell systems.
+Finally, we employed different sCI models to compute excitation energies of closed- and open-shell systems.
 Despite the four different models employed for the closed-shell excitations, the results are overall disappointing.
 For the open-shell transitions, the outcome is more encouraging.
-The relevance of these sCI models lies in its possible connection with CC methods.
+The relevance of these sCI models lies in their possible connection with CC methods.
 While this is already established for closed-shell systems (pCCD and DOCI deliver very similar energies), \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967,Kossoski_2021,Marie_2021}
 here we raised the question of whether there exists a polynomial scaling extension of pCCD to open-shell systems that matches sCI1 in terms of computed energies.
 In this sense, the present results obtained with $\Delta$sCI1 for open-shell excitations are appealing and encourage the development of a generalized pCCD method.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{acknowledgements}
