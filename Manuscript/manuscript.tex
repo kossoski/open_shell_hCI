@@ -88,31 +88,31 @@ By including progressively more determinants in the Hilbert space, the wave func
 In full CI (FCI), all determinants are accounted for and the problem is solved exactly (for a given basis set).
 In practice, however, one resorts to approximate CI models, where only the determinants that satisfy a given criterion are included in the truncated Hilbert space.
 
-The most well-known CI route is based on the excitation degree.
+The most well-known CI route is based on the excitation degree $e$.
 Starting from a reference determinant, typically the Hartree-Fock (HF) determinant,
 one generates all determinants that are connected to it by exciting at most $e$ electrons.
-The excitation degree $e$ thus defines the order of the approximate excitation-based CI (eCI) model:
-CI with single excitations (CIS); CI with single and double excitations (CISD), CI with single, double and triple excitations (CISDT), and so on.
+The excitation degree thus defines the order of the approximate excitation-based CI (eCI) model:
+CI with single excitations (CIS), CI with single and double excitations (CISD), CI with single, double, and triple excitations (CISDT), and so on.
 The eCI route rather quickly captures dynamic (weak) correlation, though it struggles with the description of static (strong) correlation.
 
 A different CI route is based on the seniority number $s$ (the number of unpaired electrons in a given determinant).
-In seniority-based CI (sCI) \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967}, there is no reference determinant, and one accounts for all determinants having seniority equal or less than $s$.
+In seniority-based CI (sCI), \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967} there is no reference determinant and one accounts for all determinants having seniority equal or less than $s$.
 In contrast to eCI, sCI recovers static correlation more efficiently and works well to describe molecular dissociation, \cite{Bytautas_2015,Alcoba_2014,Alcoba_2014b}
 at the expense of a poorer account of dynamic correlation and a higher computational cost.
 For systems with an even number of electrons, the first approximate model is defined by $s=0$ (sCI0), usually referred to as doubly-occupied CI (DOCI),
-which is followed by the higher-order models sCI2, sCI4, and so on.
-For an odd number of electrons, the seniority route follows along odd numbers of $s$: sCI1, sCI3, and so on.
+which is followed by the higher-order models: sCI2, sCI4, and so on.
+For odd numbers of electrons, the seniority route follows along odd numbers of $s$: sCI1, sCI3, and so on.
 
 We have recently introduced a third CI route, hierarchy CI (hCI), \cite{Kossoski_2022}
 where the Hilbert space is partitioned according to a hierarchy parameter $h$ that combines the excitation degree $e$ and the seniority number $s$ defined as $h = (e+s/2)/2$.
 This definition ensures that all classes of determinants whose number share the same scaling with system size are included at the same hierarchy $h$.
 For different properties and closed-shell molecular systems,
 hCI was found to display an overall faster convergence toward the FCI results than the traditional eCI route. \cite{Kossoski_2022}
-In this sense, it was able to recover both static and dynamic correlation more effectively than either eCI or sCI.
+In this sense, it was able to recover both static and dynamic correlations more effectively than either eCI or sCI.
 However, hCI has only been defined for a closed-shell reference, thus being limited to the ground state of systems with an even number of electrons.
 
 There are two possible approaches to target excited states with CI methods.
-One can employ the ground-state HF orbitals and obtain excitation energies from the higher-lying eigenvalues of the CI matrix, which we refer to as ground-state based approach.
+One can employ the ground-state HF orbitals and obtain excitation energies from the higher-lying eigenvalues of the CI matrix, which we refer to as the ground-state-based approach.
 Instead, one may optimize the orbitals for the excited state of interest (described with an appropriate reference), followed by a separate CI calculation,
 in a so-called state-specific approach ($\Delta$CI).
 There has been a recent surge in the development of state-specific methods, covering
@@ -121,33 +121,33 @@ single-reference and multiconfigurational self-consistent field,
 % references for SCF
 %\cite{Ziegler_1977,Burton_2021}
 % multiconfigurational SCF, \cite{Shea_2018,Tran_2019,Tran_2020,Hardikar_2020,Burton_2022,Kossoski_2023,Marie_2023}
-density functional theory,
-\cite{Filatov_1999,Kowalczyk_2011,Kowalczyk_2013,Gilbert_2008,Barca_2018,Hait_2020,Hait_2021,Hardikar_2020,Zhao_2020,Levi_2020,Carter-Fenk_2020,Toffoli_2022,Schmerwitz_2022}
+density-functional theory,
+\cite{Filatov_1999,Kowalczyk_2011,Kowalczyk_2013,Gilbert_2008,Barca_2018,Hait_2020,Hait_2021,Hardikar_2020,Zhao_2020,Levi_2020,Carter-Fenk_2020,Toffoli_2022,Schmerwitz_2022,Schmerwitz_2023}
 and coupled cluster (CC)
 \cite{Piecuch_2000,Mayhall_2010,Lee_2019,Kossoski_2021,Marie_2021,Rishi_2023}
 methods.
 In particular, by employing a minimal configuration state function (CSF) reference,
-we have recently shown that excitation-based $\Delta$CI models deliver far more accurate excitation energies than the ground-state based analogues. \cite{Kossoski_2023}
+we have recently shown that excitation-based $\Delta$CI models deliver far more accurate excitation energies than their ground-state-based analogs. \cite{Kossoski_2023}
 
 Here, our first goal is to generalize hCI for an arbitrary type of reference, thus extending its applicability from ground-state closed-shells \cite{Kossoski_2022}
-to radicals and state-specific excited state calculations.
+to radicals and state-specific excited-state calculations.
 This is done in Sec.~\ref{sec:hCI}.
 The computational details about the implementation and the specific calculations performed here are presented in Sec.~\ref{sec:compdet}.
-In Sec.~\ref{sec:res_A}, we assess the performance of hCI, eCI and sCI models by calculating various properties of four ground-state radicals, which comprises our second goal.
+In Sec.~\ref{sec:res_A}, we assess the performance of hCI, eCI, and sCI models by calculating various properties of four ground-state radicals, which comprises our second goal.
 Our third goal is to evaluate how perturbation theory, more precisely the second-order Epstein-Nesbet (EN2) perturbative correction (both standard and renormalized), \cite{Garniron_2019}
 impacts various properties of ground-state closed-shell systems and radicals, for hCI, eCI, and sCI models.
 This part is presented in Sec.~\ref{sec:res_B}.
 Inspired by the results of hCI for ground-state closed-shell systems, \cite{Kossoski_2022}
-and by the promising set of excitation-based $\Delta$CI, \cite{Kossoski_2023} here we explore hCI models for excited states, following both ground-state based and state-specific approaches.
-In thise sense, our fourth goal is to assess the accuracy of hCI models for excited states, which is the subject of Sec.~\ref{sec:res_C}.
+and by the promising set of excitation-based $\Delta$CI, \cite{Kossoski_2023} here we explore hCI models for excited states, following both the ground-state-based and state-specific approaches.
+In this sense, our fourth goal is to assess the accuracy of hCI models for excited states, which is the subject of Sec.~\ref{sec:res_C}.
 Furthermore, to the best of our knowledge, sCI models have not yet been directly used to target excited states,
-despite the growing number of methods that exploit the concept of seniority number,
+despite the growing number of methods that exploit the concept of seniority,
 for both ground
 \cite{Limacher_2013,Limacher_2014,Tecmer_2014,Boguslawski_2014a,Boguslawski_2015,Boguslawski_2014b,Boguslawski_2014c,Johnson_2020,Henderson_2014,Stein_2014,Henderson_2015,Chen_2015,Bytautas_2018,Marie_2021,Boguslawski_2021,Tecmer_2022,Mamache_2023}
 and excited states.
 \cite{Boguslawski_2016b,Boguslawski_2016c,Boguslawski_2019,Nowak_2019,Kossoski_2021,Marie_2021,Tecmer_2022,Rishi_2023,Nowak_2023}
-Our fifth and last goal, detailed in Sec.~\ref{sec:res_D}, is therefore to define and gauge ground-state based and state-specific sCI models for excited states.
-Sec.~\ref{sec:conclusion} closes the present contribution with the main conclusions and perspectives.
+Our fifth and last goal, detailed in Sec.~\ref{sec:res_D}, is therefore to define and gauge ground-state-based and state-specific sCI models for excited states.
+Section \ref{sec:conclusion} closes the present contribution with the main conclusions and perspectives.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
