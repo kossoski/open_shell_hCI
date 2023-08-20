@@ -709,19 +709,19 @@ Alternatively, one could fully optimize the orbitals at a given level of CI. \ci
 We refer back to Table \ref{tab:stat1} to discuss the performance of sCI for excited states of closed-shell systems.
 The first model, sCI2/sCI2, systematically overestimates the excitation energies, producing a MAE of \SI{1.34}{\eV}.
 The same two factors discussed above for hCI explain such large errors.
-First, the ground state description is favored due to the use of ground-state HF orbitals.
+First, the ground-state description is favored due to the use of ground-state HF orbitals.
 Indeed, with state-specific orbitals, the $\Delta$sCI2/sCI2 model reduces the MAE to \SI{0.79}{\eV}, though still overestimating the excitation energies.
-Second, there is an unbalanced description of correlation for ground and excited states, associated with the classes of determinants.
+Second, there is an unbalanced description of the correlation for ground and excited states, associated with the classes of determinants.
 While sCI2/sCI2 accounts for an additional $s=2$ sector for the ground state (which can be qualitatively described in the $s=0$ sector),
-no addition pair of electrons is allowed to become unpaired in the excited state calculation, even though the state is qualitatively described by a determinant that is contained in the $s=2$ sector.
+no additional pairs of electrons are allowed to become unpaired in the excited state calculation, even though the state is qualitatively described by a determinant that is contained in the $s=2$ sector.
 In other words, unpaired excitations are allowed to correlate the ground state, but not the excited state, given their respective closed-shell and open-shell characters,
 thus creating a bias towards the former.
 
 A possible solution to this unbalance is to restrict the determinants to a maximum seniority number of $s=0$ for the ground state and $s=2$ for the excited state calculation.
 This is precisely the sCI2/sCI0 model, which delivers a MAE of \SI{0.57}{\eV}, compared to \SI{1.34}{\eV} of sCI2/sCI2.
 However, when going to state-specific orbitals, $\Delta$sCI2/sCI0 systematically undershoots the excitation energies and provides a MAE of \SI{0.99}{\eV}.
-Clearly, the $s=2$ sector captures more correlation for the excited states than the $s=0$ does for the ground state.
-Ultimately, we did not find a combination of sCI model and orbitals that produced reasonable excitation energies for closed-shell systems.
+Clearly, the seniority-two sector captures more correlation for the excited states than the seniority-zero does for the ground state.
+Ultimately, we did not find a combination of sCI models and orbitals that produced reasonable excitation energies for closed-shell systems.
 
 The situation for open-shell systems is quite different, in close analogy to the previous discussion regarding hCI.
 As shown in Table \ref{tab:stat2}, sCI1 provides considerably more accurate excitation energies for open-shell than for closed-shell systems.
@@ -731,17 +731,16 @@ Moreover, the state-specific approach is superior.
 sCI1 presents a MAE of \SI{0.39}{\eV} and overestimates the excitation energies (MSE of \SI{+0.24}{\eV}), in view of the bias introduced by the ground-state orbitals.
 With state-specific orbitals, $\Delta$sCI1 reduces the MAE to \SI{0.27}{\eV} and the MSE to \SI{-0.11}{\eV}, which is smaller in absolute value than found for sCI1.
 
-Even though $\Delta$sCI1 is less accurate and has less favourable computational scaling than CI models like $\Delta$CISD and $\Delta$hCI2,
+Even though $\Delta$sCI1 is less accurate and has less favorable computational scaling than CI models like $\Delta$CISD and $\Delta$hCI2,
 its decent errors are encouraging for another reason:
 the development of polynomial scaling CC methods based on the concept of seniority.
 For closed-shell systems, DOCI (here referred to as sCI0) energies can be very well reproduced with state-specific pair coupled cluster doubles (pCCD), a method that has mean-field cost,
 for both ground \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967} and excited \cite{Kossoski_2021,Marie_2021} states.
-Likewise, a formulation of pCCD to open-shell systems might share a analogous connection to low-order sCI models like sCI1.
+Likewise, a formulation of pCCD to open-shell systems might share an analogous connection to low-order sCI models like sCI1.
 If that is the case, then a state-specific approach of such pCCD formulation adapted to open-shells may approach the accuracy of $\Delta$sCI1 (MAE of \SI{0.27}{\eV}) at a mean-field cost.
 This method could then provide an improved starting point to recover the remaining weak correlation than if starting from the (also mean-field though less accurate) $\Delta$CSF model (MAE of \SI{0.41}{\eV}).
 To the best of our knowledge, there has been a single proposed extension of pCCD to open-shell systems, \cite{Boguslawski_2021}
-based on the ionization-potential equation-of-motion CC (EOM-CC) formalism.
-
+based on the ionization-potential equation-of-motion CC (EOM-CC) formalism. \cite{Stanton_1994,Muneaki_2006,Bomble_2005}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
