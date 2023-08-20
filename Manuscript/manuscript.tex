@@ -426,14 +426,14 @@ in line with similar findings for closed-shell systems \cite{Kossoski_2022} (als
 \label{sec:res_B}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The results for the CI models corrected by the standard EN2 energy are represented by the light tones in Figs.~\ref{fig:plot_all} and ~\ref{fig:plot_all_closed}.
+The results for the CI models corrected by the standard EN2 energy are represented by the light tones in Figs.~\ref{fig:plot_all} and \ref{fig:plot_all_closed}.
 We excluded instances where the PECs present important discontinuities.
 These discontinuities reflect crossings between states of different symmetries in the unperturbed CI calculation,
-appearing as kinks in the computed ground-state PEC.
+appearing as kinks in the computed ground-state PEC \titou{(intruder states)}.
 Due to the abrupt change of character, the EN2 correction is not uniform and gives rise to the observed discontinuities.
 This happens for the open-shell systems at dissociation (except for \ce{OH}), for which we do not present NPEs and distance errors.
 For \ce{OH} and the six closed-shell systems, the EN2 correction produced smooth PECs at dissociation.
-Around the equilibrium geometry, the EN2 correction also leads to well-behaved PECs, for all CI models and for all systems, except for \ce{CN}
+Around the equilibrium geometry, the EN2 correction also leads to well-behaved PECs, for all CI models, and for all systems, except for \ce{CN}
 (thus no equilibrium properties are presented for this radical).
 This is simply due to its several close-lying excited states.
 If we were to follow the PEC of a given symmetry (and not the lowest-lying state as we did here), there would be no discontinuities stemming from the EN2 contribution.
@@ -446,20 +446,20 @@ Similarly, the correction typically maintains the comparable performance of the 
 
 The improvement brought by the perturbative correction is such that a given CI+EN2 model often provides more accurate results than the higher-order bare CI model sharing the same computational scaling.
 For instance, hCI1+EN2 and hCI2 display the same $\order*{N^6}$ computational scaling, and the former outperforms the latter in many cases.
-In Figs.~\ref{fig:plot_all} and ~\ref{fig:plot_all_closed}, hCI1+EN2 correlates with the second light green mark, and hCI2 with the fourth dark green mark.
-The former model provides smaller NPEs and distance errors for \ce{OH}, \ce{HF}, \ce{F2} (all single bond breaking),
+In Figs.~\ref{fig:plot_all} and \ref{fig:plot_all_closed}, hCI1+EN2 correlates with the second light green mark, and hCI2 with the fourth dark green mark.
+The former model provides smaller NPEs and distance errors for \ce{OH}, \ce{HF}, \ce{F2} (all single-bond breakings),
 the opposite being true for multiple bond breaking.
 The advantage of the EN2 correction is more striking for the equilibrium properties,
 where hCI1+EN2 is more accurate than hCI2 for \ce{OH}, vinyl, ethylene, and \ce{N2},
 whereas both models perform similarly for the remaining systems.
-It is worth recalling that the prefactor associated with the EN2 calculation is smaller than that associated with the higher-order CI calculation,
+It is worth recalling that the prefactor associated with the EN2 calculation is smaller than the one associated with the higher-order CI calculation,
 which, in the above example, makes hCI1+EN2 cheaper than hCI2.
 In many cases, the accuracy of hCI1+EN2 is actually better or comparable to that of hCI2.5 or CISDT, considerably more expensive models.
 
 A similar impact on the effect of the EN2 correction also holds for eCI.
 For that, we compare CISD+EN2 and CISDT, both sharing a $\order*{N^8}$ scaling.
 CISD+EN2 correlates with the third dark red mark and CISDT with the fourth light red mark in Figs.~\ref{fig:plot_all} and ~\ref{fig:plot_all_closed}.
-The errors for the four observables are systematically smaller with the former model,
+The errors for the four observables are systematically smaller than the former model,
 except for the NPE and distance error of \ce{H8} and the equilibrium properties of \ce{H7}, where they are comparable.
 
 The EN2 correction usually ameliorates the performance of the sCI route, though to a lesser extent than observed for hCI and eCI.
@@ -471,13 +471,13 @@ Overall, the sCI+EN2 route is too expensive for the attained accuracy.
 
 In very few cases, the EN2 correction does not improve the bare CI results, suggesting important cancellation of errors in the latter.
 This is seen when employing the hCI1 and hCI1+EN2 models to compute the NPE of \ce{OH} and \ce{F2}, and to some extent the equilibrium properties of \ce{F2}.
-These are exceptions though, as the EN2 correction practically always improve the accuracy of the computed observables.
-It further leads to overall more monotonic convergence of the observables.
-In this sense, it regularizes oscillations seen in the unperturbed case, probably related to cancellation of errors at the lower orders.
+These are exceptions though, as the EN2 correction practically always improves the accuracy of the computed observables.
+It further leads to an overall more monotonic convergence of the observables.
+In this sense, it regularizes oscillations seen in the unperturbed case, probably related to the cancellation of errors at the lower orders.
 This is clearly seen in the equilibrium properties of vinyl, \ce{H7}, and \ce{F2},
 and in the NPE of \ce{OH}, \ce{HF}, \ce{F2}, and ethylene.
 
-Instead of the usual EN2 correction, discussed so far and shown in Figs.~\ref{fig:plot_all} and ~\ref{fig:plot_all_closed},
+Instead of the usual EN2 correction, discussed so far and shown in Figs.~\ref{fig:plot_all} and \ref{fig:plot_all_closed},
 one can compute the renormalized EN2 correction. \cite{Garniron_2019}
 Analogous results showing the convergence of observables for both usual and renormalized EN2 corrections are shown in the {\SupInf}.
 Significant differences can be encountered at the lower orders of CI, becoming negligible at higher orders.
