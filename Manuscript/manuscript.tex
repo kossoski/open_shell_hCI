@@ -272,7 +272,7 @@ In a similar fashion, hCI can be built on top of a larger $s_0$ reference for od
 The deduction for the number of determinants in a given hCI model, for the $s_0=0$ closed-shell, $s_0=1$ open-shell, as well as for an arbitrary reference determinant, can be found in Appendix \ref{app:appendix}.
 
 For a reference containing unpaired electrons, an approximate CI model generally produces spin-contaminated states.
-One can impose the solutions to have a well-defined spin by including additional determinants generated via higher-order hierarchies, which account for the missing spin-flip configurations.
+One can impose the solutions to have a well-defined spin by including additional determinants generated via higher-order hierarchies, which account for the missing spin-flip configurations. \cite{Chilkuri_2021}
 The spin-contamination problem and its solution are therefore equivalent to that encountered in eCI. \cite{Maurice_1996}
 Here, we have employed this procedure and considered pure spin states.
 For the $s_0 = 2$ reference, one could alternatively employ a high-spin triplet determinant (two unpaired spin-up electrons), 
@@ -299,22 +299,21 @@ This calculation involves a single loop over the determinants left outside the t
 Looping over these external doubly excited determinants has a computational scaling equal to $\Ndet$,
 thus $\order*{N^{2e+4}}$ for eCI and $\order*{N^{2h+4}}$ for hCI, where $e$ or $h$ define the internal CI space.
 For example, hCI2 and CISD present a $\order*{N^6}$ computational scaling, whereas hCI2+EN2 and CISD+EN2 scale as $\order*{N^8}$,
-though with a small prefactor stemming from the EN2 calculation.
+though with a small prefactor stemming from the EN2 calculation that employs a very efficient semistochastic algorithm. \cite{Garniron_2018}
 The computational scaling associated with the CI+EN2 calculations is also presented in Table~\ref{tab:scaling}.
 
-To gauge the performance of hCI, eCI and sCI for radical systems,
-we have calculated the ground-state potential energy curves (PECs) for the dissociation of four radicals:
+To gauge the performance of hCI, eCI, and sCI for radicals, we have calculated the ground-state potential energy curves (PECs) for the dissociation of four radicals:
 \ce{OH}, \ce{CN}, vinyl (\ce{C2H3}), and \ce{H7}.
-The CI calculations employed the ground-state restricted open-shell HF orbitals, described with the cc-pVDZ basis set, and within the frozen core approximation.
+The CI calculations employed the ground-state restricted open-shell HF orbitals, described with the cc-pVDZ basis set, and within the frozen-core approximation.
 For such small systems and basis sets, FCI is attainable and provides the reference results for gauging the approximate CI models.
-The equilibrium geometry of vinyl was taken from Ref.~\onlinecite{Loos_2020}, and is also reproduced in the {\SupInf}.
+The equilibrium geometry of vinyl was taken from Ref.~\onlinecite{Loos_2020} and is also reproduced in the {\SupInf}.
 Their PECs were computed along the \ce{C=C} double bond breaking coordinate, with the remaining internal coordinates kept frozen.
 For \ce{H7}, we considered equally spaced and linearly arranged hydrogen atoms and the PECs were computed along the symmetric dissociation coordinate.
 
 The results were analyzed along the same lines as our previous report on hCI for closed-shell systems. \cite{Kossoski_2022}
 Namely, for the different CI models considered here,
 we evaluated the convergence of the non-parallelity error (NPE), the distance error, the harmonic vibrational frequencies, and the equilibrium bond lengths, as functions of $\Ndet$.
-The NPE of a given level of theory is defined as the maximum minus the minimum differences between its corresponding PEC and the FCI PEC, for a given range of coordinates.
+The NPE of a given level of theory is defined as the maximum minus the minimum energy differences between its corresponding PEC and the FCI PEC, for a given range of coordinates.
 Here, we redefine the previous definition of the distance error \cite{Kossoski_2022} to accommodate for the fact the approximate PEC might appear below the FCI one when perturbative corrections are employed.
 In such cases and with the previous definition, undesired negative values could be attained.
 The distance error is redefined based on the signed differences between two PECs, as the absolute value of their maximum difference plus the absolute value of their minimum difference,
@@ -328,8 +327,8 @@ The various CI models introduced here were further assessed based on calculated 
 from 18 closed-shell systems and 8 radicals, with geometries extracted from the QUEST database. \cite{Veril_2021}
 The full set of excited states and calculated excitation energies, for the various CI models, are provided in the {\SupInf}.
 We employed the aug-cc-pVDZ basis set for systems having up to three non-hydrogen atoms and the 6-31+G(d) basis set for the larger ones.
-Core orbitals were frozen.
-We impose the CI solutions to be eigenstates of the spin angular momentum operator, which implies in accounting for a set of appropriate spin-flipped determinants stemming from higher-order excitation or hierarchy.
+Core orbitals were frozen systematically.
+We impose the CI solutions to be eigenstates of the spin angular momentum operator, which implies accounting for a set of appropriate spin-flipped determinants stemming from higher-order excitations or hierarchies. \cite{Chilkuri_2021}
 In this sense, our CIS calculations for radicals actually correspond to the so-called extended CIS \cite{Maurice_1996} for instance, and equivalently for the other hCI, eCI, and sCI models.
 Notice that spin-contaminated solutions would have different energies than the spin eigenstates considered here.
 
@@ -337,19 +336,18 @@ We performed calculations following both the standard ground-state-based CI rout
 For the latter, we employed the state-specific orbitals obtained in Ref.~\onlinecite{Kossoski_2023}.
 Notice that, in contrast to eCI, the energies obtained with sCI and hCI models are not invariant under rotations within the occupied and virtual subspaces.
 The computed excitation energies were benchmarked against the reference values of FCI quality provided in the QUEST database. \cite{Veril_2021}
-The restricted HF solution (restricted open-shell HF for the open-shell systems) was taken as the reference determinant for the hCI and eCI ground state calculations
-(left and middle pannels of Fig.~\ref{fig:hCI}).
+The restricted HF solution (restricted open-shell HF for the open-shell systems) was taken as the reference determinant for the hCI and eCI ground-state calculations
+(left and middle panels of Fig.~\ref{fig:hCI}).
 For the state-specific hCI and eCI calculations, we employed a minimal CSF reference: \cite{Kossoski_2023}
 a single open-shell determinant for the doublet excited states and a single open-shell CSF for the excited states from closed-shell systems
-(middle and right pannels of Fig.~\ref{fig:hCI}, respectively).
+(middle and right panels of Fig.~\ref{fig:hCI}, respectively).
 
 As for the sCI models,
-we considered sCI1 for both ground and (state-specific) excited state calculations for the open-shell systems (odd number of electrons).
-For the closed-shell systems (even number of electrons), we explored two models.
+we considered sCI1 for both ground and (state-specific) excited-state calculations for the open-shell systems (odd numbers of electrons).
+For the closed-shell systems (\titou{even numbers of electrons}), we explored two models.
 In the sCI2/sCI0 model, the ground state was described with sCI0 and the excited state with sCI2, which is the minimal sCI calculation for computing singly-excited states of closed-shell systems.
-Further including the $s=2$ sector for the ground state calculations gives rise to the sCI2/sCI2 model.
+Further including the seniority-two sector for the ground-state calculations defines the sCI2/sCI2 model.
 From here on, CI models carrying the $\Delta$ symbol denote a state-specific approach, whereas those without it correspond to a ground-state-based approach.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and discussion}
