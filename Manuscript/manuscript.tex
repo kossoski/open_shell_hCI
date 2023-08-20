@@ -91,7 +91,7 @@ In practice, however, one resorts to approximate CI models, where only the deter
 The most well-known CI route is based on the excitation degree $e$.
 Starting from a reference determinant, typically the Hartree-Fock (HF) determinant, one generates all connected determinants by exciting at most $e$ electrons.
 The excitation degree thus defines the order of the approximate excitation-based CI (eCI) model:
-CI with single excitations (CIS), CI with single and double excitations (CISD), CI with single, double, and triple excitations (CISDT), and so on.
+CI with single excitations (CIS), CI with single and double excitations (CISD), CI with single, double, and triple excitations (CISDT), etc.
 The eCI route rather quickly captures dynamic (weak) correlation, though it struggles with the description of static (strong) correlation.
 
 A different CI route is based on the seniority number $s$ (the number of unpaired electrons in a given determinant).
@@ -99,7 +99,7 @@ In seniority-based CI (sCI), \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_
 In contrast to eCI, sCI recovers static correlation more efficiently and works well to describe molecular dissociation, \cite{Bytautas_2015,Alcoba_2014,Alcoba_2014b}
 at the expense of a poorer account of dynamic correlation and a higher computational cost.
 For systems with an even number of electrons, the first approximate model is defined by $s=0$ (sCI0), usually referred to as doubly-occupied CI (DOCI),
-which is followed by the higher-order models: sCI2, sCI4, and so on.
+which is followed by the higher-order models: sCI2, sCI4, \ldots.
 For odd numbers of electrons, the seniority route follows along odd numbers of $s$: sCI1, sCI3, and so on.
 
 We have recently introduced a third CI route, hierarchy CI (hCI), \cite{Kossoski_2022}
@@ -360,13 +360,13 @@ From here on, CI models carrying the $\Delta$ symbol denote a state-specific app
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The full set of PECs for the open-shell systems (\ce{OH}, \ce{CN}, \ce{H7}, and vinyl) are presented in the {\SupInf}.
-From these PECs, we obtain the NPEs, distance errors, equilibrium bond lengths and harmonic vibrational frequencies, which are plotted as a function of $\Ndet$ in Fig.~\ref{fig:plot_all}.
+From these PECs, we obtain the NPEs, distance errors, equilibrium bond lengths, and harmonic vibrational frequencies, which are plotted as functions of $\Ndet$ in Fig.~\ref{fig:plot_all}.
 Each point in the figure denotes one CI model.
-For instance, the hCI route is represented by the dark green line, with the first point being HF, the second being hCI1, the third being hCI1.5, and so on.
+For instance, the hCI route is represented by the dark green line, with the first point being HF \titou{(or hCI0)}, the second being hCI1, the third being hCI1.5, etc.
 The corresponding results for the closed-shell systems (\ce{HF}, \ce{F2}, \ce{N2}, ethylene, \ce{H4}, and \ce{H8}) are shown in Fig.~\ref{fig:plot_all_closed}.
 When we first introduced hCI, \cite{Kossoski_2022} we surveyed the same molecules, though only for the bare CI models (without a perturbative correction).
 These previous results are reproduced in Fig.~\ref{fig:plot_all_closed} together with the present results, which include such correction.
-First we will discuss the results for the bare CI models (hCI, eCI and sCI) for the open-shell systems (represented by the dark tones in the figures),
+First, we discuss the results for the bare CI models (hCI, eCI, and sCI) for the open-shell systems (represented by the dark tones in the figures),
 leaving the discussion about the perturbative correction (light tones) for both open-shell and closed-shell systems to the next subsection.
 
 %%% FIG 3 %%%
@@ -374,7 +374,7 @@ leaving the discussion about the perturbative correction (light tones) for both 
 \includegraphics[width=1.0\linewidth]{plot_all}
 \caption{
 Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency (or force constant), for \ce{OH}, \ce{CN}, vinyl, and \ce{H7},
-as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+as functions of the number of determinants ($\Ndet$), according to the hCI (green), eCI (red), and sCI (blue) models,
 with (light tones) and without (dark tones) the standard EN2 perturbative correction.
 The dashed lines represent the FCI results.}
 \label{fig:plot_all}
@@ -385,28 +385,27 @@ The dashed lines represent the FCI results.}
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{plot_all_closed}
 \caption{
-Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency (or force constant), for \ce{HF}, \ce{F2}, ethylene, \ce{N2}, \ce{H4}, and \ce{H8},
-as a function of the number of determinants ($\Ndet$), according to hCI (green), eCI (red) and sCI (blue) models,
+Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency (or force constant), for \ce{HF}, \ce{F2}, ethylene, \ce{N2}, \ce{H4}, and \ce{H8}, as functions of the number of determinants ($\Ndet$), according to the hCI (green), eCI (red) and sCI (blue) models,
 with (light tones) and without (dark tones) the standard EN2 perturbative correction.
 The dashed lines represent the FCI results.}
 \label{fig:plot_all_closed}
 \end{figure*}
 %%% %%% %%%
 
-We found that hCI typically improves the convergence with respect to $\Ndet$ when compared to eCI, for the four properties surveyed here.
-The present finding for open-shell systems therefore parallels the previously reported superiority of hCI for closed-shell systems. \cite{Kossoski_2022}
+We find that hCI typically improves the convergence with respect to $\Ndet$ when compared to eCI, for the four properties surveyed here.
+The present finding for open-shell systems, therefore, parallels the previously reported superiority of hCI for closed-shell systems. \cite{Kossoski_2022}
 
 The smaller NPEs obtained with hCI are related to the better description of the PECs at dissociation.
 This is due to a larger fraction of static correlation being recovered,
 stemming from the classes of determinants appearing lower in the seniority-excitation map (see Fig.~\ref{fig:hCI}),
 namely, determinants high in excitation degree $e$ and low in seniority $s$, absent in eCI of the same order.
 The smaller NPEs attained with hCI are clear for \ce{OH} (involving a single bond breaking),
-vinyl (double bond breaking) and \ce{CN} (triple bond breaking),
+vinyl (double bond breaking), and \ce{CN} (triple bond breaking),
 whereas for \ce{H7} (multiple bond breaking), hCI and eCI are comparable.
 This dependence on the order of bond breaking had also been observed for closed-shell systems \cite{Kossoski_2022} (as can be seen in Fig.~\ref{fig:plot_all_closed}),
 and would be expected, as describing dissociation becomes increasingly more challenging as the bond order increases.
 Even though hCI manages to recover more static correlation than eCI,
-the advantage of the former is more striking for single bond breaking, whereas multiple bond breaking (like \ce{H7} and \ce{H8}) inevitably requires higher order excited determinants.
+the advantage of the former is more striking for single bond breaking, whereas multiple bond breaking (like \ce{H7} and \ce{H8}) inevitably requires higher-order excited determinants.
 
 The distance errors obtained with hCI and eCI are overall comparable for open-shells, whereas the former presents slightly better convergence for the closed-shell systems.
 In comparison to eCI, hCI leads to either comparable or somewhat faster (for \ce{CN}) convergence of the equilibrium geometries for the open-shell systems.
@@ -415,12 +414,12 @@ Given the overall slight superiority of hCI for the equilibrium properties, it a
 for both open-shell and closed-shell systems.
 
 In great contrast to hCI and eCI, sCI models deliver a poor convergence of all observables.
-The single exception is the NPE for \ce{OH} obtained from sCI0, in-between the NPEs obtained from hCI2 and CISDT, methods having a comparable computational cost in this particular case.
+The single exception is the NPE for \ce{OH} obtained from sCI0, in between the NPEs obtained from hCI2 and CISDT, methods having a comparable computational cost in this particular case.
 Going to larger basis sets or bigger systems, the computational burden of sCI models would increase considerably more than hCI or eCI models,
 due to its formal exponential scaling.
 As far as configuration interaction methods are concerned, we conclude that the sCI route is unattractive to open-shell systems,
 in line with similar findings for closed-shell systems \cite{Kossoski_2022} (also see Fig.~\ref{fig:plot_all_closed}).
-
+\PFL{Shall we comment on orbital optimization here?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{hCI plus EN2 correction}
@@ -775,8 +774,8 @@ When similar references are adopted (as for the doublet transitions), such advan
 In contrast, for unlike references (as for the closed-shell excitations), the state-specific approach only becomes advantageous at somewhat higher orders ($\Delta$hCI2).
 The present findings highlight the challenge in describing, on an equal footing, states with qualitatively different characters, in particular ground and singly-excited states of closed-shell systems.
 
-We put forward the interesting perspective of developing hierarchy-based CC (hCC) methods (hCC1, hCC2, and so on),
-along with derived EOM-CC formulations to target excited states (EOM-hCC1, EOM-hCC2, and so on).
+We put forward the interesting perspective of developing hierarchy-based CC (hCC) methods (hCC1, hCC2, \ldots),
+along with derived EOM-CC formulations to target excited states (EOM-hCC1, EOM-hCC2, \ldots).
 EOM-CC with single and double excitations (EOM-CCSD) \cite{Rowe_1968,Monkhorst_1977,Koch_1990,Stanton_1993}
 is very accurate for describing singly-excited states, \cite{Loos_2018,Loos_2020,Loos_2020a} albeit it slightly overestimates their excitation energies.
 In contrast, CISD provides too large excitation energies, \cite{Koch_1990,Kossoski_2023}
