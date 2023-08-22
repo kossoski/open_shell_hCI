@@ -8,7 +8,7 @@
 \newcommand{\eg}{\textit{e.g.}}
 \newcommand{\alert}[1]{\textcolor{black}{#1}}
 \usepackage[normalem]{ulem}
-\newcommand{\fk}[1]{\textcolor{blue}{#1}}
+\newcommand{\fk}[1]{\textcolor{orange}{#1}}
 \newcommand{\titou}[1]{\textcolor{red}{#1}}
 \newcommand{\trashPFL}[1]{\textcolor{red}{\sout{#1}}}
 \newcommand{\PFL}[1]{\titou{(\underline{\bf PFL}: #1)}}
@@ -47,7 +47,7 @@
 
 \newcommand{\LCPQ}{Laboratoire de Chimie et Physique Quantiques (UMR 5626), Universit\'e de Toulouse, CNRS, UPS, France}
 
-\title{Seniority and hierarchy configuration interaction for radicals and excited states}
+\title{Seniority and hierarchy configuration interaction for radicals and \\ excited states}
 
 \author{F\'abris Kossoski}
 \email{fkossoski@irsamc.ups-tlse.fr}
@@ -77,6 +77,9 @@ In turn, sCI1 produces decent excitation energies for radicals, encouraging the 
 % Title
 \maketitle
 
+% check refs to Alcoba, check report from JPCL
+% reference determinants for other types of states. Diradicals in particular
+% computational scaling and scaling of number of determinants 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
@@ -155,9 +158,12 @@ Section \ref{sec:conclusion} closes the present contribution with the main concl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 We introduced hCI \cite{Kossoski_2022} as a particular truncation of the Hilbert space,
-represented as a two-dimensional map of determinants built from their seniority $s$ and their excitation degree $e$ with respect to a reference determinant (see Fig.~\ref{fig:hCI}).
+viewed as a two-dimensional map of determinants built from their seniority $s$ and their excitation degree $e$ with respect to a reference determinant, as shown in Fig.~\ref{fig:hCI}. 
+\fk{By defining orbital subspaces according to the occupancy of the reference determinant (doubly-occupied, singly-occupied, or unoccupied),
+we refer to the class of an excited determinant as the combination of number of electrons and seniority of each orbital subspace.}
 hCI was defined such that all classes of determinants whose number $\Ndet$ share the same scaling with the number of basis functions $N$ are included at the same order of truncation $h$,
 which means moving diagonally in the seniority-excitation map (denoted by the color tones in Fig.~\ref{fig:hCI}).
+\fk{In comparison, eCI spans the map horizontally (top to bottom), whereas sCI does it vertically (left to right).}
 
 %%% FIG 1 %%%
 \begin{figure*}%[h!]
@@ -171,7 +177,7 @@ which means moving diagonally in the seniority-excitation map (denoted by the co
 \includegraphics[width=0.25\linewidth]{table_hCI_two_open_shell}
 \caption{Partitioning of the Hilbert space according to the seniority number $s$ and the excitation degree $e$ with respect to a given reference determinant (shown by its side),
 for a closed-shell reference (left), an open-shell reference with one unpaired electron (center) and an open-shell reference with two unpaired electrons (right).
-The color tones represent the determinants that are included at a given hCI model. hCI0 reduces to HF in the former two cases, where $s_0 = 0$ and $s_0 = 1$.}
+The color tones represent the determinants that are included at a given hCI model. hCI0 reduces to \fk{the reference determinant (usually the HF solution)} in the former two cases, where $s_0 = 0$ and $s_0 = 1$.}
 \label{fig:hCI}
 \end{figure*}
 %%% %%% %%%
@@ -184,6 +190,10 @@ With respect to a given reference determinant, we define the hierarchy $h$ of a 
   h = \frac{e+ (s-s_0)/2}{2},
 \end{equation}
 where $s$ and $s_0$ denote the seniority of the candidate and reference determinants, respectively, and $e$ represents the excitation degree that connects them.
+\fk{The definition in Eq.~\eqref{eq:h} guarantees the sought after relation between the classes of determinants and their scaling.
+Namely, all classes whose number of determinants $\Ndet$ share the same scaling with $N$ enter at the hierarchy $h$.
+Had we employed the absolute value of $s-s_0$ or discarded $s_0$ in the definition of $h$, this property would not hold.}
+%\titou{The definition in Eq.~\eqref{eq:h} guarantees that all classes of determinants sharing the same scaling of $\Ndet$ with $N$ enter at the same hierarchy $h$.}
 The term $(s-s_0)/2$ is always an integer, with $s$ and $s_0$ being even (odd) for systems with even (odd) numbers of electrons. The excitation degree $e$ is also an integer.
 Therefore, $h$ assumes integer or half-integer values, for any type of reference determinant.
 For a given hCI model defined by $h$, we include all the candidate determinants having a hierarchy less than or equal to $h$ with respect to any determinant in the reference.
@@ -193,23 +203,57 @@ hCI can be viewed as a CI model that includes increasingly more dissimilar deter
 The level of dissimilarity is represented by the hierarchy $h$, which accounts for differences in orbital occupation (through the excitation degree $e$)
 and differences in the number of unpaired electrons [through the term $(s-s_0)/2$].
 
-\titou{The definition in Eq.~\eqref{eq:h} guarantees that all classes of determinants sharing the same scaling of $\Ndet$ with $N$ enter at the same hierarchy $h$.}
 We show in Fig.~\ref{fig:hCI} how the seniority-excitation map of determinants is partitioned for a closed-shell reference ($s_0 = 0$), and for open-shell references with one ($s_0 = 1$) or two ($s_0 = 2$) unpaired electrons.
-\titou{These references are suitable for describing ground states of a closed-shell system, of open-shell systems with doublet ground states, and (singlet or triplet) singly-excited states of closed-shell systems, respectively.}
-For these three types of references, the classes of determinants included up to hCI1 are presented in Fig.~\ref{fig:determinants}.
+%\titou{These references are suitable for describing ground states of a closed-shell system, of open-shell systems with doublet ground states, and (singlet or triplet) singly-excited states of closed-shell systems, respectively.}
+\fk{For these three types of references, the classes of determinants included up to hCI1 are presented in Fig.~\ref{fig:determinants}.
+The closed-shell reference determinant is the natural choice for describing the ground state of closed-shell systems, as well as their doubly-excited states. \cite{Barca_2018,Lee_2019,Hait_2020,Kossoski_2021,Marie_2021,Kossoski_2023}
+Meanwhile, the determinant having one unpaired electron is suitable for open-shell systems with doublet ground and excited states.
+Singlet and triplet singly-excited states of closed-shell systems as well as diradicals \cite{Krylov_2006,Horbatenko_2021,Monino_2022} would require
+the reference determinant with two unpaired electrons.}
 
 %%% FIG 2 %%%
 \begin{figure*}%[h!]
 \includegraphics[width=1.0\linewidth]{determinants}
 \caption{Classes of determinants generated in hCI0, hCI0.5, and hCI1, for three different reference determinants:
 closed-shell (top left), open-shell with one unpaired electron (top right), and open-shell with two unpaired electrons (bottom).
-\titou{Each class is determined by the specific seniority and occupation of the orbital blocks of the reference (doubly-occupied, singly-occupied, and unoccupied).}}
+%\titou{Each class is determined by the specific seniority and occupation of the orbital blocks of the reference (doubly-occupied, singly-occupied, and unoccupied).}
+\fk{By dividing the orbitals of the reference determinant into doubly-occupied, singly-occupied, and unoccupied subspaces,
+the class of an excited determinant is defined by the number of electrons and seniority of each orbital subspace.}}
 \label{fig:determinants}
 \end{figure*}
 %%% %%% %%%
 
+\fk{In eCI, the number of determinants $\Ndet$ scales polynomially with the number of basis functions $N$ as $N^{2e}$. \cite{SzaboBook}
+Likewise, in hCI, $\Ndet$ scales as $N^{2h}$.
+The actual computational cost scales as $\order*{N^{2e+2}}$ for eCI, and similarly for hCI, scaling as $\order*{N^{2h+2}}$.
+Both the scaling of $\Ndet$ and the computational scaling along the two routes are shown in Table \ref{tab:scaling}.}
+%\titou{The computational scaling} along the two routes is shown in Table \ref{tab:scaling}.
+%\PFL{Should we mention something about the scaling of seniority-based CI here?}
+\fk{As for sCI models, the scaling of $\Ndet$ with respect to $N$ is exponential at all orders. \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967}
+This is because excitations of all degrees are included, even at lower orders, sCI0 and sCI1.}
 
-For a closed-shell reference determinant ($s_0=0$), hCI0 reduces to the \titou{restricted HF} determinant.
+\begin{table}[ht!]
+\caption{\fk{Scaling of $\Ndet$ and Computational Scaling (Comput.)} in Terms of the Number of Basis Functions $N$ for the Hierarchy- and Excitation-Based CI Routes, With and Without the EN2 Perturbative Correction.}
+\label{tab:scaling}
+\begin{ruledtabular}
+\begin{tabular}{ll|ll|cc}
+\mc{2}{c|}{Hierarchy-based}   &  \mc{2}{c|}{Excitation-based} &  $\Ndet$ & Comput. \\
+\hline
+hCI1   &            & CIS    &           & $\order*{N^2}$ & $\order*{N^4}$ \\
+hCI1.5 &            &        &           & $\order*{N^3}$ & $\order*{N^5}$ \\
+\hline
+hCI2   & hCI1+EN2   & CISD   & CIS+EN2   & $\order*{N^4}$ & $\order*{N^6}$ \\
+hCI2.5 & hCI1.5+EN2 &        &           & $\order*{N^5}$ & $\order*{N^7}$ \\
+\hline
+hCI3   & hCI2+EN2   & CISDT  & CISD+EN2  & $\order*{N^6}$ & $\order*{N^8}$ \\
+hCI3.5 & hCI2.5+EN2 &        &           & $\order*{N^7}$ & $\order*{N^9}$ \\
+\hline
+hCI4   & hCI3+EN2   & CISDTQ & CISDT+EN2 & $\order*{N^8}$ & $\order*{N^{10}}$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+For a closed-shell reference determinant ($s_0=0$), hCI0 reduces to the \fk{reference determinant, usually chosen as the HF one}.
 The first non-trivial order is hCI1 (see left panel of Fig.~\ref{fig:hCI}), which accounts for all single excitations (as CIS)
 plus all paired double excitations (two electrons promoted from the same occupied orbital into the same virtual orbital),
 as shown in the top left panel of Fig.~\ref{fig:determinants}.
@@ -219,45 +263,20 @@ hCI1.5 augments the set of hCI1 determinants with the set of double excitations 
 At the next integer order, hCI2 incorporates all classes of determinants where $\Ndet$ scales as $N^4$.
 In total, it accounts for all single and double excitations (as CISD), plus the subset of triple excitations that leave only two unpaired electrons,
 plus the subset of quadruple excitations where no electrons are unpaired.
-More generally, in hCI, the number of determinants $\Ndet$ scales polynomially with the number of basis functions $N$ as $N^{2h}$.
-Likewise, in eCI, $\Ndet$ scales as $N^{2e}$.
-\titou{The computational scaling} along the two routes is shown in Table \ref{tab:scaling}.
-\PFL{Should we mention something about the scaling of seniority-based CI here?}
-
-\begin{table}[ht!]
-\caption{\titou{Computational Scaling} in Terms of the Number of Basis Functions $N$ for the Hierarchy- and Excitation-Based CI Routes, With and Without the EN2 Perturbative Correction.}
-\label{tab:scaling}
-\begin{ruledtabular}
-\begin{tabular}{ll|ll|l}
- \mc{2}{c|}{hierarchy-based}   &  \mc{2}{c|}{excitation-based} &  scaling \\
-\hline
-hCI1   &    -       & CIS    &   -       & $\order*{N^4}$ \\
-hCI1.5 &    -       &  -     &   -       & $\order*{N^5}$ \\
-\hline
-hCI2   & hCI1+EN2   & CISD   & CIS+EN2   & $\order*{N^6}$ \\
-hCI2.5 & hCI1.5+EN2 &  -     &   -       & $\order*{N^7}$ \\
-\hline
-hCI3   & hCI2+EN2   & CISDT  & CISD+EN2  & $\order*{N^8}$ \\
-hCI3.5 & hCI2.5+EN2 &   -    &   -       & $\order*{N^9}$ \\
-\hline
-hCI4   & hCI3+EN2   & CISDTQ & CISDT+EN2 & $\order*{N^{10}}$ \\
-\end{tabular}
-\end{ruledtabular}
-\end{table}
+\fk{}
 
 For an odd number of electrons, $s$ assumes odd values starting from $s=1$.
 The simplest reference is an open-shell determinant with one unpaired electron ($s_0=1$), shown in the center panel of Fig.~\ref{fig:hCI} and in the top right panel of Fig.~\ref{fig:determinants}.
-hCI0 also reduces to the \titou{restricted open-shell HF} determinant.
+hCI0 also reduces to the \fk{reference determinant (the restricted open-shell HF solution being a natural choice)}.
 In contrast to the closed-shell case, here there are no empty blocks in the seniority-excitation map.
 Actually, the hCI series displays the hCI0.5 level, accounting only for the single excitations from and into the singly-occupied orbital.
-For HF orbitals, however, these excitations do not connect with the reference. Thus, hCI0.5 provides the same energy as restricted open-shell HF.
+\fk{When HF orbitals are employed, these excitations do not connect with the reference, and in this case hCI0.5 provides the same energy as restricted open-shell HF.}
 More generally, since there are more types of orbitals for the open-shell reference (doubly-occupied, singly-occupied and unoccupied) than for the closed-shell reference (doubly-occupied or unoccupied),
 there are correspondingly more classes of determinants at a given level of hCI.
 This can be appreciated from the comparison of hCI1 for closed- and open-shell references, shown in Fig.~\ref{fig:determinants}.
 
 Finally, one can employ a reference determinant having more unpaired electrons to define hCI models.
-The case of two unpaired electrons ($s_0=2$) is shown in the right panel of Fig.~\ref{fig:hCI},
-which would be appropriate for describing \titou{singlet and triplet} singly-excited states of closed-shells.
+The case of two unpaired electrons ($s_0=2$) is shown in the right panel of Fig.~\ref{fig:hCI}.
 The key difference in the hCI sequence, with respect to the closed-shell case, lies in the displacement by one block to the right in the seniority-excitation map,
 reflecting the shift from the seniority-zero to the seniority-two reference.
 In addition, in the two previous cases, the hCI0 level only included the reference determinant
@@ -265,6 +284,7 @@ whereas, for $s_0=2$, hCI0 does not only account for the reference determinant
 but also for the two closed-shell determinants produced by the single excitation that pairs the two unpaired electrons.
 The hCI1 classes of determinants for the $s_0=2$ reference can be seen in the bottom of Fig.~\ref{fig:determinants},
 which clearly outnumbers the fewer classes associated with the $s_0=0$ and $s_0=1$ cases.
+
 One could adopt references with even larger $s_0$, further displacing the hCI sequence to the right in the seniority-excitation map.
 In this case, hCI0 would include all the lower spin determinants obtained by partially or totally pairing the unpaired electrons.
 Notice that the number of such determinants does not depend on the system size (scaling as $N^0$), and are thus included at the $h=0$ level, in line with the spirit of hCI.
@@ -294,6 +314,7 @@ lies below \SI{0.01}{\milli\hartree}. \cite{Garniron_2018}
 This selected CI procedure requires considerably fewer determinants than the total number of determinants in the truncated Hilbert space
 while delivering fairly converged energies.
 The ground- and excited-state CI energies are obtained with the Davidson iterative algorithm. \cite{Davidson_1975}
+
 For a given approximate CI model, we further evaluated the standard and the renormalized EN2 perturbative correction. \cite{Garniron_2019}
 This calculation involves a single loop over the determinants left outside the truncated (internal) space but connected to it via at most double excitations.
 Looping over these external doubly excited determinants has a computational scaling equal to $\Ndet$,
@@ -335,18 +356,19 @@ Notice that spin-contaminated solutions would have different energies than the s
 We performed calculations following both the standard ground-state-based CI route and the state-specific CI route. \cite{Kossoski_2023}
 For the latter, we employed the state-specific orbitals obtained in Ref.~\onlinecite{Kossoski_2023}.
 Notice that, in contrast to eCI, the energies obtained with sCI and hCI models are not invariant under rotations within the occupied and virtual subspaces.
-The computed excitation energies were benchmarked against the reference values of FCI quality provided in the QUEST database. \cite{Veril_2021}
 The restricted HF solution (restricted open-shell HF for the open-shell systems) was taken as the reference determinant for the hCI and eCI ground-state calculations
 (left and middle panels of Fig.~\ref{fig:hCI}).
 For the state-specific hCI and eCI calculations, we employed a minimal CSF reference: \cite{Kossoski_2023}
 a single open-shell determinant for the doublet excited states and a single open-shell CSF for the excited states from closed-shell systems
 (middle and right panels of Fig.~\ref{fig:hCI}, respectively).
+The computed excitation energies were benchmarked against the reference values of FCI quality provided in the QUEST database. \cite{Veril_2021}
 
 As for the sCI models,
-we considered sCI1 for both ground and (state-specific) excited-state calculations for the open-shell systems (odd numbers of electrons).
-For the closed-shell systems (\titou{even numbers of electrons}), we explored two models.
+we considered sCI1 for both ground and (state-specific) excited-state calculations for the \fk{doublet} open-shell systems.
+For the closed-shell systems \fk{and their excited states}, we explored two models.
 In the sCI2/sCI0 model, the ground state was described with sCI0 and the excited state with sCI2, which is the minimal sCI calculation for computing singly-excited states of closed-shell systems.
 Further including the seniority-two sector for the ground-state calculations defines the sCI2/sCI2 model.
+
 From here on, CI models carrying the $\Delta$ symbol denote a state-specific approach, whereas those without it correspond to a ground-state-based approach.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -362,7 +384,7 @@ From here on, CI models carrying the $\Delta$ symbol denote a state-specific app
 The full set of PECs for the open-shell systems (\ce{OH}, \ce{CN}, \ce{H7}, and vinyl) are presented in the {\SupInf}.
 From these PECs, we obtain the NPEs, distance errors, equilibrium bond lengths, and harmonic vibrational frequencies, which are plotted as functions of $\Ndet$ in Fig.~\ref{fig:plot_all}.
 Each point in the figure denotes one CI model.
-For instance, the hCI route is represented by the dark green line, with the first point being HF \titou{(or hCI0)}, the second being hCI1, the third being hCI1.5, etc.
+For instance, the hCI route is represented by the dark green line, with the first point being \fk{hCI0 (which corresponds to HF in the present cases)}, the second being hCI1, the third being hCI1.5, etc.
 The corresponding results for the closed-shell systems (\ce{HF}, \ce{F2}, \ce{N2}, ethylene, \ce{H4}, and \ce{H8}) are shown in Fig.~\ref{fig:plot_all_closed}.
 When we first introduced hCI, \cite{Kossoski_2022} we surveyed the same molecules, though only for the bare CI models (without a perturbative correction).
 These previous results are reproduced in Fig.~\ref{fig:plot_all_closed} together with the present results, which include such correction.
@@ -419,7 +441,18 @@ Going to larger basis sets or bigger systems, the computational burden of sCI mo
 due to its formal exponential scaling.
 As far as configuration interaction methods are concerned, we conclude that the sCI route is unattractive to open-shell systems,
 in line with similar findings for closed-shell systems \cite{Kossoski_2022} (also see Fig.~\ref{fig:plot_all_closed}).
-\PFL{Shall we comment on orbital optimization here?}
+
+%\PFL{Shall we comment on orbital optimization here?}
+\fk{We recall that ground-state restricted open-shell HF orbitals were employed in all calculations for the ground-state radicals.
+In contrast to eCI, methods that rely on the seniority to generate excited determinants (like the hCI and sCI models addressed here)
+are not invariant under orbital rotations within the occupied and virtual subspaces. \cite{Bytautas_2011,Limacher_2014,Stein_2014}
+One could exploit the rotations within each subspace (by means of orbital localization for example) to hopefully render more suitable orbitals for hCI and sCI calculations.
+In our first contribution on hCI to closed-shell systems, \cite{Kossoski_2022} we went one step further
+and variationally optimized the orbitals at the correlated CI level, thus allowing rotations between occupied and virtual subspaces.
+Except for the lower-order CI models, the cost and complications of orbital optimization outweight the mixed improvement on the computed properties. \cite{Kossoski_2022}
+For the closed-shell systems (surveyed both here and in the previous study \cite{Kossoski_2022}),
+the results become significantly more accurate with the EN2 perturbative correction rather than by variationally optimizing the orbitals.}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{hCI plus EN2 correction}
@@ -693,12 +726,6 @@ Even though the statistics become more limited,
 they suggest both a small advantage of the hCI models against eCI
 and that the ground-state routes perform slightly better than the state-specific ones.
 
-Methods that make use of the concept of seniority to generate excited determinants
-are not invariant under orbital rotations within the occupied and virtual subspaces. \cite{Bytautas_2011,Limacher_2014,Stein_2014}
-This applies to the hCI and sCI models addressed here,
-which employed HF ground-state orbitals or excited-state orbitals optimized for a minimal reference.
-Further exploiting the rotations within occupied and virtual subspaces (by using localization techniques) could render more suitable orbitals for hCI and sCI calculations.
-Alternatively, one could fully optimize the orbitals at a given level of CI. \cite{Kossoski_2022}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -742,6 +769,13 @@ This method could then provide an improved starting point to recover the remaini
 To the best of our knowledge, there has been a single proposed extension of pCCD to open-shell systems, \cite{Boguslawski_2021}
 based on the ionization-potential equation-of-motion CC (EOM-CC) formalism. \cite{Stanton_1994,Muneaki_2006,Bomble_2005}
 
+\fk{As pointed out before, hCI and sCI models are not invariant under rotations within the subspaces of occupied and virtual orbitals.
+For the state-specific calculations, such rotations for the excited-state orbitals represent additional degrees of freedom to those of the ground-state orbitals. \cite{Kossoski_2022}
+As discussed in the end of Sec.~\ref{sec:res_A}, these degrees of freedom could be exploited,
+by localizing occupied and virtual subspaces or by variationally optimizing all orbitals at a correlated level, for instance.
+We did not pursue these ideas here, and their impact on the excitation energies computed with hCI and sCI remains an open question.}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 \label{sec:conclusion}
@@ -758,6 +792,7 @@ substantially accelerates and stabilizes the convergence of hCI and eCI (while k
 though it ameliorates the sCI route to a lesser extent.
 The standard EN2 correction typically produced more accurate results than its renormalized form, except perhaps for describing single-bond breaking.
 Overall, lower-order models (like hCI1+EN2) were found to be fairly accurate given their low computational cost.
+\fk{At a given CI level, the perturbative correction is significantly more effective in recovering the missing correlation energy than variationally optimizing the orbitals. \cite{Kossoski_2022}}
 In the future, it may be worth combining orbital optimization at a lower level of hCI \cite{Kossoski_2022} with the correction provided by perturbation theory.
 
 We further gauged the performance of hCI to describe excited states of closed- and open-shell systems, based on either HF ground-state orbitals or state-specific orbitals.
@@ -772,6 +807,7 @@ The advantage of using state-specific orbitals over ground-state ones depends on
 When similar references are adopted (as for the doublet transitions), such advantage is already evident at $\Delta$hCI1.
 In contrast, for unlike references (as for the closed-shell excitations), the state-specific approach only becomes advantageous at somewhat higher orders ($\Delta$hCI2).
 The present findings highlight the challenge in describing, on an equal footing, states with qualitatively different characters, in particular ground and singly-excited states of closed-shell systems.
+\fk{In this regard, rotations within occupied and virtual orbitals represent yet another factor worth exploring in the future of hCI models.}
 
 We put forward the interesting perspective of developing hierarchy-based CC (hCC) methods (hCC1, hCC2, \ldots),
 along with derived EOM-CC formulations to target excited states (EOM-hCC1, EOM-hCC2, \ldots).
