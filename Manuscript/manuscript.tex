@@ -77,10 +77,6 @@ In turn, sCI1 produces decent excitation energies for radicals, encouraging the 
 % Title
 \maketitle
 
-% check refs to Alcoba, check report from JPCL
-% reference determinants for other types of states. Diradicals in particular
-% computational scaling and scaling of number of determinants 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \label{sec:intro}
@@ -120,9 +116,6 @@ in a so-called state-specific approach ($\Delta$CI).
 There has been a recent surge in the development of state-specific methods, covering
 single-reference and multiconfigurational self-consistent field,
 \cite{Ziegler_1977,Burton_2021,Shea_2018,Tran_2019,Tran_2020,Hardikar_2020,Burton_2022,Hanscam_2022,Kossoski_2023,Marie_2023}
-% references for SCF
-%\cite{Ziegler_1977,Burton_2021}
-% multiconfigurational SCF, \cite{Shea_2018,Tran_2019,Tran_2020,Hardikar_2020,Burton_2022,Kossoski_2023,Marie_2023}
 density-functional theory,
 \cite{Filatov_1999,Kowalczyk_2011,Kowalczyk_2013,Gilbert_2008,Barca_2018,Hait_2020,Hait_2021,Hardikar_2020,Zhao_2020,Levi_2020,Carter-Fenk_2020,Toffoli_2022,Schmerwitz_2022,Schmerwitz_2023}
 and coupled cluster (CC)
@@ -151,14 +144,13 @@ and excited states.
 Our fifth and last goal, detailed in Sec.~\ref{sec:res_D}, is therefore to define and gauge ground-state-based and state-specific sCI models for excited states.
 Section \ref{sec:conclusion} closes the present contribution with the main conclusions and perspectives.
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Hierarchy configuration interaction}
 \label{sec:hCI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 We introduced hCI \cite{Kossoski_2022} as a particular truncation of the Hilbert space,
-viewed as a two-dimensional map of determinants built from their seniority $s$ and their excitation degree $e$ with respect to a reference determinant, as shown in Fig.~\ref{fig:hCI}. 
+viewed as a two-dimensional map of determinants built from their seniority $s$ and their excitation degree $e$ with respect to a reference determinant, as shown in Fig.~\ref{fig:hCI}.
 By defining orbital subspaces according to the occupancy in the reference determinant (doubly-occupied, singly-occupied, or unoccupied),
 we refer to the class of an excited determinant as the combination of the number of electrons and seniority in each orbital subspace.
 hCI was defined such that all classes of determinants whose number $\Ndet$ share the same scaling with the number of basis functions $N$ are included at the same order of truncation $h$,
@@ -258,7 +250,6 @@ hCI1.5 augments the set of hCI1 determinants with the set of double excitations 
 At the next integer order, hCI2 incorporates all classes of determinants where $\Ndet$ scales as $N^4$.
 In total, it accounts for all single and double excitations (as CISD), plus the subset of triple excitations that leave only two unpaired electrons,
 plus the subset of quadruple excitations where no electrons are unpaired.
-\fk{}
 
 For an odd number of electrons, $s$ assumes odd values starting from $s=1$.
 The simplest reference is an open-shell determinant with one unpaired electron ($s_0=1$), shown in the center panel of Fig.~\ref{fig:hCI} and in the top right panel of Fig.~\ref{fig:determinants}.
@@ -289,8 +280,10 @@ The deduction for the number of determinants in a given hCI model, for the $s_0=
 For a reference containing unpaired electrons, an approximate CI model generally produces spin-contaminated states.
 One can impose the solutions to have a well-defined spin by including additional determinants generated via higher-order hierarchies, which account for the missing spin-flip configurations. \cite{Chilkuri_2021}
 The spin-contamination problem and its solution are therefore equivalent to that encountered in eCI. \cite{Maurice_1996}
-Here, we have employed this procedure and considered pure spin states.
-For the $s_0 = 2$ reference, one could alternatively employ a high-spin triplet determinant (two unpaired spin-up electrons), 
+\fk{Here, we have employed this procedure and considered pure spin states.
+For the calculation of excitation energies, however, we have also assessed the effect of not imposing this condition.}
+
+For the $s_0 = 2$ reference, one could alternatively employ a high-spin triplet determinant (two unpaired spin-up electrons),
 rather than the low-spin determinant shown in Fig.~\ref{fig:hCI}.
 Regardless of the choice, hCI (as eCI) produces the same energies for the triplet states, provided that a spin eigenstate is imposed.
 
@@ -447,7 +440,6 @@ Except for the lower-order CI models, the cost and complications of orbital opti
 For the closed-shell systems (surveyed both here and in the previous study \cite{Kossoski_2022}),
 the results become significantly more accurate with the EN2 perturbative correction rather than by variationally optimizing the orbitals.
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{hCI plus EN2 correction}
 \label{sec:res_B}
@@ -516,15 +508,14 @@ These results suggest that renormalizing the EN2 energy may only be helpful for 
 whereas it worsens the results for multiple bond breaking.
 Overall, the usual EN2 correction should probably be favored when employed in combination with the approximate CI models.
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{hCI for excited states}
 \label{sec:res_C}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For each CI model considered here, we evaluate the mean signed error (MSE), mean absolute error (MAE), and root-mean-square error (RMSE)
+For each CI model considered here, we evaluate the mean signed error (MSE), mean absolute error (MAE), root-mean-square error (RMSE), and standard deviation of the errors (SDE).
 with respect to the reference theoretical values for the excitation energies.
-For the lower-order models, the calculations were performed for 48 (closed-shell) and 19 (open-shell) excited states.
+For the lower-order models, the calculations were performed for 50 (closed-shell) and 19 (open-shell) excited states.
 In turn, subsets of 16 (closed-shell) and 6 (open-shell) excited states were considered for the higher-order CI models, given the more intensive computational cost.
 Even though these subsets are too small for meaningful absolute statistics, they should be enough to reveal main trends.
 A detailed comparison of eCI based on ground-state and state-specific approaches can be found elsewhere. \cite{Kossoski_2023}
@@ -532,10 +523,10 @@ The focus of the present discussion lies on the comparison between hCI and eCI, 
 and on a similar comparison between ground-state and state-specific approaches for hCI and sCI.
 
 We start the discussion with the excitations from closed-shell systems, with corresponding statistical errors shown in Table \ref{tab:stat1}.
-The first level of hCI, hCI1, produces poor excitation energies, with a MAE of \SI{1.07}{\eV}.
+The first level of hCI, hCI1, produces poor excitation energies, with a MAE of \SI{1.16}{\eV}.
 This model shares the same computational scaling with CIS, but includes the paired double excitations,
 which clearly worsen the decent CIS results (MAE of \SI{0.61}{\eV}).
-Moving one rank up, to hCI1.5, the MAE increases to \SI{1.91}{\eV}, and then reaches a maximum of \SI{3.53}{\eV} at the hCI2 level.
+Moving one rank up, to hCI1.5, the MAE increases to \SI{1.95}{\eV}, and then reaches a maximum of \SI{3.53}{\eV} at the hCI2 level.
 We notice that hCI2 delivers somewhat smaller errors than CISD (MAE of \SI{4.09}{\eV}), even though both are way too large.
 From that point on, the next hCI models generate progressively better results.
 Despite the improvement with respect to hCI2, hCI2.5 is still as inaccurate (MAE of \SI{1.95}{\eV}) as hCI1.5.
@@ -543,50 +534,47 @@ At the hCI3 level, significantly smaller errors are finally achieved (MAE of \SI
 This is close to that obtained with the eCI model of the same order, CISDT (\SI{0.17}{\eV}).
 Even smaller errors are produced at the hCI3.5 level (MAE of \SI{0.11}{\eV}), but at a considerable computational cost.
 
-% HCF cisdtq ground
-% sil cisdtq sA2 and sB2
-
 \begin{table}[ht!]
-\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), and Root-Mean Square Error (RMSE) in Units of eV, with Respect to Reference Theoretical Values, for the Set of
+\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), Root-Mean Square Error (RMSE), and Standard Deviation of the Errors (SDE), in Units of eV, with Respect to Reference Theoretical Values, for the Set of
 Singly Excited States of Closed-Shell Systems Listed in the {\SupInf}.
 }
 \label{tab:stat1}
 \begin{ruledtabular}
-\begin{tabular}{ldddd}
-method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} \\
+\begin{tabular}{lddddd}
+method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} \\
 \hline
-CIS               & 48  & +0.04 & 0.61 & 0.60 \\
-CISD              & 16  & +4.09 & 4.09 & 4.18 \\
-CISDT             & 16  & +0.12 & 0.17 & 0.18 \\
-CISDTQ            & 16  & +0.15 & 0.15 & 0.17 \\
+CIS               & 48  & +0.03 & 0.61 & 0.59 & 0.77 \\
+CISD              & 16  & +4.09 & 4.09 & 4.18 & 0.84 \\
+CISDT             & 16  & +0.12 & 0.17 & 0.18 & 0.14 \\
+CISDTQ            & 16  & +0.15 & 0.15 & 0.17 & 0.08 \\
 %
 \hline
-hCI1              & 48  & +0.97 & 1.07 & 1.20 \\
-hCI1.5            & 48  & +1.91 & 1.91 & 2.00 \\
-hCI2              & 16  & +2.99 & 3.53 & 3.61 \\
-hCI2.5            & 16  & +1.95 & 1.95 & 2.06 \\
-hCI3              & 16  & +0.19 & 0.19 & 0.21 \\
-hCI3.5            & 16  & +0.11 & 0.11 & 0.13 \\
+hCI1              & 50  & +1.07 & 1.16 & 1.39 & 0.89 \\
+hCI1.5            & 50  & +1.95 & 1.95 & 2.04 & 0.59 \\
+hCI2              & 16  & +2.99 & 3.53 & 3.61 & 0.76 \\
+hCI2.5            & 16  & +1.95 & 1.95 & 2.06 & 0.66 \\
+hCI3              & 16  & +0.19 & 0.19 & 0.21 & 0.08 \\
+hCI3.5            & 16  & +0.11 & 0.11 & 0.13 & 0.07 \\
 %
 \hline
-$\Delta$CSF       & 48  & -0.73 & 0.80 & 0.94 \\
-$\Delta$CISD      & 48  & -0.13 & 0.17 & 0.22 \\
-$\Delta$CISDT     & 16  & -0.20 & 0.20 & 0.22 \\
-$\Delta$CISDTQ    & 16  & -0.02 & 0.02 & 0.02 \\
+$\Delta$CSF       & 50  & -0.71 & 0.77 & 0.91 & 0.58 \\
+$\Delta$CISD      & 50  & -0.12 & 0.17 & 0.22 & 0.18 \\
+$\Delta$CISDT     & 16  & -0.20 & 0.20 & 0.22 & 0.11 \\
+$\Delta$CISDTQ    & 16  & -0.02 & 0.02 & 0.02 & 0.02 \\
 %
 \hline
-$\Delta$hCI1      & 48  & -1.36 & 1.40 & 1.50 \\
-$\Delta$hCI1.5    & 48  & -2.91 & 2.91 & 3.10 \\
-$\Delta$hCI2      & 48  & -0.19 & 0.20 & 0.25 \\
-$\Delta$hCI2.5    & 16  & -0.27 & 0.27 & 0.30 \\
-$\Delta$hCI3      & 16  & -0.22 & 0.22 & 0.24 \\
-$\Delta$hCI3.5    & 16  & -0.08 & 0.08 & 0.09 \\
+$\Delta$hCI1      & 50  & -1.29 & 1.47 & 1.63 & 1.00 \\
+$\Delta$hCI1.5    & 50  & -2.80 & 2.80 & 3.03 & 1.15 \\
+$\Delta$hCI2      & 50  & -0.18 & 0.20 & 0.25 & 0.16 \\
+$\Delta$hCI2.5    & 16  & -0.27 & 0.27 & 0.30 & 0.13 \\
+$\Delta$hCI3      & 16  & -0.22 & 0.22 & 0.24 & 0.10 \\
+$\Delta$hCI3.5    & 16  & -0.08 & 0.08 & 0.09 & 0.05 \\
 %
 \hline
-sCI2/sCI2         & 48  & +1.26 & 1.34 & 1.49 \\
-sCI2/sCI0         & 48  & -0.41 & 0.57 & 0.89 \\
-$\Delta$sCI2/sCI2 & 48  & +0.69 & 0.79 & 0.90 \\
-$\Delta$sCI2/sCI0 & 48  & -0.99 & 0.99 & 1.15 \\
+sCI2/sCI2         & 50  & +1.22 & 1.29 & 1.45 & 0.78 \\
+sCI2/sCI0         & 50  & -0.47 & 0.62 & 0.92 & 0.80 \\
+$\Delta$sCI2/sCI2 & 50  & +0.65 & 0.78 & 0.89 & 0.60 \\
+$\Delta$sCI2/sCI0 & 50  & -1.04 & 1.04 & 1.21 & 0.62 \\
 %
 \end{tabular}
 \end{ruledtabular}
@@ -624,7 +612,7 @@ At this level, the state-specific advantage clearly manifests, with $\Delta$hCI2
 This comparison between ground-state-based and state-specific approaches is analogous to our previous finding on the eCI models of the same order, CISD, and $\Delta$CISD. \cite{Kossoski_2023}
 Even though hCI2 is somewhat more accurate than CISD (both have large errors), their state-specific versions share a comparable performance.
 Actually, $\Delta$hCI2 is slightly less accurate than $\Delta$CISD, with MAEs of \SI{0.20}{\eV} and \SI{0.17}{\eV}.
-Moreover, $\Delta$hCI2 has a more negative MSE than $\Delta$CISD (\SI{-0.19}{\eV} against \SI{-0.13}{\eV}).
+Moreover, $\Delta$hCI2 has a more negative MSE than $\Delta$CISD (\SI{-0.18}{\eV} against \SI{-0.12}{\eV}).
 Albeit small, these differences are statistically significant, and $\Delta$CISD would still be preferable to $\Delta$hCI2 by some margin.
 The slightly worse performance of $\Delta$hCI2 probably stems from a residual unbalance associated with the state-specific classes of determinants.
 
@@ -650,44 +638,44 @@ In contrast, the excited states from the closed-shell systems relied on differen
 This accounts for the more accurate results observed for open-shell excitations and explains most of the differences with respect to excitations from closed-shell systems, as discussed in detail in the following.
 
 \begin{table}[ht!]
-\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), and Root-Mean Square Error (RMSE) in Units of eV, with Respect to Reference Theoretical Values, for the Set of
+\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), Root-Mean Square Error (RMSE), and Standard Deviation of the Errors (SDE) in Units of eV, with Respect to Reference Theoretical Values, for the Set of
 Singly-Excited States from Open-Shell Doublets Listed in the {\SupInf}.
 }
 \label{tab:stat2}
 \begin{ruledtabular}
-\begin{tabular}{ldddd}
-method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} \\
+\begin{tabular}{lddddd}
+method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} \\
 \hline
-CIS               & 19 & +0.33 & 0.36 & 0.50 \\
-CISD              & 6  & +2.97 & 2.97 & 3.19 \\
-CISDT             & 6  & +0.06 & 0.07 & 0.09 \\
-CISDTQ            & 6  & +0.08 & 0.08 & 0.11 \\
+CIS               & 19 & +0.38 & 0.41 & 0.63 & 0.50 \\
+CISD              &  6 & +2.97 & 2.97 & 3.19 & 1.17 \\
+CISDT             &  6 & +0.06 & 0.07 & 0.09 & 0.06 \\
+CISDTQ            &  6 & +0.08 & 0.08 & 0.11 & 0.08 \\
 %
 \hline
-hCI1              & 19 & +0.70 & 0.77 & 0.96 \\
-hCI1.5            & 19 & +1.11 & 1.11 & 1.30 \\
-hCI2              & 6  & +1.32 & 1.32 & 1.60 \\
-hCI2.5            & 6  & +0.03 & 0.05 & 0.06 \\
-hCI3              & 6  & +0.00 & 0.04 & 0.05 \\
-hCI3.5            & 6  & +0.01 & 0.03 & 0.05 \\
+hCI1              & 19 & +0.65 & 0.73 & 0.91 & 0.64 \\
+hCI1.5            & 19 & +1.07 & 1.07 & 1.26 & 0.68 \\
+hCI2              &  6 & +1.32 & 1.32 & 1.60 & 0.90 \\
+hCI2.5            &  6 & +0.03 & 0.05 & 0.06 & 0.05 \\
+hCI3              &  6 & +0.00 & 0.04 & 0.05 & 0.05 \\
+hCI3.5            &  6 & +0.01 & 0.03 & 0.05 & 0.04 \\
 %
 \hline
-$\Delta$CSF       & 19 & -0.04 & 0.41 & 0.58 \\
-$\Delta$CISD      & 19 & +0.01 & 0.12 & 0.21 \\
-$\Delta$CISDT     & 6  & -0.07 & 0.07 & 0.10 \\
-$\Delta$CISDTQ    & 6  & -0.02 & 0.02 & 0.02 \\
+$\Delta$CSF       & 19 & -0.04 & 0.43 & 0.59 & 0.59 \\
+$\Delta$CISD      & 19 & +0.00 & 0.12 & 0.21 & 0.21 \\
+$\Delta$CISDT     &  6 & -0.07 & 0.07 & 0.10 & 0.08 \\
+$\Delta$CISDTQ    &  6 & -0.02 & 0.02 & 0.02 & 0.02 \\
 %
 \hline
-$\Delta$hCI1      & 19 & -0.19 & 0.34 & 0.48 \\
-$\Delta$hCI1.5    & 19 & -0.10 & 0.46 & 0.70 \\
-$\Delta$hCI2      & 19 & -0.01 & 0.11 & 0.16 \\
-$\Delta$hCI2.5    & 6  & -0.09 & 0.09 & 0.14 \\
-$\Delta$hCI3      & 6  & -0.06 & 0.06 & 0.08 \\
-$\Delta$hCI3.5    & 6  & -0.02 & 0.02 & 0.03 \\
+$\Delta$hCI1      & 19 & -0.21 & 0.35 & 0.49 & 0.44 \\
+$\Delta$hCI1.5    & 19 & -0.14 & 0.45 & 0.70 & 0.69 \\
+$\Delta$hCI2      & 19 & -0.02 & 0.10 & 0.16 & 0.16 \\
+$\Delta$hCI2.5    &  6 & -0.09 & 0.09 & 0.14 & 0.10 \\
+$\Delta$hCI3      &  6 & -0.06 & 0.06 & 0.08 & 0.05 \\
+$\Delta$hCI3.5    &  6 & -0.02 & 0.02 & 0.03 & 0.02 \\
 %
 \hline
-sCI1              & 19 & +0.24 & 0.39 & 0.61 \\
-$\Delta$sCI1      & 19 & -0.11 & 0.27 & 0.38 \\
+sCI1              & 19 & +0.20 & 0.35 & 0.57 & 0.53 \\
+$\Delta$sCI1      & 19 & -0.12 & 0.28 & 0.39 & 0.37 \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -701,17 +689,17 @@ This clearly reflects the choice of reference, as both ground and excited states
 For the same reason, the MSEs are systematically smaller for the open-shell excitations (though still positive because of the ground-state orbitals).
 
 Once state-specific orbitals are employed, there is no remaining bias toward the ground state.
-In stark contrast to the closed-shell case, the lower orders of hCI, $\Delta$hCI1 (MAE of \SI{0.34}{\eV}) and $\Delta$hCI1.5 (MAE of \SI{0.46}{\eV}),
-become more accurate than their ground-state-based counterparts, hCI1 (MAE of \SI{0.77}{\eV}) and hCI1.5 (MAE of \SI{1.11}{\eV}).
+In stark contrast to the closed-shell case, the lower orders of hCI, $\Delta$hCI1 (MAE of \SI{0.35}{\eV}) and $\Delta$hCI1.5 (MAE of \SI{0.45}{\eV}),
+become more accurate than their ground-state-based counterparts, hCI1 (MAE of \SI{0.73}{\eV}) and hCI1.5 (MAE of \SI{1.07}{\eV}).
 Once again, this is thanks to the same type of reference in ground- and excited-state calculations.
 The case of $\Delta$hCI1 for open-shell excitations is depicted in Fig.~\ref{fig:determinants}, in comparison to the more unbalanced case of excitations from closed-shells.
-We notice, however, an apparent residual bias from the somewhat negative MSEs (\SI{-0.19}{\eV} with $\Delta$hCI1 and \SI{-0.10}{\eV} with $\Delta$hCI1.5),
+We notice, however, an apparent residual bias from the somewhat negative MSEs (\SI{-0.21}{\eV} with $\Delta$hCI1 and \SI{-0.14}{\eV} with $\Delta$hCI1.5),
 and that $\Delta$hCI1.5 is slightly less accurate than $\Delta$hCI1.
 
-This residual bias virtually disappears at the next order, $\Delta$hCI2 (MSE of \SI{-0.01}{\eV}),
+This residual bias virtually disappears at the next order, $\Delta$hCI2 (MSE of \SI{-0.02}{\eV}),
 whereas for the closed-shell systems even $\Delta$hCI3.5 significantly underestimated (MSE of \SI{-0.08}{\eV}) the excitation energies.
 The same comparison between open- and closed-shells holds for eCI models.
-For the open-shell transitions, $\Delta$hCI2 is slightly more accurate (MAE of \SI{0.11}{\eV} and RMSE of \SI{0.16}{\eV}) than $\Delta$CISD (MAE of \SI{0.12}{\eV} and RMSE of \SI{0.21}{\eV}).
+For the open-shell transitions, $\Delta$hCI2 is slightly more accurate (MAE of \SI{0.10}{\eV} and RMSE of \SI{0.16}{\eV}) than $\Delta$CISD (MAE of \SI{0.12}{\eV} and RMSE of \SI{0.21}{\eV}).
 In further contrast to the closed-shell case,
 $\Delta$hCI2.5 is as accurate as $\Delta$hCI2, producing a MAE of \SI{0.09}{\eV}.
 (Accounting only for the 6 states considered for $\Delta$hCI2.5, $\Delta$hCI2 would also have a MAE of \SI{0.09}{\eV}.)
@@ -720,7 +708,17 @@ Even though the statistics become more limited,
 they suggest both a small advantage of the hCI models against eCI
 and that the ground-state routes perform slightly better than the state-specific ones.
 
-
+\fk{For the state-specific models, we have further assessed the impact of not imposing spin eigenstates (the results and statistics can be found in the {\SupInf}).
+This amounts to not including the appropriate spin-flip determinants lying above the hierarchy or excitation degree of choice.
+The effect is minimal for both excitations of both closed- and open-shell systems, in the $\Delta$hCI1.5, $\Delta$hCI2, and $\Delta$CISD models.
+The mean difference on the individual excitation energies lies between \SI{0.01}{\eV} and \SI{0.02}{\eV} for the latter two and one order of magnitude less for $\Delta$hCI1.5.
+Similarly small effects are seen in the global statistics.
+In turn, $\Delta$hCI1 is more affected, which would be expected given it is a low order model.
+Average individual excitations of closed- and open-shell systems vary by \SI{0.26}{\eV} and \SI{0.06}{\eV}, respectively, always in the sense of improving the energies in the former case,
+though not enough to cause a considerable reduction of the large absolute errors.
+Overall, not constraining the CI solutions to have well-defined spin brings practical complications (as more roots have to be calculated)
+and does not improve the computed excitation energies obtained with the more competitive $\Delta$CISD and $\Delta$hCI2 models.
+The sCI models, discussed in the next subsection, are naturally spin eigenstates, and there is no need to enforce that.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{sCI for excited states}
@@ -728,10 +726,10 @@ and that the ground-state routes perform slightly better than the state-specific
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 We refer back to Table \ref{tab:stat1} to discuss the performance of sCI for excited states of closed-shell systems.
-The first model, sCI2/sCI2, systematically overestimates the excitation energies, producing a MAE of \SI{1.34}{\eV}.
+The first model, sCI2/sCI2, systematically overestimates the excitation energies, producing a MAE of \SI{1.29}{\eV}.
 The same two factors discussed above for hCI explain such large errors.
 First, the ground-state description is favored due to the use of ground-state HF orbitals.
-Indeed, with state-specific orbitals, the $\Delta$sCI2/sCI2 model reduces the MAE to \SI{0.79}{\eV}, though still overestimating the excitation energies.
+Indeed, with state-specific orbitals, the $\Delta$sCI2/sCI2 model reduces the MAE to \SI{0.78}{\eV}, though still overestimating the excitation energies.
 Second, there is an unbalanced description of the correlation for ground and excited states, associated with the classes of determinants.
 While sCI2/sCI2 accounts for an additional $s=2$ sector for the ground state (which can be qualitatively described in the $s=0$ sector),
 no additional pairs of electrons are allowed to become unpaired in the excited state calculation, even though the state is qualitatively described by a determinant that is contained in the $s=2$ sector.
@@ -739,8 +737,8 @@ In other words, unpaired excitations are allowed to correlate the ground state, 
 thus creating a bias towards the former.
 
 A possible solution to this unbalance is to restrict the determinants to a maximum seniority number of $s=0$ for the ground state and $s=2$ for the excited state calculation.
-This is precisely the sCI2/sCI0 model, which delivers a MAE of \SI{0.57}{\eV}, compared to \SI{1.34}{\eV} of sCI2/sCI2.
-However, when going to state-specific orbitals, $\Delta$sCI2/sCI0 systematically undershoots the excitation energies and provides a MAE of \SI{0.99}{\eV}.
+This is precisely the sCI2/sCI0 model, which delivers a MAE of \SI{0.62}{\eV}, compared to \SI{1.29}{\eV} of sCI2/sCI2.
+However, when going to state-specific orbitals, $\Delta$sCI2/sCI0 systematically undershoots the excitation energies and provides a MAE of \SI{1.04}{\eV}.
 Clearly, the seniority-two sector captures more correlation for the excited states than the seniority-zero does for the ground state.
 Ultimately, we did not find a combination of sCI models and orbitals that produced reasonable excitation energies for closed-shell systems.
 
@@ -749,8 +747,8 @@ As shown in Table \ref{tab:stat2}, sCI1 provides considerably more accurate exci
 The reason should not be surprising at this point.
 Both ground and excited states of open-shells can be qualitatively described by the same type of reference (a single $s=1$ open-shell determinant).
 Moreover, the state-specific approach is superior.
-sCI1 presents a MAE of \SI{0.39}{\eV} and overestimates the excitation energies (MSE of \SI{+0.24}{\eV}), in view of the bias introduced by the ground-state orbitals.
-With state-specific orbitals, $\Delta$sCI1 reduces the MAE to \SI{0.27}{\eV} and the MSE to \SI{-0.11}{\eV}, which is smaller in absolute value than found for sCI1.
+sCI1 presents a MAE of \SI{0.35}{\eV} and overestimates the excitation energies (MSE of \SI{+0.20}{\eV}), in view of the bias introduced by the ground-state orbitals.
+With state-specific orbitals, $\Delta$sCI1 reduces the MAE to \SI{0.28}{\eV} and the MSE to \SI{-0.12}{\eV}, which is smaller in absolute value than found for sCI1.
 
 Even though $\Delta$sCI1 is less accurate and has less favorable computational scaling than CI models like $\Delta$CISD and $\Delta$hCI2,
 its decent errors are encouraging for another reason:
@@ -758,8 +756,8 @@ the development of polynomial scaling CC methods based on the concept of seniori
 For closed-shell systems, DOCI (here referred to as sCI0) energies can be very well reproduced with state-specific pair coupled cluster doubles (pCCD), a method that has mean-field cost,
 for both ground \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967} and excited \cite{Kossoski_2021,Marie_2021} states.
 Likewise, a formulation of pCCD to open-shell systems might share an analogous connection to low-order sCI models like sCI1.
-If that is the case, then a state-specific approach of such pCCD formulation adapted to open-shells may approach the accuracy of $\Delta$sCI1 (MAE of \SI{0.27}{\eV}) at a mean-field cost.
-This method could then provide an improved starting point to recover the remaining weak correlation than if starting from the (also mean-field though less accurate) $\Delta$CSF model (MAE of \SI{0.41}{\eV}).
+If that is the case, then a state-specific approach of such pCCD formulation adapted to open-shells may approach the accuracy of $\Delta$sCI1 (MAE of \SI{0.28}{\eV}) at a mean-field cost.
+This method could then provide an improved starting point to recover the remaining weak correlation than if starting from the (also mean-field though less accurate) $\Delta$CSF model (MAE of \SI{0.43}{\eV}).
 To the best of our knowledge, there has been a single proposed extension of pCCD to open-shell systems, \cite{Boguslawski_2021}
 based on the ionization-potential equation-of-motion CC (EOM-CC) formalism. \cite{Stanton_1994,Muneaki_2006,Bomble_2005}
 
@@ -768,7 +766,6 @@ For the state-specific calculations, such rotations for the excited-state orbita
 As discussed in the end of Sec.~\ref{sec:res_A}, these degrees of freedom could be exploited,
 by localizing occupied and virtual subspaces or by variationally optimizing all orbitals at a correlated level, for instance.
 We did not pursue these ideas here, and their impact on the excitation energies computed with hCI and sCI remains an open question.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
@@ -830,7 +827,6 @@ This project has received funding from the European Research Council (ERC) under
 \end{acknowledgements}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Supporting information available}
 \label{sec:SI}
@@ -845,14 +841,15 @@ and closed-shell (\ce{HF}, \ce{F2}, ethylene, \ce{N2}, \ce{H4}, and \ce{H8}) sys
 as functions of the number of determinants, according to the various CI models considered here while
 corrected with the standard and the renormalized EN2 perturbative energy.
 
-For the full set of 48 excited states for closed-shell molecules and 19 excited states for open-shell radicals,
+For the full set of 50 excited states for closed-shell molecules and 19 excited states for open-shell radicals,
 total energies and excitation energies obtained with
 the various hCI, eCI, and sCI models considered here, in both ground-state-based and state-specific approaches;
 number of determinants in the reference; saddle point order associated with the $\Delta$CSF solutions;
 and the reference excitation energies and corresponding methods.
+\fk{For a subset of 27 excited states for closed-shell molecules and 15 excited states for radicals,
+additional total energies and excitation energies obtained with lower-order state-specific hCI and eCI models without enforcing spin pure states.}
 For a subset of 16 excited states for closed-shell molecules and 6 excited states for radicals,
 additional total energies and excitation energies obtained with higher-order hCI and eCI models.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section*{Data availability statement}
@@ -921,7 +918,7 @@ The two possibilities are expressed by decomposing the third binomial term in Eq
 \end{equation}
 The first binomial counts the number of possibilities for exciting $q$ spin-down electrons from one of $p$ orbitals for which a spin-up electron was already excited.
 By removing the unpaired spin-down electron left behind, the seniority thus decreases by a factor of $q$.
-The second term accounts for the complementary excitations, where the $(e-p-q)$ spin-down electrons are chosen out of the $N/2-p$ orbitals that 
+The second term accounts for the complementary excitations, where the $(e-p-q)$ spin-down electrons are chosen out of the $N/2-p$ orbitals that
 remained doubly-occupied after exciting the $p$ spin-up electrons.
 Therefore, this term increases the seniority by $(e-p-q)$.
 We proceed similarly for the fourth binomial term of Eq.~\eqref{eq:e_closed}, by decomposing it into the sum of two other binomials,
@@ -932,7 +929,7 @@ Finally, by combining the seniority specific binomials and imposing the desired 
 the number of determinants with a given excitation degree $e$ and seniority $s$ produced from a closed-shell reference ($s_0=0$) is given by
 \begin{multline}
 	\sum_{p=0}^{e} \binom{N/2}{p} \binom{K-N/2}{p}
-	\sum_{q=0}^{e-p} \binom{p}{q} \binom{N/2-p}{e-p-q} 
+	\sum_{q=0}^{e-p} \binom{p}{q} \binom{N/2-p}{e-p-q}
 	\\ \times
 	\sum_{r=0}^{e-p} \binom{p}{r} \binom{K-N/2-p}{e-p-r}
  	\delta_{s,2(e-q-r)}.
@@ -941,28 +938,28 @@ the number of determinants with a given excitation degree $e$ and seniority $s$ 
 To obtain the final number of determinants for a given hierarchy $h$, we simply sum over the allowed combinations of $e$ and $s$ according to Eq.~\eqref{eq:h}.
 
 Moving to the case where the number of spin-up electrons ($\Na$) and spin-down electrons ($\Nb$) differ by one ($\Na=\Nb+1$), which is illustrated in the center panel of Fig.~\ref{fig:appendix},
-the number of excited determinants generated exclusively by exciting $e$ electrons %$\Ndet(e)$, 
+the number of excited determinants generated exclusively by exciting $e$ electrons,
 is analogous to Eq.~\eqref{eq:e_closed}, being given by
 \begin{equation}
-\sum_{p=0}^{e} 
+\sum_{p=0}^{e}
 \binom{\Na}{p} \binom{K-\Na}{p} \binom{\Nb}{e-p} \binom{K-\Nb}{e-p}.
 \label{eq:e_open}
 \end{equation}
 
-The deduction proceeds similarly to the closed-shell case. 
+The deduction proceeds similarly to the closed-shell case.
 The main differences are the following.
 The first binomial term of Eq.~\eqref{eq:e_open} is decomposed into the sum of $t$ spin-up electrons excited from the singly-occupied orbital and $(p-t)$ that are excited from the $\Nb$ doubly-occupied ones.
 The second binomial is left untouched, as before.
-The third one is also decomposed as explained for the closed-shell case, with the difference that the $q$ spin-down electrons are excited from $(p-t)$ orbitals (instead of $p$) 
-from which spin-up electrons were excited. 
+The third one is also decomposed as explained for the closed-shell case, with the difference that the $q$ spin-down electrons are excited from $(p-t)$ orbitals (instead of $p$)
+from which spin-up electrons were excited.
 Similarly, in the fourth binomial of Eq.~\eqref{eq:e_open}, $r$ spin-down electrons are placed into one of the $(1+p-t)$ orbitals (rather than $p$ in the closed-shell case) which contain an unpaired spin-up electron.
 Collecting the individual contributions and setting the targeted seniority,
 the number of determinants generated from a $s_0=1$ reference determinant, with excitation degree $e$ and seniority $s$ is given by
 \begin{multline}
-	\sum_{p=0}^{e} 
-	\sum_{t=0}^{p} \binom{1}{t} \binom{\Nb}{p-t} 
-	\binom{K-\Na}{p} 
-	\sum_{q=0}^{e-p} \binom{p-t}{q} \binom{\Nb-p+t}{e-p-q} 
+	\sum_{p=0}^{e}
+	\sum_{t=0}^{p} \binom{1}{t} \binom{\Nb}{p-t}
+	\binom{K-\Na}{p}
+	\sum_{q=0}^{e-p} \binom{p-t}{q} \binom{\Nb-p+t}{e-p-q}
 	\\ \times
 	\sum_{r=0}^{e-p} \binom{1+p-t}{r} \binom{K-\Nb-1-p+t}{e-p-r}
  	\delta_{s,1+2(e-q-r-t)}.
@@ -991,19 +988,18 @@ thus leading to three sums over four binomials.
 The final result for the number of determinants generated from an arbitrary reference determinant, constrained to have excitation degree $e$ and seniority $s$ is given by
 \begin{widetext}
 \begin{multline}
-	\sum_{p=0}^{e} 
-	\sum_{t=0}^{p} \binom{\Nas}{t} \binom{\Nd}{p-t} 
-	\sum_{w=0}^{p} \binom{\Nv}{w} \binom{\Nbs}{p-w} 
-	\sum_{u=0}^{e-p} \binom{\Nbs}{u} 
-	\sum_{v=0}^{e-p-u} \binom{p-t}{v} \binom{\Nd-p+t}{e-p-u-v} 
-	\sum_{r=0}^{e-p} \sum_{m=0}^{r} \binom{w}{m} \binom{\Nv-w}{r-m} 
+	\sum_{p=0}^{e}
+	\sum_{t=0}^{p} \binom{\Nas}{t} \binom{\Nd}{p-t}
+	\sum_{w=0}^{p} \binom{\Nv}{w} \binom{\Nbs}{p-w}
+	\sum_{u=0}^{e-p} \binom{\Nbs}{u}
+	\sum_{v=0}^{e-p-u} \binom{p-t}{v} \binom{\Nd-p+t}{e-p-u-v}
+	\sum_{r=0}^{e-p} \sum_{m=0}^{r} \binom{w}{m} \binom{\Nv-w}{r-m}
 	\\ \times
-	\sum_{n=0}^{e-p-r} \binom{t}{n} \binom{\Nas-t}{e-p-r-n} 
+	\sum_{n=0}^{e-p-r} \binom{t}{n} \binom{\Nas-t}{e-p-r-n}
 	\delta_{s,\Nas+\Nbs+2(e+w-p-t-u-v-m-n)}.
 \label{eq:det_3}
 \end{multline}
 \end{widetext}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{manuscript}
