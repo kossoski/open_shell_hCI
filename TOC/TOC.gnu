@@ -1,9 +1,5 @@
 #!/bin/gnuplot
 
-#set terminal pngcairo size 600,600 enhanced font 'Verdana,10'
-#set output 'plot_pes.png'
-#set terminal postscript eps size 5.3,3.0 enhanced color \
-
 set terminal postscript eps size 3.25in,1.75in enhanced color \
     font 'Helvetica,16' linewidth 2
 set output 'TOC.eps'
@@ -11,18 +7,10 @@ set encoding iso_8859_1
 
 set border lw 0.4
 
-if (!exists("MP_LEFT"))   MP_LEFT = 0.01
-if (!exists("MP_RIGHT"))  MP_RIGHT = 0.99
-if (!exists("MP_BOTTOM")) MP_BOTTOM = 0.01
-if (!exists("MP_TOP"))    MP_TOP = 0.95
-if (!exists("MP_xGAP"))   MP_xGAP = 0.00
-if (!exists("MP_yGAP"))   MP_yGAP = 0.00
-
 ROWS=1
 COLS=2
 
-set multiplot layout ROWS,COLS columnsfirst \
-#              margins screen MP_LEFT, MP_RIGHT, MP_BOTTOM, MP_TOP spacing screen MP_xGAP, MP_yGAP
+set multiplot layout ROWS,COLS columnsfirst
 
 rgb(r,g,b) = 65536 * int(r) + 256 * int(g) + int(b)
 
@@ -39,17 +27,12 @@ set style line 30 dt 1 pt 7 lw 3 ps 2.5 linecolor rgbcolor rgb(243,123,112)
 set style line 40 dt 1 pt 7 lw 3 ps 2.5 linecolor rgbcolor rgb(101,194,149)
 set style line 80 dt 1 pt 7 lw 3 ps 2.5 linecolor rgbcolor rgb( 94,138,199)
 
-set ylabel ''
-
 set xrange[-2.0:2.0]
 set yrange[0.0:3.5]
 unset xtics
-#set xtics ("" 0) mirror
 unset ytics
-set format y "%.1f"
+set ylabel ''
 
-#set style data histogram
-#set style histogram cluster gap 1
 set style fill solid noborder
 set boxwidth 0.10 absolute
 
@@ -89,9 +72,8 @@ set label '{/Bold MAE = 0.64 eV}'     at  0.10,2.5 tc ls 2 font 'Helvetica,15'
 set label '{/Symbol D}{/Bold {sCI2}}' at -1.5,2.5 tc ls 8 font 'Helvetica,20'
 plot '../excited_states/delta.sci2.all.mse' u (rounded($1)):(1./(sum*bin_width)) smooth frequency with boxes ls 8  notitle
 
+###################################################################################
 
-###################################################################################
-###################################################################################
     s1x = 0.56
     s1y = 1.05
     set size s1x, s1y
@@ -115,7 +97,6 @@ plot '../OH_cc-pvdz/pes_rohf.dat'   w l ls 1 notitle ,\
      '../OH_cc-pvdz/pes_CIo2.dat'   w l ls 4 notitle ,\
      '../OH_cc-pvdz/pes_fci.dat'    w l ls 2 notitle
 
-###################################################################################
 ###################################################################################
 
 unset multiplot
