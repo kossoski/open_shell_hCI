@@ -1,0 +1,144 @@
+\documentclass[10pt]{letter}
+\usepackage{UPS_letterhead,xcolor,mhchem,ragged2e,hyperref}
+\usepackage{physics,siunitx}
+\newcommand{\alert}[1]{\textcolor{red}{#1}}
+\definecolor{darkgreen}{HTML}{009900}
+
+\newcommand{\yann}{\textcolor{green}}
+
+
+\begin{document}
+
+\begin{letter}%
+{To the Editors of the \textit{Journal of Chemical Theory and Computation},}
+
+\opening{Dear Editors,}
+
+\justifying
+Please find attached a revised version of the manuscript entitled
+\begin{quote}
+	\textit{``Seniority and Hierarchy Configuration Interaction for Radicals and Excited States''}
+\end{quote}
+
+We thank the reviewers for their support to publication of the present manuscript.
+Our detailed responses to their comments can be found below.
+For convenience, changes of the revised manuscript are highlighted in red in a separate file.
+
+We look forward to hearing from you.
+
+\closing{Sincerely, the authors.}
+
+\newpage
+
+%%% REVIEWER 1 %%%
+\noindent \textbf{\large Authors' answer to Reviewer \#1}
+
+{In this manuscript, Loos and coworkers report the extension of the hCI method (J. Phys. Chem. Lett. 2022, 13, 4342) towards calculating the open-shell and excited-state chemical species. 
+This method can be seen as a partitioning of the FCI space that combines the excitation-based CI (eCI, which is a conventional truncated CI) and the seniority-based CI (sCI).
+The authors report various benchmark data for radicals (\ce{OH}, \ce{CN}, vinyl, \ce{H7}) and excited states (the molecules at the geometries from the QUEST database).
+The authors also introduced the second-order Epstein-Nesbet perturbative corrections (EN2) in the hCI calculations,
+and the impact of such correction is described for the closed-shell systems as well.
+Overall, this work reasonably demonstrates applications of novel electronic-structure methods for diverse systems. 
+The paper is interesting, well-written, and straightforward to follow, and I think this paper deserves publication in J. Chem. Theory Comput. after minor improvements. 
+I have only a couple of brief comments below:
+}
+
+\alert{
+	aaa
+}
+
+
+{This work presents the partitioning of the Hilbert space. Although the authors present the number
+of determinants in the appendix, can the authors also provide the number of the FCI determinants
+so that readers can easily evaluate the efficiency of the xCI calculations?
+}
+
+\alert{
+	aaa
+}
+
+{Figures 3 and 4: The data is shown with respect to the number of determinants, which makes the
+reader to evaluate the different methods efficiently. However, for readability, I think it will also be
+helpful to provide n in eCIn, sCIn, and hCIn in these figures.
+}
+
+\alert{
+	aaa
+}
+
+{In sections IV-C and IV-D: The EN2 corrections are not discussed at all in the excited states, making
+it unnatural compared to the presentation of the radical systems. While it might be challenging to
+perform the additional calculations for all the systems, I think it will be helpful for some sample
+systems to investigate the impact of EN2 correction in hCI and DhCI calculations (maybe in the
+same fashion presented in Figures 3 and 4).
+}
+
+\alert{
+	aaa
+}
+
+
+\clearpage
+
+
+%%% REVIEWER 2 %%%
+\noindent \textbf{\large Authors' answer to Reviewer \#2}
+
+{The authors present a generalization of the hierarchy configuration interaction (hCI) method to an arbitrary reference state, which allows them to extend their previously developed hCI model to open-shell systems and general excited-state electronic structures. They test the performance of their proposed extension against various test sets containing (small) molecules for which reliable reference data is available. Their numerical analysis and discussion are in-depth, while their methodology (the theory part) is comprehensive. Their numerical study allows them to obtain reliable energies and spectroscopic properties for their more elaborate hCI models. This manuscript is of potential interest to the readership of the Journal of Chemical Theory and Computation. However, a few remarks need to be addressed before publication.
+}
+
+\alert{
+aaa
+}
+
+{1) The sentence ``[...] whose number Ndet share the same scaling with the number of basis functions N [...]'' is rather difficult to understand. The authors need to either rephrase or elaborate more.
+}
+
+\alert{
+aaa
+}
+
+{2) the authors need to include more information concerning the fitting procedure in the main manuscript for reproducibility reasons. In the SI, they state that they used a Morse function. Why did the authors use a Morse function and not, for instance, a generalized Morse function, etc... Furthermore, it is unclear how they fitted their vibrational frequencies.
+}
+
+\alert{
+aaa
+}
+
+{3) Some of the PES displayed in the SI are not smooth and rather kinky. How does the lack of smoothness affect the fitting procedure and, hence, the vibrational frequencies?
+}
+
+\alert{
+aaa
+}
+
+{4) The authors need to mention (or draw) the molecules of their excited state study. Not everyone might be familiar with the QUEST database. It would be insightful to mention the character of the excited states. I assume these are all singly excited states (no double excitation character?). Can the authors provide additional information regarding their nature (local excitation, charge transfer, Rydberg, etc.)? Specifically, what kind of excited states can be described well or less well with hCI methods?
+}
+
+\alert{
+aaa
+}
+
+{5) For reasons of transparency, the authors should define MSE, MAE, RMSE, and SDE using equations, even if it might be obvious.
+}
+
+\alert{
+aaa
+}
+
+{6) The authors keep mentioning ``reference theoretical values.'' Please mention what kind of reference values were used.
+}
+
+\alert{
+aaa
+}
+
+{7) The authors look at several small-sized molecules for which FCI can still be determined. There is nothing wrong with that. However, I am missing numerical studies on slightly larger systems, which are known to be challenging in computational chemistry. I recommend adding some ``larger'' molecules, which feature open- and closed-shell ground and excited states. Examples are cyclobutadiene (its automatization problem) and o-, m-, and p-benzynes. These systems are notoriously difficult to study and extensively discussed in the literature. Including just those four molecules would add more value to the paper and allow a direct comparison to other state-of-the-art computational methods.
+}
+
+\alert{
+aaa
+}
+
+\end{letter}
+\end{document}
