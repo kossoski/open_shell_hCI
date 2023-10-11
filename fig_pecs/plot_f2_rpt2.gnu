@@ -4,19 +4,19 @@
 #set output 'plot_pes.png'
 #set terminal postscript eps size 5.3,3.0 enhanced color \
 
-set terminal postscript eps size 9.0,9.0 enhanced color \
+set terminal postscript eps size 18.0,6.0 enhanced color \
     font 'Helvetica,34' linewidth 2
 set output 'plot_f2_rpt2.eps'
 set encoding iso_8859_1
 
-if (!exists("MP_LEFT"))   MP_LEFT = 0.13
+if (!exists("MP_LEFT"))   MP_LEFT = 0.06
 if (!exists("MP_RIGHT"))  MP_RIGHT = 0.99
-if (!exists("MP_BOTTOM")) MP_BOTTOM = 0.08
-if (!exists("MP_TOP"))    MP_TOP = 0.92
-if (!exists("MP_xGAP"))   MP_xGAP = 0.14
-if (!exists("MP_yGAP"))   MP_yGAP = 0.11
+if (!exists("MP_BOTTOM")) MP_BOTTOM = 0.13
+if (!exists("MP_TOP"))    MP_TOP = 0.97
+if (!exists("MP_xGAP"))   MP_xGAP = 0.07
+if (!exists("MP_yGAP"))   MP_yGAP = 0.01
 
-set multiplot layout 2,2 rowsfirst \
+set multiplot layout 1,4 rowsfirst \
                margins screen MP_LEFT, MP_RIGHT, MP_BOTTOM, MP_TOP spacing screen MP_xGAP, MP_yGAP
 
 rgb(r,g,b) = 65536 * int(r) + 256 * int(g) + int(b)
@@ -72,7 +72,7 @@ set ytics 0.2
 set format y "%.1f"
 set ylabel 'Distance error (Hartree)'
 
-set label '{/:Bold F_2}' at 0.006,0.81 tc ls 2 font 'Helvetica,44'
+#set label '{/:Bold F_2}' at 0.006,0.81 tc ls 2 font 'Helvetica,44'
 plot '../F2_cc-pvdz/stat_CIs.dat'  u ($3):($5)  w lp ls 8  notitle, \
      '../F2_cc-pvdz/rpt2/stat_CIs.dat'  u ($3):($5)  w lp ls 80  notitle, \
      '../F2_cc-pvdz/stat_CI.dat'   u ($3):($5)  w lp ls 3  notitle, \
