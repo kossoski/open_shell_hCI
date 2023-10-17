@@ -2,6 +2,7 @@
 \usepackage{graphicx,dcolumn,bm,xcolor,microtype,multirow,amscd,amsmath,amssymb,amsfonts,physics,wrapfig,txfonts,siunitx}
 \usepackage[version=4]{mhchem}
 \usepackage{natbib}
+\usepackage{comment}
 \bibliographystyle{achemso}
 
 \newcommand{\ie}{\textit{i.e.}}
@@ -538,6 +539,7 @@ At the hCI3 level, significantly smaller errors are finally achieved (MAE of \SI
 This is close to that obtained with the eCI model of the same order, CISDT (\SI{0.17}{\eV}).
 Even smaller errors are produced at the hCI3.5 level (MAE of \SI{0.11}{\eV}), but at a considerable computational cost.
 
+\begin{comment}
 \begin{table}[ht!]
 \caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), Root-Mean Square Error (RMSE), and Standard Deviation of the Errors (SDE), in Units of eV, with Respect to Reference Theoretical Values, for the Set of
 Singly Excited States of Closed-Shell Systems Listed in the {\SupInf}.
@@ -567,7 +569,7 @@ $\Delta$CISDT     & 16  & -0.20 & 0.20 & 0.22 & 0.11 \\
 $\Delta$CISDTQ    & 16  & -0.02 & 0.02 & 0.02 & 0.02 \\
 %
 \hline
-$\Delta$hCI1      & 50  & -1.29 & 1.47 & 1.63 & 1.00 \\
+$\Delta$hCI1      & 50  & -1.40 & 1.40 & 1.55 & 0.67 \\
 $\Delta$hCI1.5    & 50  & -2.80 & 2.80 & 3.03 & 1.15 \\
 $\Delta$hCI2      & 50  & -0.18 & 0.20 & 0.25 & 0.16 \\
 $\Delta$hCI2.5    & 16  & -0.27 & 0.27 & 0.30 & 0.13 \\
@@ -575,14 +577,61 @@ $\Delta$hCI3      & 16  & -0.22 & 0.22 & 0.24 & 0.10 \\
 $\Delta$hCI3.5    & 16  & -0.08 & 0.08 & 0.09 & 0.05 \\
 %
 \hline
-sCI2/sCI2         & 50  & +1.22 & 1.29 & 1.45 & 0.78 \\
-sCI2/sCI0         & 50  & -0.47 & 0.62 & 0.92 & 0.80 \\
-$\Delta$sCI2/sCI2 & 50  & +0.65 & 0.78 & 0.89 & 0.60 \\
+sCI2/sCI2         & 50  & +1.35 & 1.35 & 1.51 & 0.68 \\
+sCI2/sCI0         & 50  & -0.34 & 0.55 & 0.74 & 0.66 \\
+$\Delta$sCI2/sCI2 & 50  & +0.66 & 0.78 & 0.89 & 0.60 \\
 $\Delta$sCI2/sCI0 & 50  & -1.04 & 1.04 & 1.21 & 0.62 \\
 %
 \end{tabular}
 \end{ruledtabular}
 \end{table}
+\end{comment}
+
+\begin{table*}[ht!]
+\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), Root-Mean Square Error (RMSE), and Standard Deviation of the Errors (SDE), in Units of eV, with Respect to Reference Theoretical Values, for the Set of
+Singly Excited States of Closed-Shell Systems Listed in the {\SupInf}.
+}
+\label{tab:stat1}
+\begin{ruledtabular}
+\begin{tabular}{ldddddlddddd}
+method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} & \fk{method}            & \mc{1}{c}{\fk{count}} & \mc{1}{c}{\fk{MSE}} & \mc{1}{c}{\fk{MAE}} & \mc{1}{c}{\fk{RMSE}} & \mc{1}{c}{\fk{SDE}} \\
+\hline
+CIS               & 48  & +0.03 & 0.61 & 0.59 & 0.77  &\fk{CIS+EN2}               & \fk{48} &       &      &      &      \\
+CISD              & 16  & +4.09 & 4.09 & 4.18 & 0.84  & & & & & & \\
+CISDT             & 16  & +0.12 & 0.17 & 0.18 & 0.14  & & & & & & \\
+CISDTQ            & 16  & +0.15 & 0.15 & 0.17 & 0.08  & & & & & & \\
+%
+\hline
+hCI1              & 50  & +1.07 & 1.16 & 1.39 & 0.89  &\fk{hCI1+EN2}              & \fk{50}  & \fk{+0}.\fk{65}  & \fk{0}.\fk{65} & \fk{0}.\fk{84} & \fk{0}.\fk{53} \\
+hCI1.5            & 50  & +1.95 & 1.95 & 2.04 & 0.59  &\fk{hCI1.5+EN2}            & \fk{50}  & \fk{+0}.\fk{62}  & \fk{0}.\fk{63} & \fk{0}.\fk{76} & \fk{0}.\fk{44} \\
+hCI2              & 16  & +2.99 & 3.53 & 3.61 & 0.76  & & & & & & \\
+hCI2.5            & 16  & +1.95 & 1.95 & 2.06 & 0.66  & & & & & & \\
+hCI3              & 16  & +0.19 & 0.19 & 0.21 & 0.08  & & & & & & \\
+hCI3.5            & 16  & +0.11 & 0.11 & 0.13 & 0.07  & & & & & & \\
+%
+\hline
+$\Delta$CSF       & 50  & -0.71 & 0.77 & 0.91 & 0.58  &\fk{$\Delta$CSF+EN2}       & \fk{50}  &        &      &      &      \\
+$\Delta$CISD      & 50  & -0.12 & 0.17 & 0.22 & 0.18  &\fk{$\Delta$CISD+EN2}      & \fk{50}  & \fk{+0}.\fk{02}  & \fk{0}.\fk{06} & \fk{0}.\fk{09} & \fk{0}.\fk{09} \\
+$\Delta$CISDT     & 16  & -0.20 & 0.20 & 0.22 & 0.11  & & & & & & \\
+$\Delta$CISDTQ    & 16  & -0.02 & 0.02 & 0.02 & 0.02  & & & & & & \\
+%
+\hline
+$\Delta$hCI1      & 50  & -1.40 & 1.40 & 1.55 & 0.67  &\fk{$\Delta$hCI1+EN2}      & \fk{50}  & \fk{+0}.\fk{12}  & \fk{0}.\fk{24} & \fk{0}.\fk{30} & \fk{0}.\fk{27} \\
+$\Delta$hCI1.5    & 50  & -2.80 & 2.80 & 3.03 & 1.15  &\fk{$\Delta$hCI1.5+EN2}    & \fk{50}  & \fk{-0}.\fk{01}  & \fk{0}.\fk{13} & \fk{0}.\fk{19} & \fk{0}.\fk{19} \\
+$\Delta$hCI2      & 50  & -0.18 & 0.20 & 0.25 & 0.16  &\fk{$\Delta$hCI2+EN2}      & \fk{50}  & \fk{+0}.\fk{00}  & \fk{0}.\fk{06} & \fk{0}.\fk{10} & \fk{0}.\fk{09} \\
+$\Delta$hCI2.5    & 16  & -0.27 & 0.27 & 0.30 & 0.13  & & & & & & \\
+$\Delta$hCI3      & 16  & -0.22 & 0.22 & 0.24 & 0.10  & & & & & & \\
+$\Delta$hCI3.5    & 16  & -0.08 & 0.08 & 0.09 & 0.05  & & & & & & \\
+%
+\hline
+sCI2/sCI2         & 50  & +1.35 & 1.35 & 1.51 & 0.68  &\fk{sCI2/sCI2+EN2}         & \fk{50}  & \fk{+0}.\fk{60}  & \fk{0}.\fk{60} & \fk{0}.\fk{79} & \fk{0}.\fk{51} \\
+sCI2/sCI0         & 50  & -0.34 & 0.55 & 0.74 & 0.66  &\fk{sCI2/sCI0+EN2}         & \fk{50}  & \fk{+0}.\fk{51}  & \fk{0}.\fk{52} & \fk{0}.\fk{69} & \fk{0}.\fk{47} \\
+$\Delta$sCI2/sCI2 & 50  & +0.66 & 0.78 & 0.89 & 0.60  &\fk{$\Delta$sCI2/sCI2+EN2} & \fk{50}  & \fk{+0}.\fk{21}  & \fk{0}.\fk{26} & \fk{0}.\fk{35} & \fk{0}.\fk{28} \\
+$\Delta$sCI2/sCI0 & 50  & -1.04 & 1.04 & 1.21 & 0.62  &\fk{$\Delta$sCI2/sCI0+EN2} & \fk{50}  & \fk{+0}.\fk{12}  & \fk{0}.\fk{23} & \fk{0}.\fk{27} & \fk{0}.\fk{24} \\
+%
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
 
 As discussed above, the errors on excitation energies obtained with the hCI models first increase as one augments the hierarchy parameter $h$, reaching a maximum at hCI2, and then decrease towards higher orders.
 This behavior parallels what is well established for the excitation energies computed with eCI, where CISD is far worse than CIS, which in turn is inferior to CISDT, whereas CISDTQ is considerably more accurate.
@@ -641,6 +690,7 @@ a single open-shell determinant, shown in the center panel of Fig.~\ref{fig:hCI}
 In contrast, the excited states from the closed-shell systems relied on different classes of reference determinants.
 This accounts for the more accurate results observed for open-shell excitations and explains most of the differences with respect to excitations from closed-shell systems, as discussed in detail in the following.
 
+\begin{comment}
 \begin{table}[ht!]
 \caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), Root-Mean Square Error (RMSE), and Standard Deviation of the Errors (SDE) in Units of eV, with Respect to Reference Theoretical Values, for the Set of
 Singly-Excited States from Open-Shell Doublets Listed in the {\SupInf}.
@@ -683,6 +733,50 @@ $\Delta$sCI1      & 19 & -0.12 & 0.28 & 0.39 & 0.37 \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
+\end{comment}
+
+\begin{table*}[ht!]
+\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), Root-Mean Square Error (RMSE), and Standard Deviation of the Errors (SDE) in Units of eV, with Respect to Reference Theoretical Values, for the Set of
+Singly-Excited States from Open-Shell Doublets Listed in the {\SupInf}.
+}
+\label{tab:stat2}
+\begin{ruledtabular}
+\begin{tabular}{ldddddlddddd}
+method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} & \fk{method}            & \mc{1}{c}{\fk{count}} & \mc{1}{c}{\fk{MSE}} & \mc{1}{c}{\fk{MAE}} & \mc{1}{c}{\fk{RMSE}} & \mc{1}{c}{\fk{SDE}} \\
+\hline
+CIS               & 19 & +0.38 & 0.41 & 0.63 & 0.50  & \fk{CIS+EN2}            & \fk{19} &       &      &      &      \\
+CISD              &  6 & +2.97 & 2.97 & 3.19 & 1.17  & & & & & & \\
+CISDT             &  6 & +0.06 & 0.07 & 0.09 & 0.06  & & & & & & \\
+CISDTQ            &  6 & +0.08 & 0.08 & 0.11 & 0.08  & & & & & & \\
+%
+\hline
+hCI1              & 19 & +0.65 & 0.73 & 0.91 & 0.64  & \fk{hCI1+EN2}           & \fk{19} & \fk{+0}.\fk{27} & \fk{0}.\fk{28} & \fk{0}.\fk{36} & \fk{0}.\fk{24} \\
+hCI1.5            & 19 & +1.07 & 1.07 & 1.26 & 0.68  & \fk{hCI1.5+EN2}         & \fk{19} & \fk{+0}.\fk{22} & \fk{0}.\fk{25} & \fk{0}.\fk{33} & \fk{0}.\fk{24} \\
+hCI2              &  6 & +1.32 & 1.32 & 1.60 & 0.90  & & & & & & \\
+hCI2.5            &  6 & +0.03 & 0.05 & 0.06 & 0.05  & & & & & & \\
+hCI3              &  6 & +0.00 & 0.04 & 0.05 & 0.05  & & & & & & \\
+hCI3.5            &  6 & +0.01 & 0.03 & 0.05 & 0.04  & & & & & & \\
+%
+\hline
+$\Delta$CSF       & 19 & -0.04 & 0.43 & 0.59 & 0.59  & \fk{$\Delta$CSF+EN2}    & \fk{19} &       &      &      &      \\
+$\Delta$CISD      & 19 & +0.00 & 0.12 & 0.21 & 0.21  & \fk{$\Delta$CISD+EN2}   & \fk{19} & \fk{-0}.\fk{02} & \fk{0}.\fk{04} & \fk{0}.\fk{06} & \fk{0}.\fk{06} \\
+$\Delta$CISDT     &  6 & -0.07 & 0.07 & 0.10 & 0.08  & & & & & & \\
+$\Delta$CISDTQ    &  6 & -0.02 & 0.02 & 0.02 & 0.02  & & & & & & \\
+%
+\hline
+$\Delta$hCI1      & 19 & -0.21 & 0.35 & 0.49 & 0.44  & \fk{$\Delta$hCI1+EN2}   & \fk{19} & \fk{+0}.\fk{02} & \fk{0}.\fk{17} & \fk{0}.\fk{29} & \fk{0}.\fk{29} \\
+$\Delta$hCI1.5    & 19 & -0.14 & 0.45 & 0.70 & 0.69  & \fk{$\Delta$hCI1.5+EN2} & \fk{19} & \fk{+0}.\fk{00} & \fk{0}.\fk{10} & \fk{0}.\fk{15} & \fk{0}.\fk{15} \\
+$\Delta$hCI2      & 19 & -0.02 & 0.10 & 0.16 & 0.16  & \fk{$\Delta$hCI2+EN2}   & \fk{19} & \fk{-0}.\fk{00} & \fk{0}.\fk{05} & \fk{0}.\fk{08} & \fk{0}.\fk{08} \\
+$\Delta$hCI2.5    &  6 & -0.09 & 0.09 & 0.14 & 0.10  & & & & & & \\
+$\Delta$hCI3      &  6 & -0.06 & 0.06 & 0.08 & 0.05  & & & & & & \\
+$\Delta$hCI3.5    &  6 & -0.02 & 0.02 & 0.03 & 0.02  & & & & & & \\
+%
+\hline
+sCI1              & 19 & +0.20 & 0.35 & 0.57 & 0.53  & \fk{sCI1+EN2}           & \fk{19} & \fk{+0}.\fk{23} & \fk{0}.\fk{25} & \fk{0}.\fk{32} & \fk{0}.\fk{21} \\
+$\Delta$sCI1      & 19 & -0.12 & 0.28 & 0.39 & 0.37  & \fk{$\Delta$sCI1+EN2}   & \fk{19} & \fk{+0}.\fk{06} & \fk{0}.\fk{12} & \fk{0}.\fk{20} & \fk{0}.\fk{19} \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
 
 When using ground-state orbitals, we found the performance initially degrades and later improves as the order increases, for both eCI and hCI.
 This is similar to what was observed for the closed-shell excitations
@@ -730,7 +824,7 @@ The sCI models, discussed in the next subsection, are naturally spin eigenstates
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 We refer back to Table \ref{tab:stat1} to discuss the performance of sCI for excited states of closed-shell systems.
-The first model, sCI2/sCI2, systematically overestimates the excitation energies, producing a MAE of \SI{1.29}{\eV}.
+The first model, sCI2/sCI2, systematically overestimates the excitation energies, producing a MAE of \SI{1.35}{\eV}.
 The same two factors discussed above for hCI explain such large errors.
 First, the ground-state description is favored due to the use of ground-state HF orbitals.
 Indeed, with state-specific orbitals, the $\Delta$sCI2/sCI2 model reduces the MAE to \SI{0.78}{\eV}, though still overestimating the excitation energies.
@@ -741,7 +835,7 @@ In other words, unpaired excitations are allowed to correlate the ground state, 
 thus creating a bias towards the former.
 
 A possible solution to this unbalance is to restrict the determinants to a maximum seniority number of $s=0$ for the ground state and $s=2$ for the excited state calculation.
-This is precisely the sCI2/sCI0 model, which delivers a MAE of \SI{0.62}{\eV}, compared to \SI{1.29}{\eV} of sCI2/sCI2.
+This is precisely the sCI2/sCI0 model, which delivers a MAE of \SI{0.55}{\eV}, compared to \SI{1.35}{\eV} of sCI2/sCI2.
 However, when going to state-specific orbitals, $\Delta$sCI2/sCI0 systematically undershoots the excitation energies and provides a MAE of \SI{1.04}{\eV}.
 Clearly, the seniority-two sector captures more correlation for the excited states than the seniority-zero does for the ground state.
 Ultimately, we did not find a combination of sCI models and orbitals that produced reasonable excitation energies for closed-shell systems.
@@ -770,6 +864,79 @@ For the state-specific calculations, such rotations for the excited-state orbita
 As discussed in the end of Sec.~\ref{sec:res_A}, these degrees of freedom could be exploited,
 by localizing occupied and virtual subspaces or by variationally optimizing all orbitals at a correlated level, for instance.
 We did not pursue these ideas here, and their impact on the excitation energies computed with hCI and sCI remains an open question.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\fk{EN2 correction for excited states}}
+\label{sec:res_E}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{comment}
+
+\begin{table}[ht!]
+\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), Root-Mean Square Error (RMSE), and Standard Deviation of the Errors (SDE), in Units of eV, with Respect to Reference Theoretical Values, for the Set of
+Singly Excited States of Closed-Shell Systems Listed in the {\SupInf}.
+}
+\label{tab:stat1}
+\begin{ruledtabular}
+\begin{tabular}{lddddd}
+method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} \\
+\hline
+CIS+EN2               & 48 &       &      &      &      \\
+\hline
+hCI1+EN2              & 50  & +0.65  & 0.65 & 0.84 & 0.53 \\
+hCI1.5+EN2            & 50  & +0.62  & 0.63 & 0.76 & 0.44 \\
+%
+\hline
+$\Delta$CSF+EN2       & 50  &        &      &      &      \\
+$\Delta$CISD+EN2      & 50  & +0.02  & 0.06 & 0.09 & 0.09 \\
+%
+\hline
+$\Delta$hCI1+EN2      & 50  & +0.12  & 0.24 & 0.30 & 0.27 \\
+$\Delta$hCI1.5+EN2    & 50  & -0.01  & 0.13 & 0.19 & 0.19 \\
+$\Delta$hCI2+EN2      & 50  & +0.00  & 0.06 & 0.10 & 0.09 \\
+%
+\hline
+sCI2/sCI2+EN2         & 50  & +0.51  & 0.60 & 0.79 & 0.51 \\
+sCI2/sCI0+EN2         & 50  & +0.60  & 0.52 & 0.69 & 0.47 \\
+$\Delta$sCI2/sCI2+EN2 & 50  & +0.20  & 0.25 & 0.34 & 0.28 \\
+$\Delta$sCI2/sCI0+EN2 & 50  & +0.11  & 0.22 & 0.26 & 0.24 \\
+%
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{table}[ht!]
+\caption{Mean Signed Error (MSE), Mean Absolute Error (MAE), Root-Mean Square Error (RMSE), and Standard Deviation of the Errors (SDE) in Units of eV, with Respect to Reference Theoretical Values, for the Set of
+Singly-Excited States from Open-Shell Doublets Listed in the {\SupInf}.
+}
+\label{tab:stat2}
+\begin{ruledtabular}
+\begin{tabular}{lddddd}
+method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} \\
+\hline
+CIS+EN2            & 19 &       &      &      &      \\
+%
+\hline
+hCI1+EN2           & 19 & +0.27 & 0.28 & 0.36 & 0.24 \\
+hCI1.5+EN2         & 19 & +0.22 & 0.25 & 0.33 & 0.24 \\
+%
+\hline
+$\Delta$CSF+EN2    & 19 &       &      &      &      \\
+$\Delta$CISD+EN2   & 19 & -0.02 & 0.04 & 0.06 & 0.06 \\
+%
+\hline
+$\Delta$hCI1+EN2   & 19 & +0.02 & 0.17 & 0.29 & 0.29 \\
+$\Delta$hCI1.5+EN2 & 19 & +0.00 & 0.10 & 0.15 & 0.15 \\
+$\Delta$hCI2+EN2   & 19 & -0.00 & 0.05 & 0.08 & 0.08 \\
+%
+\hline
+sCI1+EN2           & 19 & +0.23 & 0.25 & 0.32 & 0.21 \\
+$\Delta$sCI1+EN2   & 19 & +0.06 & 0.12 & 0.20 & 0.19 \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
