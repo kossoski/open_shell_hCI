@@ -5,6 +5,7 @@
 \definecolor{darkgreen}{HTML}{009900}
 
 \newcommand{\yann}{\textcolor{green}}
+\newcommand{\Ndet}{N_\text{det}}
 
 
 \begin{document}
@@ -44,7 +45,7 @@ I have only a couple of brief comments below:
 }
 
 \alert{
-	aaa
+We thank the reviwer for the supportive comments.
 }
 
 
@@ -54,7 +55,7 @@ so that readers can easily evaluate the efficiency of the xCI calculations?
 }
 
 \alert{
-	aaa
+The number of determinants in FCI and in each approximate CI model is now presented in Tables S1 and S2 of the Supporting Information.
 }
 
 {Figures 3 and 4: The data is shown with respect to the number of determinants, which makes the
@@ -63,7 +64,10 @@ helpful to provide n in eCIn, sCIn, and hCIn in these figures.
 }
 
 \alert{
-	aaa
+We have experimented including the values of $n$ to the figures, as suggested by the reviewer.
+However, we consider that they become somewhat clutered and less readable, and therefore we prefer to leave them unchanged.
+With the intention of helping the reader, we have been supplemented the following sentence to the captions of Figures 3 (4):
+``Each point denotes one CI model, according to the sequences: HF, hCI1, hCI1.5, hCI2, etc. (green); HF, CIS, CISD, etc. (red); and sCI0, sCI2, and sCI4 (sCI1, sCI3, sCI5) (blue).''
 }
 
 {In sections IV-C and IV-D: The EN2 corrections are not discussed at all in the excited states, making
@@ -74,7 +78,9 @@ same fashion presented in Figures 3 and 4).
 }
 
 \alert{
-	aaa
+We agree with the reviewer's suggestion that including the EN2 correction for the excited state calculations is a natural and important addition to the manuscript.
+We have performed additional calculations for the full set of states with the different CI models surveyed here (except for the more computationally demanding higher-order models).
+These new results were included in Tables II, III, and in the Supporting Information, while a new subsection (IV.E), starting on page x, is devoted to their discussion.
 }
 
 
@@ -88,28 +94,43 @@ same fashion presented in Figures 3 and 4).
 }
 
 \alert{
-aaa
+We thank the reviwer for the positive appreciation of our work.
 }
 
-{1) The sentence ``[...] whose number Ndet share the same scaling with the number of basis functions N [...]'' is rather difficult to understand. The authors need to either rephrase or elaborate more.
+{1) The sentence ``[...] whose number $\Ndet$ share the same scaling with the number of basis functions $N$ [...]'' is rather difficult to understand. The authors need to either rephrase or elaborate more.
 }
 
 \alert{
-aaa
+This sentence has been rephrased and now reads, on page x,
+``The number of determinants $\Ndet$ within a given class scales polynomially with the number of basis functions $N$, with the exponent depending on the specific class.
+For instance, for the class of doubly-excited determinants with no unpaired electrons ($e=2$ and $s=0$), $\Ndet = \order*{N^2}$.
+hCI was defined such that, at a given hierarchy $h$, all classes of determinants presenting a scaling of $\Ndet = \order*{N^{2h}}$ or less are accounted for.''
 }
 
 {2) the authors need to include more information concerning the fitting procedure in the main manuscript for reproducibility reasons. In the SI, they state that they used a Morse function. Why did the authors use a Morse function and not, for instance, a generalized Morse function, etc... Furthermore, it is unclear how they fitted their vibrational frequencies.
 }
 
 \alert{
-aaa
+The reviewer's questions are addressed on page x of the revised Supporting Information, reading
+``By fitting the computed potential energy curves with a Morse potential $V(r) = D [1 - e^{-a(r-r_e)}]^2 + C $,
+we obtained equilibrium geometries $r_e$, force constants $2Da^2$, and harmonic vibrational frequencies $\left( Da^2/2\pi^2\mu \right)^{1/2}$,
+where $\mu$ is the reduced mass.
+Since the fitting is restricted to the equilibrium region, employing more elaborate functions would be inconsequential, such that the adopted Morse potential is well justified.
+The fitting was performed with the Marquardt-Levenberg algorithm implemented in Gnuplot.''
+%Since the fitting is restricted to the equilibrium region (the ranges are given in the Supporting Information),
+%using a more elaborate functional form would only produce minimal changes to the obtained fitted values. A Morse potential is thus enough for our purposes.
+%Moreover, any residual bias from the fitting function would be inconsequential to the goal of comparing to the (equally fitted) FCI values.
+We prefer to keep these details in the Supporting Information rather than in the main text.
 }
 
 {3) Some of the PES displayed in the SI are not smooth and rather kinky. How does the lack of smoothness affect the fitting procedure and, hence, the vibrational frequencies?
 }
 
 \alert{
-aaa
+\ce{CN} is the only system for which some of the potential energy curves are not smooth around the equilibrium geometry.
+This is mentioned on page x of the revised manuscript, reading
+``For the \ce{CN} radical, CIS, sCI1, and sCI3 produce crossings between ground and excited states around equilibrium, hence non-smooth adiabatic PECs
+and somewhat less reliable equilibrium properties in these specific cases.''
 }
 
 {4) The authors need to mention (or draw) the molecules of their excited state study. Not everyone might be familiar with the QUEST database. It would be insightful to mention the character of the excited states. I assume these are all singly excited states (no double excitation character?). Can the authors provide additional information regarding their nature (local excitation, charge transfer, Rydberg, etc.)? Specifically, what kind of excited states can be described well or less well with hCI methods?
@@ -119,18 +140,22 @@ aaa
 aaa
 }
 
+\clearpage
+
 {5) For reasons of transparency, the authors should define MSE, MAE, RMSE, and SDE using equations, even if it might be obvious.
 }
 
 \alert{
-aaa
+The statistical measures are now defined on page x of the Supporting Information, which are refered to on page x of the main text, reading
+``For completeness, the defition of these statistical measures can be found in the Supporting Information.''
 }
 
 {6) The authors keep mentioning ``reference theoretical values.'' Please mention what kind of reference values were used.
 }
 
 \alert{
-aaa
+This information is provided in the Supporting Information, which is stated on page x of the revised manuscript, reading
+``For each excited state considered here, the reference value and the corresponding method to obtain it (of high-order coupled cluster or extrapolated FCI quality) can be found in the Supporting Information.''
 }
 
 {7) The authors look at several small-sized molecules for which FCI can still be determined. There is nothing wrong with that. However, I am missing numerical studies on slightly larger systems, which are known to be challenging in computational chemistry. I recommend adding some ``larger'' molecules, which feature open- and closed-shell ground and excited states. Examples are cyclobutadiene (its automatization problem) and o-, m-, and p-benzynes. These systems are notoriously difficult to study and extensively discussed in the literature. Including just those four molecules would add more value to the paper and allow a direct comparison to other state-of-the-art computational methods.
