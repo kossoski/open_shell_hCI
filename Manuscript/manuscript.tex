@@ -547,11 +547,11 @@ Overall, the usual EN2 correction should probably be favored when employed in co
 
 \fk{
 We further explored hCI to describe the automerization barrier in the ground state of cyclobutadiene,
-a well-known and challenging problem that involves strong correlation. \cite{Monino_2022}
-High-level calculations are needed to achieve quantitative values for the height of the barrier that 
-connects the two equivalent rectangular $D_{2h}$ equilibrium geometries through the square $D_{4h}$ transition state geometry. \cite{Monino_2022}
+which connects the two equivalent rectangular $D_{2h}$ equilibrium geometries through the square $D_{4h}$ transition state geometry. \cite{Bally_1980,Tallarico_1996}
+This is a well-known and challenging problem, requiring high-level calculations to achieve quantitative values for the height of the barrier (see Ref.~\onlinecite{Monino_2022} and references therein).
 Here we employ the geometries presented in Ref.~\onlinecite{Monino_2022}, the 6-31+G(d) basis set and the frozen-core approximation.
-We optimize the orbitals for two closed-shell determinants in the $D_{2h}$ geometry, and for two spin-flipped open-shell determinants in the $D_{4h}$ geometry, from which the excited determinants were generated in the CI calculations.
+We optimize the orbitals for two closed-shell determinants in the $D_{2h}$ geometry, and for two spin-flipped open-shell determinants in the $D_{4h}$ geometry,
+from which the excited determinants were generated in the CI calculations.
 For this basis set, the reference value of \SI{7.51}{kcal/mol} was obtained at CC with single, double, triple, and quadruple excitations. \cite{Monino_2022}
 With respect to this reference value, the errors for the automerization barrier are
 \SI{+3.55}{kcal/mol} with our two-determinant calculations, \SI{-2.28}{kcal/mol} with hCI2, \SI{-1.07}{kcal/mol} with hCI2+EN2, \SI{+0.61}{kcal/mol} with CISD, and \SI{-0.49}{kcal/mol} with CISD+EN2.
@@ -672,7 +672,7 @@ Actually, $\Delta$hCI2 is slightly less accurate than $\Delta$CISD, with MAEs of
 Moreover, $\Delta$hCI2 has a more negative MSE than $\Delta$CISD (\SI{-0.18}{\eV} against \SI{-0.12}{\eV}).
 Albeit small, these differences are statistically significant, and $\Delta$CISD would still be preferable to $\Delta$hCI2 by some margin.
 The slightly worse performance of $\Delta$hCI2 probably stems from a residual unbalance associated with the state-specific classes of determinants.
-\fk{$\Delta$hCI2 is more accurate for singlets than for triplets (MAEs of \SI{0.16}{\eV} and \SI{0.25}{\eV}), 
+\fk{$\Delta$hCI2 is more accurate for singlets than for triplets (MAEs of \SI{0.16}{\eV} and \SI{0.25}{\eV}),
 whereas Rydberg states are better described than valence states (MAEs of \SI{0.14}{\eV} and \SI{0.24}{\eV}).
 The same trends are found for the low-order models ($\Delta$hCI1 and $\Delta$hCI1.5), and also for $\Delta$CISD, which slightly outperforms $\Delta$hCI2 for each type of excitation.
 The specific MAEs can be found in the {\SupInf}.}
