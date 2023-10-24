@@ -545,6 +545,23 @@ These results suggest that renormalizing the EN2 energy may only be helpful for 
 whereas it worsens the results for multiple bond breaking.
 Overall, the usual EN2 correction should probably be favored when employed in combination with the approximate CI models.
 
+\fk{
+We further explored hCI to describe the automerization barrier in the ground state of cyclobutadiene,
+a well-known and challenging problem that involves strong correlation. \cite{Monino_2022}
+High-level calculations are needed to achieve quantitative values for the height of the barrier that 
+connects the two equivalent rectangular $D_{2h}$ equilibrium geometries through the square $D_{4h}$ transition state geometry. \cite{Monino_2022}
+Here we employ the geometries presented in Ref.~\onlinecite{Monino_2022}, the 6-31+G(d) basis set and the frozen-core approximation.
+We optimize the orbitals for two closed-shell determinants in the $D_{2h}$ geometry, and for two spin-flipped open-shell determinants in the $D_{4h}$ geometry, from which the excited determinants were generated in the CI calculations.
+For this basis set, the reference value of \SI{7.51}{kcal/mol} was obtained at CC with single, double, triple, and quadruple excitations. \cite{Monino_2022}
+With respect to this reference value, the errors for the automerization barrier are
+\SI{+3.55}{kcal/mol} with our two-determinant calculations, \SI{-2.28}{kcal/mol} with hCI2, \SI{-1.07}{kcal/mol} with hCI2+EN2, \SI{+0.61}{kcal/mol} with CISD, and \SI{-0.49}{kcal/mol} with CISD+EN2.
+These values are comparable to those obtained with other methods, extensively discussed in Ref.~\onlinecite{Monino_2022}.
+Here we just mention the errors of CC with singles and doubles, \SI{+0.80}{kcal/mol}, and of spin-flip equation-of-motion CC (EOM-CC) with singles and doubles, \SI{-1.65}{kcal/mol},
+which share the same $\order*{N^6}$ computational scaling as CISD and hCI2.
+This specific example serves to illustrate that the accuracy of hCI models can be similar to that of other methods.
+As such, hCI can be taken into consideration in future systematic studies that tackle challenging chemical problems where strong correlation comes into play.
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{hCI for excited states}
 \label{sec:res_C}
@@ -897,6 +914,8 @@ When similar references are adopted (as for the doublet transitions), such advan
 In contrast, for unlike references (as for the closed-shell excitations), the state-specific approach only becomes advantageous at somewhat higher orders ($\Delta$hCI2).
 The present findings highlight the challenge in describing, on an equal footing, states with qualitatively different characters, in particular ground and singly-excited states of closed-shell systems.
 In this regard, rotations within occupied and virtual orbitals represent yet another factor worth exploring in the future developments of hCI models.
+\fk{hCI also produced reasonable energies for the automerization barrier of cyclobutadiene.
+It remains to be seen how these models perform for other strongly correlated systems, larger molecules, and charge transfer excited states.}
 
 \fk{The accuracy of the CI models is significantly enhanced thanks to the EN2 correction,
 the case of $\Delta$hCI1.5 for closed-shells being the most striking, with a MAE plummeting from \SI{2.80}{\eV} to \SI{0.13}{\eV}.
