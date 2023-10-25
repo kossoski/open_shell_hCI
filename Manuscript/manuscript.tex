@@ -63,11 +63,11 @@ Hierarchy configuration interaction (hCI) has been recently introduced as an alt
 Here, we generalize hCI for an arbitrary reference determinant, allowing calculations for radicals and for excited states in a state-specific way.
 We gauge this route against excitation-based CI (eCI) and seniority-based CI (sCI) by evaluating how different ground-state properties of radicals converge to the full CI limit.
 We find that hCI outperforms or matches eCI, whereas sCI is far less accurate, in line with previous observations for closed-shell molecules.
-Employing the second-order Epstein-Nesbet \fk{(EN2)} perturbation theory as a correction significantly accelerates the convergence of hCI and eCI.
+Employing the second-order Epstein-Nesbet (EN2) perturbation theory as a correction significantly accelerates the convergence of hCI and eCI.
 We further explore various hCI and sCI models to calculate excitation energies of closed- and open-shell systems.
 Our results underline that both the choice of the reference determinant and the set of orbitals drive the fine balance between correlation of ground and excited states.
 State-specific hCI2 and higher order models perform similarly to their eCI counterparts, whereas lower orders of hCI deliver poor results,
-\fk{unless supplemented by the EN2 correction, which substantially improves their accuracy.}
+unless supplemented by the EN2 correction, which substantially improves their accuracy.
 In turn, sCI1 produces decent excitation energies for radicals, encouraging the development of related seniority-based coupled-cluster methods.
 \bigskip
 \begin{center}
@@ -148,7 +148,7 @@ for both ground
 and excited states.
 \cite{Boguslawski_2016b,Boguslawski_2016c,Boguslawski_2019,Nowak_2019,Kossoski_2021,Marie_2021,Tecmer_2022,Rishi_2023,Nowak_2023,Fecteau_2022}
 Our fifth goal, detailed in Sec.~\ref{sec:res_D}, is therefore to define and gauge ground-state-based and state-specific sCI models for excited states.
-\fk{Finally, in Sec.~\ref{sec:res_E}, we assess how the excitation energies are impacted by the EN2 perturbative correction to hCI and sCI models, our sixth and last goal.}
+Finally, in Sec.~\ref{sec:res_E}, we assess how the excitation energies are impacted by the EN2 perturbative correction to hCI and sCI models, our sixth and last goal.
 Section \ref{sec:conclusion} closes the present contribution with the main conclusions and perspectives.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -160,10 +160,9 @@ We introduced hCI \cite{Kossoski_2022} as a particular truncation of the Hilbert
 viewed as a two-dimensional map of determinants built from their seniority $s$ and their excitation degree $e$ with respect to a reference determinant, as shown in Fig.~\ref{fig:hCI}.
 By defining orbital subspaces according to the occupancy in the reference determinant (doubly-occupied, singly-occupied, or unoccupied),
 we refer to the class of an excited determinant as the combination of the number of electrons and seniority in each orbital subspace.
-%hCI was defined such that all classes of determinants whose number $\Ndet$ share the same scaling with the number of basis functions $N$ are included at the same order of truncation $h$,
-\fk{The number of determinants $\Ndet$ within a given class scales polynomially with the number of basis functions $N$, with the exponent depending on the specific class.
+The number of determinants $\Ndet$ within a given class scales polynomially with the number of basis functions $N$, with the exponent depending on the specific class.
 For instance, for the class of doubly-excited determinants with no unpaired electrons ($e=2$ and $s=0$), $\Ndet = \order*{N^2}$.
-hCI was defined such that, at a given hierarchy $h$, all classes of determinants presenting a scaling of $\Ndet = \order*{N^{2h}}$ or less are accounted for.}
+hCI was defined such that, at a given hierarchy $h$, all classes of determinants presenting a scaling of $\Ndet = \order*{N^{2h}}$ or less are accounted for.
 This means moving diagonally in the seniority-excitation map (denoted by the color tones in Fig.~\ref{fig:hCI}).
 In comparison, eCI spans the map horizontally (top to bottom), whereas sCI does it vertically (left to right).
 
@@ -343,13 +342,13 @@ Details about how the equilibrium properties were obtained from the calculated P
 along with the ranges defining the NPE and distance errors can be found in the \SupInf.
 
 The various CI models introduced here were further assessed based on calculated vertical excitation energies for 69 electronic states,
-from 17 closed-shell systems and 13 radicals \fk{(shown in Table~\ref{tab:systems})}, with geometries extracted from the QUEST database. \cite{Veril_2021}
-\fk{Our set includes mostly small systems, ranging from \ce{BH} to glyoxal, displaying a mix of valence and Rydberg singly-excited states,
-and 2 doubly-excited states (glyoxal and nitroxyl). It does not include large molecules nor charge transfer states.}
+from 17 closed-shell systems and 13 radicals (shown in Table~\ref{tab:systems}), with geometries extracted from the QUEST database. \cite{Veril_2021}
+Our set includes mostly small systems, ranging from \ce{BH} to glyoxal, displaying a mix of valence and Rydberg singly-excited states,
+and 2 doubly-excited states (glyoxal and nitroxyl). It does not include large molecules nor charge transfer states.
 The full set of excited states and calculated excitation energies, for the various CI models, are provided in the {\SupInf}.
 
 \begin{table}[ht!]
-\caption{\fk{Systems Considered in the Excited State Calculations.}}
+\caption{Systems Considered in the Excited State Calculations.}
 \label{tab:systems}
 \begin{ruledtabular}
 \begin{tabular}{llllll}
@@ -380,7 +379,7 @@ For the state-specific hCI and eCI calculations, we employed a minimal CSF refer
 a single open-shell determinant for the doublet excited states and a single open-shell CSF for the excited states from closed-shell systems
 (middle and right panels of Fig.~\ref{fig:hCI}, respectively).
 The computed excitation energies were benchmarked against the reference theoretical values provided in the QUEST database. \cite{Veril_2021}
-\fk{For each excited state considered here, the reference value and the method used to obtain it (of high-order CC or extrapolated FCI quality) can be found in the {\SupInf}.}
+For each excited state considered here, the reference value and the method used to obtain it (of high-order CC or extrapolated FCI quality) can be found in the {\SupInf}.
 
 As for the sCI models,
 we considered sCI1 for both ground and (state-specific) excited-state calculations for the doublet open-shell systems.
@@ -417,7 +416,7 @@ leaving the discussion about the perturbative correction (light tones) for both 
 Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency (or force constant), for \ce{OH}, \ce{CN}, vinyl, and \ce{H7},
 as functions of the number of determinants ($\Ndet$), according to the hCI (green), eCI (red), and sCI (blue) routes,
 with (light tone crosses) and without (dark tone circles) the standard EN2 perturbative correction.
-\fk{Each point denotes one CI model, according to the sequences: HF, hCI1, hCI1.5, hCI2, etc. (green); HF, CIS, CISD, etc. (red); and sCI1, sCI3, and sCI5 (blue).}
+Each point denotes one CI model, according to the sequences: HF, hCI1, hCI1.5, hCI2, etc. (green); HF, CIS, CISD, etc. (red); and sCI1, sCI3, and sCI5 (blue).
 The dashed lines represent the FCI results.}
 \label{fig:plot_all}
 \end{figure*}
@@ -429,7 +428,7 @@ The dashed lines represent the FCI results.}
 \caption{
 Non-parallelity error (NPE), distance error, equilibrium distance, and vibrational frequency (or force constant), for \ce{HF}, \ce{F2}, ethylene, \ce{N2}, \ce{H4}, and \ce{H8}, as functions of the number of determinants ($\Ndet$), according to the hCI (green), eCI (red) and sCI (blue) routes,
 with (light tone crosses) and without (dark tone circles) the standard EN2 perturbative correction.
-\fk{Each point denotes one CI model, according to the sequences: HF, hCI1, hCI1.5, hCI2, etc. (green); HF, CIS, CISD, etc. (red); and sCI0, sCI2, and sCI4 (blue).}
+Each point denotes one CI model, according to the sequences: HF, hCI1, hCI1.5, hCI2, etc. (green); HF, CIS, CISD, etc. (red); and sCI0, sCI2, and sCI4 (blue).
 The dashed lines represent the FCI results.}
 \label{fig:plot_all_closed}
 \end{figure*}
@@ -453,8 +452,8 @@ the advantage of the former is more striking for single bond breaking, whereas m
 The distance errors obtained with hCI and eCI are overall comparable for open-shells, whereas the former presents slightly better convergence for the closed-shell systems.
 In comparison to eCI, hCI leads to either comparable or somewhat faster (for \ce{CN}) convergence of the equilibrium geometries for the open-shell systems.
 Finally, hCI systematically outperforms eCI in the calculation of vibrational frequencies, except for \ce{H7}, where no big difference is found.
-\fk{For the \ce{CN} radical, CIS, sCI1, and sCI3 produce crossings between ground and excited states around equilibrium, hence non-smooth adiabatic PECs
-and somewhat less reliable equilibrium properties in these specific cases.}
+For the \ce{CN} radical, CIS, sCI1, and sCI3 produce crossings between ground and excited states around equilibrium, hence non-smooth adiabatic PECs
+and somewhat less reliable equilibrium properties in these specific cases.
 Given the overall slight superiority of hCI for the equilibrium properties, it also manages to account for more dynamic correlation than eCI,
 for both open-shell and closed-shell systems.
 
@@ -543,7 +542,6 @@ These results suggest that renormalizing the EN2 energy may only be helpful for 
 whereas it worsens the results for multiple bond breaking.
 Overall, the usual EN2 correction should probably be favored when employed in combination with the approximate CI models.
 
-\fk{
 We further explored hCI to describe the automerization barrier in the ground state of cyclobutadiene,
 which connects the two equivalent rectangular $D_{2h}$ equilibrium geometries through the square $D_{4h}$ transition state geometry. \cite{Bally_1980,Tallarico_1996}
 This is a well-known and challenging problem, requiring high-level calculations to achieve quantitative values for the height of the barrier (see Ref.~\onlinecite{Monino_2022} and references therein).
@@ -560,7 +558,6 @@ Here we just mention the errors of CC with singles and doubles, \SI{+0.80}{kcal/
 which share the same $\order*{N^6}$ computational scaling as $\Delta$CISD and $\Delta$hCI2.
 This specific example serves to illustrate that the accuracy of hCI models can be similar to that of other methods.
 As such, hCI can be taken into consideration in future systematic studies that tackle challenging chemical problems where strong correlation comes into play.
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{hCI for excited states}
@@ -569,15 +566,15 @@ As such, hCI can be taken into consideration in future systematic studies that t
 
 For each CI model considered here, we evaluate the mean signed error (MSE), mean absolute error (MAE), root-mean-square error (RMSE), and standard deviation of the errors (SDE).
 with respect to the reference theoretical values for the excitation energies.
-\fk{For completeness, the defition of these statistical measures can be found in the {\SupInf}.}
+For completeness, the defition of these statistical measures can be found in the {\SupInf}.
 For the lower-order models, the calculations were performed for 50 (closed-shell) and 19 (open-shell) excited states.
 In turn, subsets of 16 (closed-shell) and 6 (open-shell) excited states were considered for the higher-order CI models, given the more intensive computational cost.
 Even though these subsets are too small for meaningful absolute statistics, they should be enough to reveal main trends.
 A detailed comparison of eCI based on ground-state and state-specific approaches can be found elsewhere. \cite{Kossoski_2023}
 The focus of the present discussion lies on the comparison between hCI and eCI, and sCI,
 and on a similar comparison between ground-state and state-specific approaches for hCI and sCI.
-\fk{The bare (unperturbed) hCI and sCI models are discussed in this section and in Sec.~\ref{sec:res_D}, respectively,
-whereas their EN2 perturbed analogues are left for Sec.~\ref{sec:res_E}.}
+The bare (unperturbed) hCI and sCI models are discussed in this section and in Sec.~\ref{sec:res_D}, respectively,
+whereas their EN2 perturbed analogues are left for Sec.~\ref{sec:res_E}.
 
 We start the discussion with the excitations from closed-shell systems, with corresponding statistical errors shown in Table \ref{tab:stat1}.
 The first level of hCI, hCI1, produces poor excitation energies, with a MAE of \SI{1.16}{\eV}.
@@ -598,7 +595,7 @@ Singly Excited States of Closed-Shell Systems Listed in the {\SupInf}.
 \label{tab:stat1}
 \begin{ruledtabular}
 \begin{tabular}{ldddddlddddd}
-method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} & \fk{method}            & \mc{1}{c}{\fk{count}} & \mc{1}{c}{\fk{MSE}} & \mc{1}{c}{\fk{MAE}} & \mc{1}{c}{\fk{RMSE}} & \mc{1}{c}{\fk{SDE}} \\
+method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} & method & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} \\
 \hline
 CIS               & 48  & +0.03 & 0.61 & 0.59 & 0.77  & & & & & & \\
 CISD              & 16  & +4.09 & 4.09 & 4.18 & 0.84  & & & & & & \\
@@ -606,8 +603,8 @@ CISDT             & 16  & +0.12 & 0.17 & 0.18 & 0.14  & & & & & & \\
 CISDTQ            & 16  & +0.15 & 0.15 & 0.17 & 0.08  & & & & & & \\
 %
 \hline
-hCI1              & 50  & +1.07 & 1.16 & 1.39 & 0.89  &\fk{hCI1+EN2}              & \fk{50}  & \fk{+0}.\fk{65}  & \fk{0}.\fk{65} & \fk{0}.\fk{84} & \fk{0}.\fk{53} \\
-hCI1.5            & 50  & +1.95 & 1.95 & 2.04 & 0.59  &\fk{hCI1.5+EN2}            & \fk{50}  & \fk{+0}.\fk{62}  & \fk{0}.\fk{63} & \fk{0}.\fk{76} & \fk{0}.\fk{44} \\
+hCI1              & 50  & +1.07 & 1.16 & 1.39 & 0.89  & hCI1+EN2              & 50  & +0.65  & 0.65 & 0.84 & 0.53 \\
+hCI1.5            & 50  & +1.95 & 1.95 & 2.04 & 0.59  & hCI1.5+EN2            & 50  & +0.62  & 0.63 & 0.76 & 0.44 \\
 hCI2              & 16  & +2.99 & 3.53 & 3.61 & 0.76  & & & & & & \\
 hCI2.5            & 16  & +1.95 & 1.95 & 2.06 & 0.66  & & & & & & \\
 hCI3              & 16  & +0.19 & 0.19 & 0.21 & 0.08  & & & & & & \\
@@ -615,23 +612,23 @@ hCI3.5            & 16  & +0.11 & 0.11 & 0.13 & 0.07  & & & & & & \\
 %
 \hline
 $\Delta$CSF       & 50  & -0.71 & 0.77 & 0.91 & 0.58  & & & & & & \\
-$\Delta$CISD      & 50  & -0.12 & 0.17 & 0.22 & 0.18  &\fk{$\Delta$CISD+EN2}      & \fk{50}  & \fk{+0}.\fk{02}  & \fk{0}.\fk{06} & \fk{0}.\fk{09} & \fk{0}.\fk{09} \\
+$\Delta$CISD      & 50  & -0.12 & 0.17 & 0.22 & 0.18  & $\Delta$CISD+EN2      & 50  & +0.02  & 0.06 & 0.09 & 0.09 \\
 $\Delta$CISDT     & 16  & -0.20 & 0.20 & 0.22 & 0.11  & & & & & & \\
 $\Delta$CISDTQ    & 16  & -0.02 & 0.02 & 0.02 & 0.02  & & & & & & \\
 %
 \hline
-$\Delta$hCI1      & 50  & -1.40 & 1.40 & 1.55 & 0.67  &\fk{$\Delta$hCI1+EN2}      & \fk{50}  & \fk{+0}.\fk{12}  & \fk{0}.\fk{24} & \fk{0}.\fk{30} & \fk{0}.\fk{27} \\
-$\Delta$hCI1.5    & 50  & -2.80 & 2.80 & 3.03 & 1.15  &\fk{$\Delta$hCI1.5+EN2}    & \fk{50}  & \fk{-0}.\fk{01}  & \fk{0}.\fk{13} & \fk{0}.\fk{19} & \fk{0}.\fk{19} \\
-$\Delta$hCI2      & 50  & -0.18 & 0.20 & 0.25 & 0.16  &\fk{$\Delta$hCI2+EN2}      & \fk{50}  & \fk{+0}.\fk{01}  & \fk{0}.\fk{07} & \fk{0}.\fk{10} & \fk{0}.\fk{10} \\
+$\Delta$hCI1      & 50  & -1.40 & 1.40 & 1.55 & 0.67  & $\Delta$hCI1+EN2      & 50  & +0.12  & 0.24 & 0.30 & 0.27 \\
+$\Delta$hCI1.5    & 50  & -2.80 & 2.80 & 3.03 & 1.15  & $\Delta$hCI1.5+EN2    & 50  & -0.01  & 0.13 & 0.19 & 0.19 \\
+$\Delta$hCI2      & 50  & -0.18 & 0.20 & 0.25 & 0.16  & $\Delta$hCI2+EN2      & 50  & +0.01  & 0.07 & 0.10 & 0.10 \\
 $\Delta$hCI2.5    & 16  & -0.27 & 0.27 & 0.30 & 0.13  & & & & & & \\
 $\Delta$hCI3      & 16  & -0.22 & 0.22 & 0.24 & 0.10  & & & & & & \\
 $\Delta$hCI3.5    & 16  & -0.08 & 0.08 & 0.09 & 0.05  & & & & & & \\
 %
 \hline
-sCI2/sCI2         & 50  & +1.35 & 1.35 & 1.51 & 0.68  &\fk{sCI2/sCI2+EN2}         & \fk{50}  & \fk{+0}.\fk{60}  & \fk{0}.\fk{60} & \fk{0}.\fk{79} & \fk{0}.\fk{51} \\
-sCI2/sCI0         & 50  & -0.34 & 0.55 & 0.74 & 0.66  &\fk{sCI2/sCI0+EN2}         & \fk{50}  & \fk{+0}.\fk{51}  & \fk{0}.\fk{52} & \fk{0}.\fk{69} & \fk{0}.\fk{47} \\
-$\Delta$sCI2/sCI2 & 50  & +0.66 & 0.78 & 0.89 & 0.60  &\fk{$\Delta$sCI2/sCI2+EN2} & \fk{50}  & \fk{+0}.\fk{21}  & \fk{0}.\fk{26} & \fk{0}.\fk{35} & \fk{0}.\fk{28} \\
-$\Delta$sCI2/sCI0 & 50  & -1.04 & 1.04 & 1.21 & 0.62  &\fk{$\Delta$sCI2/sCI0+EN2} & \fk{50}  & \fk{+0}.\fk{12}  & \fk{0}.\fk{23} & \fk{0}.\fk{27} & \fk{0}.\fk{24} \\
+sCI2/sCI2         & 50  & +1.35 & 1.35 & 1.51 & 0.68  & sCI2/sCI2+EN2         & 50  & +0.60  & 0.60 & 0.79 & 0.51 \\
+sCI2/sCI0         & 50  & -0.34 & 0.55 & 0.74 & 0.66  & sCI2/sCI0+EN2         & 50  & +0.51  & 0.52 & 0.69 & 0.47 \\
+$\Delta$sCI2/sCI2 & 50  & +0.66 & 0.78 & 0.89 & 0.60  & $\Delta$sCI2/sCI2+EN2 & 50  & +0.21  & 0.26 & 0.35 & 0.28 \\
+$\Delta$sCI2/sCI0 & 50  & -1.04 & 1.04 & 1.21 & 0.62  & $\Delta$sCI2/sCI0+EN2 & 50  & +0.12  & 0.23 & 0.27 & 0.24 \\
 %
 \end{tabular}
 \end{ruledtabular}
@@ -672,10 +669,10 @@ Actually, $\Delta$hCI2 is slightly less accurate than $\Delta$CISD, with MAEs of
 Moreover, $\Delta$hCI2 has a more negative MSE than $\Delta$CISD (\SI{-0.18}{\eV} against \SI{-0.12}{\eV}).
 Albeit small, these differences are statistically significant, and $\Delta$CISD would still be preferable to $\Delta$hCI2 by some margin.
 The slightly worse performance of $\Delta$hCI2 probably stems from a residual unbalance associated with the state-specific classes of determinants.
-\fk{$\Delta$hCI2 is more accurate for singlets than for triplets (MAEs of \SI{0.16}{\eV} and \SI{0.25}{\eV}),
+$\Delta$hCI2 is more accurate for singlets than for triplets (MAEs of \SI{0.16}{\eV} and \SI{0.25}{\eV}),
 whereas Rydberg states are better described than valence states (MAEs of \SI{0.14}{\eV} and \SI{0.24}{\eV}).
 The same trends are found for the low-order models ($\Delta$hCI1 and $\Delta$hCI1.5), and also for $\Delta$CISD, which slightly outperforms $\Delta$hCI2 for each type of excitation.
-The specific MAEs can be found in the {\SupInf}.}
+The specific MAEs can be found in the {\SupInf}.
 
 Moving to $\Delta$hCI2.5 increases the errors (MAE of \SI{0.27}{\eV}) when compared to $\Delta$hCI2 (MAE of \SI{0.20}{\eV}).
 This could be due to another set of unbalanced state-specific determinants that enters at this stage, likewise to what was observed between $\Delta$hCI1 and $\Delta$hCI1.5.
@@ -705,7 +702,7 @@ Singly-Excited States from Open-Shell Doublets Listed in the {\SupInf}.
 \label{tab:stat2}
 \begin{ruledtabular}
 \begin{tabular}{ldddddlddddd}
-method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} & \fk{method}            & \mc{1}{c}{\fk{count}} & \mc{1}{c}{\fk{MSE}} & \mc{1}{c}{\fk{MAE}} & \mc{1}{c}{\fk{RMSE}} & \mc{1}{c}{\fk{SDE}} \\
+method            & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} & method & \mc{1}{c}{count} & \mc{1}{c}{MSE} & \mc{1}{c}{MAE} & \mc{1}{c}{RMSE} & \mc{1}{c}{SDE} \\
 \hline
 CIS               & 19 & +0.38 & 0.41 & 0.63 & 0.50  & & & & & & \\
 CISD              &  6 & +2.97 & 2.97 & 3.19 & 1.17  & & & & & & \\
@@ -713,8 +710,8 @@ CISDT             &  6 & +0.06 & 0.07 & 0.09 & 0.06  & & & & & & \\
 CISDTQ            &  6 & +0.08 & 0.08 & 0.11 & 0.08  & & & & & & \\
 %
 \hline
-hCI1              & 19 & +0.65 & 0.73 & 0.91 & 0.64  & \fk{hCI1+EN2}           & \fk{19} & \fk{+0}.\fk{27} & \fk{0}.\fk{28} & \fk{0}.\fk{36} & \fk{0}.\fk{24} \\
-hCI1.5            & 19 & +1.07 & 1.07 & 1.26 & 0.68  & \fk{hCI1.5+EN2}         & \fk{19} & \fk{+0}.\fk{22} & \fk{0}.\fk{25} & \fk{0}.\fk{33} & \fk{0}.\fk{24} \\
+hCI1              & 19 & +0.65 & 0.73 & 0.91 & 0.64  & hCI1+EN2           & 19 & +0.27 & 0.28 & 0.36 & 0.24 \\
+hCI1.5            & 19 & +1.07 & 1.07 & 1.26 & 0.68  & hCI1.5+EN2         & 19 & +0.22 & 0.25 & 0.33 & 0.24 \\
 hCI2              &  6 & +1.32 & 1.32 & 1.60 & 0.90  & & & & & & \\
 hCI2.5            &  6 & +0.03 & 0.05 & 0.06 & 0.05  & & & & & & \\
 hCI3              &  6 & +0.00 & 0.04 & 0.05 & 0.05  & & & & & & \\
@@ -722,21 +719,21 @@ hCI3.5            &  6 & +0.01 & 0.03 & 0.05 & 0.04  & & & & & & \\
 %
 \hline
 $\Delta$CSF       & 19 & -0.04 & 0.43 & 0.59 & 0.59  & & & & & & \\
-$\Delta$CISD      & 19 & +0.00 & 0.12 & 0.21 & 0.21  & \fk{$\Delta$CISD+EN2}   & \fk{19} & \fk{-0}.\fk{02} & \fk{0}.\fk{04} & \fk{0}.\fk{06} & \fk{0}.\fk{06} \\
+$\Delta$CISD      & 19 & +0.00 & 0.12 & 0.21 & 0.21  & $\Delta$CISD+EN2   & 19 & -0.02 & 0.04 & 0.06 & 0.06 \\
 $\Delta$CISDT     &  6 & -0.07 & 0.07 & 0.10 & 0.08  & & & & & & \\
 $\Delta$CISDTQ    &  6 & -0.02 & 0.02 & 0.02 & 0.02  & & & & & & \\
 %
 \hline
-$\Delta$hCI1      & 19 & -0.21 & 0.35 & 0.49 & 0.44  & \fk{$\Delta$hCI1+EN2}   & \fk{19} & \fk{+0}.\fk{02} & \fk{0}.\fk{17} & \fk{0}.\fk{29} & \fk{0}.\fk{29} \\
-$\Delta$hCI1.5    & 19 & -0.14 & 0.45 & 0.70 & 0.69  & \fk{$\Delta$hCI1.5+EN2} & \fk{19} & \fk{+0}.\fk{00} & \fk{0}.\fk{10} & \fk{0}.\fk{15} & \fk{0}.\fk{15} \\
-$\Delta$hCI2      & 19 & -0.02 & 0.10 & 0.16 & 0.16  & \fk{$\Delta$hCI2+EN2}   & \fk{19} & \fk{-0}.\fk{00} & \fk{0}.\fk{05} & \fk{0}.\fk{08} & \fk{0}.\fk{08} \\
+$\Delta$hCI1      & 19 & -0.21 & 0.35 & 0.49 & 0.44  & $\Delta$hCI1+EN2   & 19 & +0.02 & 0.17 & 0.29 & 0.29 \\
+$\Delta$hCI1.5    & 19 & -0.14 & 0.45 & 0.70 & 0.69  & $\Delta$hCI1.5+EN2 & 19 & +0.00 & 0.10 & 0.15 & 0.15 \\
+$\Delta$hCI2      & 19 & -0.02 & 0.10 & 0.16 & 0.16  & $\Delta$hCI2+EN2   & 19 & -0.00 & 0.05 & 0.08 & 0.08 \\
 $\Delta$hCI2.5    &  6 & -0.09 & 0.09 & 0.14 & 0.10  & & & & & & \\
 $\Delta$hCI3      &  6 & -0.06 & 0.06 & 0.08 & 0.05  & & & & & & \\
 $\Delta$hCI3.5    &  6 & -0.02 & 0.02 & 0.03 & 0.02  & & & & & & \\
 %
 \hline
-sCI1              & 19 & +0.20 & 0.35 & 0.57 & 0.53  & \fk{sCI1+EN2}           & \fk{19} & \fk{+0}.\fk{23} & \fk{0}.\fk{25} & \fk{0}.\fk{32} & \fk{0}.\fk{21} \\
-$\Delta$sCI1      & 19 & -0.12 & 0.28 & 0.39 & 0.37  & \fk{$\Delta$sCI1+EN2}   & \fk{19} & \fk{+0}.\fk{06} & \fk{0}.\fk{12} & \fk{0}.\fk{20} & \fk{0}.\fk{19} \\
+sCI1              & 19 & +0.20 & 0.35 & 0.57 & 0.53  & sCI1+EN2           & 19 & +0.23 & 0.25 & 0.32 & 0.21 \\
+$\Delta$sCI1      & 19 & -0.12 & 0.28 & 0.39 & 0.37  & $\Delta$sCI1+EN2   & 19 & +0.06 & 0.12 & 0.20 & 0.19 \\
 \end{tabular}
 \end{ruledtabular}
 \end{table*}
@@ -829,19 +826,16 @@ by localizing occupied and virtual subspaces or by variationally optimizing all 
 We did not pursue these ideas here, and their impact on the excitation energies computed with hCI and sCI remains an open question.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\fk{hCI and sCI plus EN2 correction for excited states}}
+\subsection{hCI and sCI plus EN2 correction for excited states}
 \label{sec:res_E}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\fk{
 The renormalized EN2 correction significantly reduces the errors across most CI models, for both closed- and open-shell systems.
 The statistical measures for the CI models corrected with the EN2 correction can be seen in
 Table~\ref{tab:stat1} (closed-shell systems) and Table~\ref{tab:stat2} (open-shell systems),
 along with the results for the bare (unperturbed) CI models.
 We have not considered the EN2 correction for the higher-order models.
-}
 
-\fk{
 For a given scaling (see Table~\ref{tab:scaling}), whether the bare CI model or the lower-order CI model plus EN2 correction produces the smaller errors depends on the truncation order,
 and also on the type of excitations (from closed- or open-shells).
 For instance, $\Delta$hCI2 and $\Delta$hCI1+EN2 have the same $\order*{N^6}$ computational cost
@@ -852,16 +846,12 @@ The same trend is found at the next order.
 $\Delta$hCI2+EN2 is much more accurate than $\Delta$hCI3 for closed-shells, with MAEs of \SI{0.06}{\eV} and \SI{0.22}{\eV},
 whereas for the open-shell transitions, they deliver comparable MAEs of \SIrange{0.05}{0.06}{\eV}.
 We recall that the calculation of the EN2 correction has a small associated prefactor, which makes the above $\Delta$hCI+EN2 models attractive alternatives to their higher-order unperturbed $\Delta$hCI counterparts.
-}
 
-\fk{
 Among the different CI models, it is worth highlighting the huge improvement observed from $\Delta$hCI1.5 to $\Delta$hCI1.5+EN2.
 For the closed-shells, the MAE drops from \SI{2.80}{\eV} to \SI{0.13}{\eV}, whereas a reduction from \SI{0.45}{\eV} to \SI{0.10}{\eV} is seen for the open-shells.
 In both cases, the MSE is virtually zero.
 In addition, the individual errors for singlets, triplets, Rydberg, and valence states are comparable, lying in the range \SIrange{0.11}{0.15}{\eV}.
-}
 
-\fk{
 We found a similar impact of the EN2 correction for $\Delta$CISD and $\Delta$hCI2.
 As discussed above, $\Delta$CISD is somewhat more accurate than $\Delta$hCI2 for the closed-shells (MAEs of \SI{0.17}{\eV} and \SI{0.20}{\eV}),
 whereas the EN2 correction decreases their respective MAE to \SI{0.06}{\eV} and \SI{0.07}{\eV}.
@@ -870,9 +860,7 @@ the EN2 corrected models show a MAE of \SI{0.04}{\eV} and \SI{0.05}{\eV}, respec
 Furthermore, the accuracy of $\Delta$hCI2+EN2 is comparable for singlets and triplets (MAEs of \SI{0.07}{\eV} and \SI{0.06}{\eV}),
 and superior for Rydberg states when compared to valence states (MAE of \SI{0.04}{\eV} and \SI{0.08}{\eV}).
 $\Delta$CISD+EN2 displays the same trends, slightly outperforming $\Delta$hCI2+EN2 for each of the four types of transitions mentioned above, just as discussed above for the unperturbed case.
-}
 
-\fk{
 In another contrast to eCI and hCI routes, the EN2 correction has a more limited effect on the sCI route.
 There is little to no advantage for the models based on ground-state HF orbitals.
 The outcome is more favorable with state-specific orbitals,
@@ -880,7 +868,6 @@ where, for the closed-shells, $\Delta$sCI2/sCI2+EN2 and $\Delta$sCI2/sCI0+EN2 sh
 For the open-shells, the MAE decreases from \SI{0.28}{\eV} ($\Delta$sCI1) to \SI{0.12}{\eV} ($\Delta$sCI1+EN2),
 the latter error being comparable to that of the much less expensive $\Delta$hCI1.5+EN2 model (\SI{0.10}{\eV}).
 Despite the improvement, the EN2 correction is not enough to render the sCI models competitive.
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
@@ -914,13 +901,12 @@ When similar references are adopted (as for the doublet transitions), such advan
 In contrast, for unlike references (as for the closed-shell excitations), the state-specific approach only becomes advantageous at somewhat higher orders ($\Delta$hCI2).
 The present findings highlight the challenge in describing, on an equal footing, states with qualitatively different characters, in particular ground and singly-excited states of closed-shell systems.
 In this regard, rotations within occupied and virtual orbitals represent yet another factor worth exploring in the future developments of hCI models.
-\fk{hCI also produced reasonable energies for the automerization barrier of cyclobutadiene.
-It remains to be seen how these models perform for other strongly correlated systems, larger molecules, and charge transfer excited states.}
+hCI also produced reasonable energies for the automerization barrier of cyclobutadiene.
+It remains to be seen how these models perform for other strongly correlated systems, larger molecules, and charge transfer excited states.
 
-\fk{The accuracy of the CI models is significantly enhanced thanks to the EN2 correction,
+The accuracy of the CI models is significantly enhanced thanks to the EN2 correction,
 the case of $\Delta$hCI1.5 for closed-shells being the most striking, with a MAE plummeting from \SI{2.80}{\eV} to \SI{0.13}{\eV}.
 Low-orders of state-specific CI supplemented with a perturbative correction can thus provide a cost-effective option for the computation of excitation energies.
-}
 
 We put forward the interesting perspective of developing hierarchy-based CC (hCC) methods (hCC1, hCC2, \ldots),
 along with derived EOM-CC formulations to target excited states (EOM-hCC1, EOM-hCC2, \ldots).
@@ -937,7 +923,7 @@ Alternatively, one can envision state-specific hCC methods to target excited sta
 Finally, we employed different sCI models to compute excitation energies of closed- and open-shell systems.
 Despite the four different models employed for the closed-shell excitations, the results are overall disappointing.
 For the open-shell transitions, the outcome is more encouraging.
-\fk{Despite the improvement brought about by the EN2 correction, the sCI models remain less accurate and more expensive than the eCI or hCI options.}
+Despite the improvement brought about by the EN2 correction, the sCI models remain less accurate and more expensive than the eCI or hCI options.
 The relevance of these sCI models lies in their possible connection with CC methods.
 While this is already established for closed-shell systems (pCCD and DOCI deliver very similar energies), \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967,Kossoski_2021,Marie_2021}
 here we raised the question of whether there exists a polynomial scaling extension of pCCD to open-shell systems that matches sCI1 in terms of computed energies.
@@ -955,9 +941,9 @@ This project has received funding from the European Research Council (ERC) under
 \label{sec:SI}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\fk{Definition of the statistical measures;}
+Definition of the statistical measures;
 equilibrium geometries of ethylene and vinyl; details about the fitting of potential energy curves;
-\fk{number of determinants of each CI model;}
+number of determinants of each CI model;
 potential energy curves for \ce{OH}, \ce{CN}, vinyl, and \ce{H7},
 computed according to FCI and the various hCI, eCI, and sCI models considered here;
 and convergence of the NPE, distance errors, and equilibrium properties of
@@ -972,7 +958,7 @@ total energies and excitation energies obtained with
 the various hCI, eCI, and sCI models considered here, in both ground-state-based and state-specific approaches;
 number of determinants in the reference; saddle point order associated with the $\Delta$CSF solutions;
 reference excitation energies and corresponding methods;
-\fk{and complementary statistical metrics}.
+and complementary statistical metrics.
 For a subset of 27 excited states for closed-shell molecules and 15 excited states for radicals,
 additional total energies and excitation energies obtained with low-order state-specific hCI and eCI models without enforcing spin pure states.
 For a subset of 16 excited states for closed-shell molecules and 6 excited states for radicals,
