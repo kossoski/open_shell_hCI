@@ -23,19 +23,16 @@ rgb(r,g,b) = 65536 * int(r) + 256 * int(g) + int(b)
 
 set style line 1 dt 1 pt 7 lw 4 linecolor rgb "gray60"
 set style line 2 dt 6 pt 7 lw 4 linecolor rgb "black"
-#set style line 3 dt 1 pt 7 lw 3 linecolor rgb "light-red"
 set style line 3 dt 1 pt 7 lw 4 ps 2.5 linecolor rgbcolor rgb(206,24,30)
-#set style line 4 dt 1 pt 7 lw 3 linecolor rgb "sea-green"
-set style line 4 dt 1 pt 7 lw 4 ps 2.5 linecolor rgbcolor rgb(0,147,83)
+set style line 4 dt 1 pt 7 lw 4 ps 2.5 linecolor rgbcolor rgb(0,117,43)
 set style line 5 dt 2 pt 7 lw 4 linecolor rgb "sea-green"
 set style line 6 dt 1 pt 7 lw 4 linecolor rgb "orange"
 set style line 7 dt 2 pt 7 lw 4 linecolor rgb "orange"
-#set style line 8 dt 1 pt 7 lw 3 linecolor rgb "medium-blue"
-set style line 8 dt 1 pt 7 lw 4 ps 2.5 linecolor rgbcolor rgb(28,54,135)
+set style line 8 dt 1 pt 7 lw 4 ps 2.5 linecolor rgbcolor rgb(28,44,135)
 
-set style line 30 dt 1 pt 7 lw 4 ps 2.5 linecolor rgbcolor rgb(243,123,112)
-set style line 40 dt 1 pt 7 lw 4 ps 2.5 linecolor rgbcolor rgb(101,194,149)
-set style line 80 dt 1 pt 7 lw 4 ps 2.5 linecolor rgbcolor rgb( 94,138,199)
+set style line 30 dt 1 pt 1 lw 4 ps 2.5 linecolor rgbcolor rgb(203,103, 92)
+set style line 40 dt 1 pt 1 lw 4 ps 2.5 linecolor rgbcolor rgb( 61,174,119)
+set style line 80 dt 1 pt 1 lw 4 ps 2.5 linecolor rgbcolor rgb( 74,118,199)
 
 # LINE 2
 set logscale x
