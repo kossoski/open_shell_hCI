@@ -7,7 +7,7 @@
 
 \maxdeadcycles=200
 
-\newcommand{\fk}[1]{\textcolor{orange}{#1}}
+\newcommand{\fk}[1]{\textcolor{red}{#1}}
 
 \newcommand{\ie}{\textit{i.e.}}
 \newcommand{\eg}{\textit{e.g.}}
@@ -81,28 +81,21 @@
 Given two sets of $N$ paired variables $x_i$ and $y_i$
 (in our case, the approximate and reference excitation energies),
 the corresponding mean signed error (MSE), mean absolute error (MAE), root-mean-square error (RMSE), and standard deviation of the errors (SDE) are defined as:
-}
-
-\begin{equation}
-	\fk{\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (x_i - y_i),}
-\end{equation}
-
-\begin{equation}
-	\fk{\text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |x_i - y_i|,}
-\end{equation}
-
-\begin{equation}
-	\fk{\text{RMSE} = \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (x_i - y_i)^2 },}
-\end{equation}
-
-\begin{equation}
-	\fk{\text{SDE} = \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2 },}
-\end{equation}
-
-\fk{where}
+\begin{subequations}
+\begin{align}
+	\text{MSE} & = \frac{1}{N} \sum_{i=1}^{N} (x_i - y_i),
+	\\
+	\text{MAE} & = \frac{1}{N} \sum_{i=1}^{N} \abs{x_i - y_i},
+	\\
+	\text{RMSE} & = \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (x_i - y_i)^2 },
+	\\
+	\text{SDE} & = \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2 },
+\end{align}
+\end{subequations}
+where
 \begin{equation}
 	\fk{\mu = \frac{1}{N} \sum_{i=1}^{N} x_i.}
-\end{equation}
+\end{equation}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Equilibrium geometry of ethylene}
@@ -144,7 +137,7 @@ By fitting the computed potential energy curves with a Morse potential $V(r) = D
 we obtained equilibrium geometries $r_e$, force constants $2Da^2$, and harmonic vibrational frequencies $\left( Da^2/2\pi^2\mu \right)^{1/2}$,
 where $\mu$ is the reduced mass.
 Since the fitting is restricted to the equilibrium region, employing more elaborate functions would be inconsequential, such that the adopted Morse potential is well justified.
-The fitting was performed with the Marquardt-Levenberg algorithm implemented in Gnuplot.
+The fitting was performed with the Marquardt-Levenberg algorithm implemented in \textsc{gnuplot}.
 }
 The following intervals have been considered for the fitting:
 \begin{itemize}
@@ -182,7 +175,6 @@ The non-parallelity error and distance error were computed for the following int
 \caption{\fk{Number of Determinants in Hierarchy-, Excitation, and Seniority-Based CI Routes, as well as in Full CI, for \ce{OH}, \ce{CN}, vinyl, and \ce{H7},
 with the cc-pVDZ basis set and frozen-core approximation.}}
 \label{tab:ndet_open}
-{\color{orange}
 \begin{ruledtabular}
 \begin{tabular}{lrrrr}
 method &     \ce{OH} &         \ce{CN} &                 vinyl &     \ce{H7} \\
@@ -209,14 +201,12 @@ hCI4   &   7 774 870 &     384 458 809 &         8 484 940 738 &  92 360 660 \\
 FCI    &  45 070 128 & 446 075 229 600 & 4 672 770 853 882 482 & 342 696 200 \\
 \end{tabular}
 \end{ruledtabular}
-}
 \end{table}
 
 \begin{table}[ht!]
-\caption{\fk{Number of Determinants in Hierarchy-, Excitation, and Seniority-Based CI Routes, as well as in Full CI, for \ce{H4}, \ce{N2}, \ce{F2}, \ce{HF}, \ce{H8}, and ethylene,
+\caption{\fk{Number of Determinants in Hierarchy-, Excitation, and Seniority-Based CI Routes, as well as in Full CI, for \ce{H4}, \ce{N2}, and \ce{F2},
 with the cc-pVDZ basis set and frozen-core approximation.}}
 \label{tab:ndet_closed}
-{\color{orange}
 \begin{ruledtabular}
 \begin{tabular}{lrrr}
 method & \ce{H4} &       \ce{N2} &         \ce{F2} \\
@@ -241,11 +231,16 @@ hCI3.5 &  36 100 &    11 489 836 &      28 628 650 \\
 hCI4   &  36 100 &    49 045 711 &     153 775 000 \\
 \hline
 FCI    &  36 100 & 4 327 008 400 & 432 700 840 000 \\
-\hline
-\hline
-& & & \\
-\hline
-\hline
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{table}[ht!]
+\caption{\fk{Number of Determinants in Hierarchy-, Excitation, and Seniority-Based CI Routes, as well as in Full CI, for \ce{HF}, \ce{H8}, and ethylene,
+with the cc-pVDZ basis set and frozen-core approximation.}}
+\label{tab:ndet_closed}
+\begin{ruledtabular}
+\begin{tabular}{lrrr}
 method &    \ce{HF} &       \ce{H8} &           ethylene \\
 \hline
 RHF    &          1 &             1 &                  1 \\
@@ -270,7 +265,6 @@ hCI4   &  2 216 460 &   213 974 380 &      1 112 401 240 \\
 FCI    &  9 363 600 & 8 352 132 100 & 14 733 161 024 400 \\
 \end{tabular}
 \end{ruledtabular}
-}
 \end{table}
 
 \clearpage

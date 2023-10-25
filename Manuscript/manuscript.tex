@@ -9,7 +9,7 @@
 \newcommand{\eg}{\textit{e.g.}}
 \newcommand{\alert}[1]{\textcolor{black}{#1}}
 \usepackage[normalem]{ulem}
-\newcommand{\fk}[1]{\textcolor{orange}{#1}}
+\newcommand{\fk}[1]{\textcolor{red}{#1}}
 \newcommand{\titou}[1]{\textcolor{red}{#1}}
 \newcommand{\trashPFL}[1]{\textcolor{red}{\sout{#1}}}
 \newcommand{\PFL}[1]{\titou{(\underline{\bf PFL}: #1)}}
@@ -68,7 +68,7 @@ We further explore various hCI and sCI models to calculate excitation energies o
 Our results underline that both the choice of the reference determinant and the set of orbitals drive the fine balance between correlation of ground and excited states.
 State-specific hCI2 and higher order models perform similarly to their eCI counterparts, whereas lower orders of hCI deliver poor results,
 \fk{unless supplemented by the EN2 correction, which substantially improves their accuracy.}
-In turn, sCI1 produces decent excitation energies for radicals, encouraging the development of related seniority-based coupled cluster methods.
+In turn, sCI1 produces decent excitation energies for radicals, encouraging the development of related seniority-based coupled-cluster methods.
 \bigskip
 \begin{center}
         \boxed{\includegraphics[keepaspectratio,width=3.25in]{TOC}}
@@ -124,7 +124,7 @@ density-functional theory,
 \cite{Filatov_1999,Kowalczyk_2011,Kowalczyk_2013,Gilbert_2008,Barca_2018,Hait_2020,Hait_2021,Zhao_2020,Levi_2020,Carter-Fenk_2020,Toffoli_2022,Schmerwitz_2022,Schmerwitz_2023}
 perturbation theory, \cite{Clune_2020,Zhao_2020b,Clune_2023}
 quantum Monte Carlo, \cite{Scemama_2018a,Scemama_2018b,Dash_2018,Dash_2019,Dash_2021,Cuzzocrea_2022,Shepard_2022,Otis_2020,Otis_2023}
-and coupled cluster (CC)
+and coupled-cluster (CC)
 \cite{Piecuch_2000,Mayhall_2010,Lee_2019,Kossoski_2021,Marie_2021,Rishi_2023,Tuckman_2023}
 methods.
 In particular, by employing a minimal configuration state function (CSF) reference,
@@ -148,7 +148,7 @@ for both ground
 and excited states.
 \cite{Boguslawski_2016b,Boguslawski_2016c,Boguslawski_2019,Nowak_2019,Kossoski_2021,Marie_2021,Tecmer_2022,Rishi_2023,Nowak_2023,Fecteau_2022}
 Our fifth goal, detailed in Sec.~\ref{sec:res_D}, is therefore to define and gauge ground-state-based and state-specific sCI models for excited states.
-\fk{Finally, in Sec.~\ref{sec:res_E} we assess how the excitation energies are impacted by the EN2 perturbative correction to hCI and sCI models, our sixth and last goal.}
+\fk{Finally, in Sec.~\ref{sec:res_E}, we assess how the excitation energies are impacted by the EN2 perturbative correction to hCI and sCI models, our sixth and last goal.}
 Section \ref{sec:conclusion} closes the present contribution with the main conclusions and perspectives.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -351,11 +351,10 @@ The full set of excited states and calculated excitation energies, for the vario
 \begin{table}[ht!]
 \caption{\fk{Systems Considered in the Excited State Calculations.}}
 \label{tab:systems}
-{\color{orange}
 \begin{ruledtabular}
-\begin{tabular}{lll|lll}
-\mc{3}{c|}{Closed-shells}           & \mc{3}{c}{Open-shells} \\
-\hline
+\begin{tabular}{llllll}
+\mc{3}{c}{Closed-shells}           & \mc{3}{c}{Open-shells} \\
+\cline{1-3} \cline{4-6}
 glyoxal      & \ce{HCF}  & \ce{H2O} & \ce{BeH} & \ce{NH2} & \ce{HCO} \\
 acetaldehyde & \ce{HCCl} & \ce{H2S} & \ce{BeF} & \ce{PH2} & \ce{HOC} \\
 silylidene   & \ce{HPO}  & \ce{N2}  & \ce{BH2} & vinyl    & \ce{OH}  \\
@@ -364,7 +363,6 @@ ethylene     & \ce{BH}   & \ce{HCl} & \ce{CH3} &          & \\
 methanimine  & \ce{BF}   &          &          &          & \\
 \end{tabular}
 \end{ruledtabular}
-}
 \end{table}
 
 We employed the aug-cc-pVDZ basis set for systems having up to three non-hydrogen atoms and the 6-31+G(d) basis set for the larger ones.
@@ -382,7 +380,7 @@ For the state-specific hCI and eCI calculations, we employed a minimal CSF refer
 a single open-shell determinant for the doublet excited states and a single open-shell CSF for the excited states from closed-shell systems
 (middle and right panels of Fig.~\ref{fig:hCI}, respectively).
 The computed excitation energies were benchmarked against the reference theoretical values provided in the QUEST database. \cite{Veril_2021}
-\fk{For each excited state considered here, the reference value and the method used to obtain it (of high-order coupled cluster or extrapolated FCI quality) can be found in the {\SupInf}.}
+\fk{For each excited state considered here, the reference value and the method used to obtain it (of high-order CC or extrapolated FCI quality) can be found in the {\SupInf}.}
 
 As for the sCI models,
 we considered sCI1 for both ground and (state-specific) excited-state calculations for the doublet open-shell systems.
@@ -549,7 +547,7 @@ Overall, the usual EN2 correction should probably be favored when employed in co
 We further explored hCI to describe the automerization barrier in the ground state of cyclobutadiene,
 which connects the two equivalent rectangular $D_{2h}$ equilibrium geometries through the square $D_{4h}$ transition state geometry. \cite{Bally_1980,Tallarico_1996}
 This is a well-known and challenging problem, requiring high-level calculations to achieve quantitative values for the height of the barrier (see Ref.~\onlinecite{Monino_2022} and references therein).
-Here we employ the geometries presented in Ref.~\onlinecite{Monino_2022}, the 6-31+G(d) basis set and the frozen-core approximation.
+Here we employ the geometries presented in Ref.~\onlinecite{Monino_2022}, the 6-31+G(d) basis set, and the frozen-core approximation.
 We optimize the orbitals for two closed-shell determinants in the $D_{2h}$ geometry, and for two spin-flipped open-shell determinants in the $D_{4h}$ geometry,
 from which the excited determinants were generated in the CI calculations.
 For this basis set, the reference value of \SI{7.51}{kcal/mol} was obtained at CC with single, double, triple, and quadruple excitations. \cite{Monino_2022}
@@ -814,7 +812,7 @@ With state-specific orbitals, $\Delta$sCI1 reduces the MAE to \SI{0.28}{\eV} and
 Even though $\Delta$sCI1 is less accurate and has less favorable computational scaling than CI models like $\Delta$CISD and $\Delta$hCI2,
 its decent errors are encouraging for another reason:
 the development of polynomial scaling CC methods based on the concept of seniority.
-For closed-shell systems, DOCI (here referred to as sCI0) energies can be very well reproduced with state-specific pair coupled cluster doubles (pCCD), a method that has mean-field cost,
+For closed-shell systems, DOCI (here referred to as sCI0) energies can be very well reproduced with state-specific pair coupled-cluster doubles (pCCD), a method that has mean-field cost,
 for both ground \cite{Bytautas_2011,Allen_1962,Smith_1965,Veillard_1967} and excited \cite{Kossoski_2021,Marie_2021} states.
 Likewise, a formulation of pCCD to open-shell systems might share an analogous connection to low-order sCI models like sCI1.
 If that is the case, then a state-specific approach of such pCCD formulation adapted to open-shells may approach the accuracy of $\Delta$sCI1 (MAE of \SI{0.28}{\eV}) at a mean-field cost.
@@ -847,8 +845,8 @@ and also on the type of excitations (from closed- or open-shells).
 For instance, $\Delta$hCI2 and $\Delta$hCI1+EN2 have the same $\order*{N^6}$ computational cost
 but the former has smaller MAEs, for closed-shells (\SI{0.20}{\eV} compared to \SI{0.24}{\eV}), and more significantly for open-shells (\SI{0.10}{\eV} compared to \SI{0.17}{\eV}).
 In turn, $\Delta$hCI1.5+EN2 is significantly more accurate than $\Delta$hCI2.5 for closed-shells,
-with MAEs of \SI{0.13}{\eV} and \SI{0.27}{\eV}, whreas for open-shells both models produce a MAE of \SI{0.10}{\eV}.
-The same is found at the next order.
+with MAEs of \SI{0.13}{\eV} and \SI{0.27}{\eV}, whereas for open-shells both models produce a MAE of \SI{0.10}{\eV}.
+The same trend is found at the next order.
 $\Delta$hCI2+EN2 is much more accurate than $\Delta$hCI3 for closed-shells, with MAEs of \SI{0.06}{\eV} and \SI{0.22}{\eV},
 whereas for the open-shell transitions, they deliver comparable MAEs of \SIrange{0.05}{0.06}{\eV}.
 We recall that the calculation of the EN2 correction has a small associated prefactor, which makes the above $\Delta$hCI+EN2 models attractive alternatives to their higher-order unperturbed $\Delta$hCI counterparts.
@@ -873,11 +871,11 @@ $\Delta$CISD+EN2 displays the same trends, slightly outperforming $\Delta$hCI2+E
 }
 
 \fk{
-In another contrast to eCI and hCI routes, the EN2 correction has a more limited effect to the sCI route.
-There is little to no advance for the models based on ground-state HF orbitals.
-The outcome is more favourable with state-specific orbitals,
+In another contrast to eCI and hCI routes, the EN2 correction has a more limited effect on the sCI route.
+There is little to no advantage for the models based on ground-state HF orbitals.
+The outcome is more favorable with state-specific orbitals,
 where, for the closed-shells, $\Delta$sCI2/sCI2+EN2 and $\Delta$sCI2/sCI0+EN2 show comparable MAEs (\SI{0.26}{\eV} and \SI{0.23}{\eV}, respectively).
-For the open-shells, the MAE decrease from \SI{0.28}{\eV} ($\Delta$sCI1) to \SI{0.12}{\eV} ($\Delta$sCI1+EN2),
+For the open-shells, the MAE decreases from \SI{0.28}{\eV} ($\Delta$sCI1) to \SI{0.12}{\eV} ($\Delta$sCI1+EN2),
 the latter error being comparable to that of the much less expensive $\Delta$hCI1.5+EN2 model (\SI{0.10}{\eV}).
 Despite the improvement, the EN2 correction is not enough to render the sCI models competitive.
 }
